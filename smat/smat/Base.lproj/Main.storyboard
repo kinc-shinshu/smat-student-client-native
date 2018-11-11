@@ -22,23 +22,11 @@
                                 <rect key="frame" x="60" y="100" width="255" height="50"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hw6-wl-teq">
-                                <rect key="frame" x="166" y="208" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1b-gR-rBq">
-                                <rect key="frame" x="258" y="199" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="入室"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
-                                    <action selector="roomButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gbb-QL-qCx"/>
+                                    <segue destination="gZY-C5-pwx" kind="show" identifier="roomNumber" id="rI4-wo-57A"/>
                                 </connections>
-                            </button>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -50,12 +38,27 @@
                     </view>
                     <connections>
                         <outlet property="roomNumber" destination="Dfd-6c-QyC" id="c4x-ru-4EJ"/>
-                        <outlet property="testLabel" destination="hw6-wl-teq" id="FwW-4g-q5v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="380" y="4"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="GeD-44-yS9">
+            <objects>
+                <viewController id="gZY-C5-pwx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ygA-uk-Xp4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ihz-WH-npl"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iea-Ll-JgH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FnN-ee-rST" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1340" y="3"/>
         </scene>
     </scenes>
 </document>
