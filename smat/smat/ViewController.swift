@@ -27,16 +27,10 @@ class ViewController: UIViewController, UITextFieldDelegate  {
                                                        with: string)
             if updatedText.count == 3 {
                 print("s")
-                goToNext()
+                self.performSegue(withIdentifier: "roomNumber", sender: nil)
             }
         }
         return true
-    }
-    
-    func goToNext() {
-        let storyboard = self.storyboard!
-        let nextView = storyboard.instantiateViewController(withIdentifier: "roomNumber")
-        self.present(nextView, animated: true, completion: nil)
     }
     
 }
