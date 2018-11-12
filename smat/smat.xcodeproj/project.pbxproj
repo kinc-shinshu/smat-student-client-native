@@ -17,7 +17,8 @@
 		8BEE0914CF870D28DC1A0A5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BEE01613F3D46DD739B9061 /* Assets.xcassets */; };
 		8BEE0C39E9093D471A13FA36 /* smatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE095856A81EBD201D71B6 /* smatTests.swift */; };
 		8BEE0ED4449B0AC2B83CFDAB /* smatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE061CB301A6F209FC09B7 /* smatUITests.swift */; };
-		A9901CC4219891280071D270 /* QuestionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9901CC3219891280071D270 /* QuestionsTableViewCell.swift */; };
+		A9ABB90A21995B1B00BCA775 /* QuestionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ABB90921995B1B00BCA775 /* QuestionsTableViewCell.swift */; };
+		A9ABB90C2199616700BCA775 /* QuestionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ABB90B2199616700BCA775 /* QuestionsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +56,8 @@
 		8BEE0BDD79EE6A40F85EC451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		8BEE0C15FEEF41C6ED300E60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BEE0F6DA6B1249C0FEFC250 /* smatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = smatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9901CC3219891280071D270 /* QuestionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsTableViewCell.swift; sourceTree = "<group>"; };
+		A9ABB90921995B1B00BCA775 /* QuestionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsTableViewCell.swift; sourceTree = "<group>"; };
+		A9ABB90B2199616700BCA775 /* QuestionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsTableViewController.swift; sourceTree = "<group>"; };
 		B845D64E443FE74BA25A0B0D /* Pods_smat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08E52D388CF67980BB4E5E2 /* Pods-smatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smatUITests/Pods-smatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C423E0BAD431DFB85ADB5C1C /* Pods-smatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-smatUITests/Pods-smatUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,8 +130,9 @@
 				8BEE09055EAE0B8257D8EE30 /* LaunchScreen.storyboard */,
 				8BEE048E17E8F115A21CAEB6 /* AppDelegate.swift */,
 				8BEE0ADC80EA4F03242D3917 /* Main.storyboard */,
+				A9ABB90B2199616700BCA775 /* QuestionsTableViewController.swift */,
+				A9ABB90921995B1B00BCA775 /* QuestionsTableViewCell.swift */,
 				8BEE04F45540936D993D84E1 /* ViewController.swift */,
-				A9901CC3219891280071D270 /* QuestionsTableViewCell.swift */,
 			);
 			path = smat;
 			sourceTree = "<group>";
@@ -380,7 +383,8 @@
 			files = (
 				8BEE0342110D3B4CF29D258D /* AppDelegate.swift in Sources */,
 				8BEE0417A3DE4C8387EFF477 /* ViewController.swift in Sources */,
-				A9901CC4219891280071D270 /* QuestionsTableViewCell.swift in Sources */,
+				A9ABB90A21995B1B00BCA775 /* QuestionsTableViewCell.swift in Sources */,
+				A9ABB90C2199616700BCA775 /* QuestionsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
