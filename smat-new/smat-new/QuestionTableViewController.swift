@@ -58,7 +58,7 @@ class QuestionTableViewController: UITableViewController {
             fatalError("Unable to instantiate meal1")
         }
         
-        questions += [question1]
+        questions += [question1, question1, question1, question1, question1]
     }
 
     /*
