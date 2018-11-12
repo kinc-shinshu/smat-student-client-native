@@ -42,9 +42,10 @@ class QuestionTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
+        // Fetches the appropriate meal for the data source layout.
         let question = questions[indexPath.row]
         
-        cell.texLabel.latex = question.questionText
+        cell.texLabel?.latex = question.questionText
         
         return cell
     }

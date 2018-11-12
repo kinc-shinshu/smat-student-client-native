@@ -12,6 +12,7 @@ import iosMath
 class QuestionTableViewCell: UITableViewCell {
     @IBOutlet weak var texLabel: MTMathUILabel!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
