@@ -41,10 +41,10 @@
             </objects>
             <point key="canvasLocation" x="364" y="27"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Question Table View Controller-->
         <scene sceneID="9KI-3X-Elf">
             <objects>
-                <tableViewController id="vfv-pv-loH" sceneMemberID="viewController">
+                <tableViewController id="vfv-pv-loH" customClass="QuestionTableViewController" customModule="smat_new" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hQ5-fL-Cmv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,9 +56,18 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wQd-lv-GdZ" id="rLL-0a-qG9">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahZ-bH-DJ8">
+                                            <rect key="frame" x="166" y="34" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="texLabel" destination="rLL-0a-qG9" id="2OC-Ky-sTr"/>
+                                    <outlet property="texLabel" destination="ahZ-bH-DJ8" id="4hJ-yl-b91"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

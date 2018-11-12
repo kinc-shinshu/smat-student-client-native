@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import iosMath
 
 class QuestionTableViewCell: UITableViewCell {
-    @IBOutlet weak var texLabel: UIView!
+    @IBOutlet weak var texLabel: MTMathUILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
