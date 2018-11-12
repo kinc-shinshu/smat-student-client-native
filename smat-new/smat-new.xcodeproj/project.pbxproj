@@ -13,6 +13,7 @@
 		A9FEB5EF2199A51F0035A16A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9FEB5EE2199A51F0035A16A /* Assets.xcassets */; };
 		A9FEB5F22199A51F0035A16A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9FEB5F02199A51F0035A16A /* LaunchScreen.storyboard */; };
 		A9FEB5FD2199A51F0035A16A /* smat_newTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEB5FC2199A51F0035A16A /* smat_newTests.swift */; };
+		A9FEB6082199ADA20035A16A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEB6072199ADA20035A16A /* Question.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		A9FEB5F82199A51F0035A16A /* smat-newTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "smat-newTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9FEB5FC2199A51F0035A16A /* smat_newTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = smat_newTests.swift; sourceTree = "<group>"; };
 		A9FEB5FE2199A51F0035A16A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9FEB6072199ADA20035A16A /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				A9FEB5E72199A51F0035A16A /* AppDelegate.swift */,
 				A9FEB5E92199A51F0035A16A /* ViewController.swift */,
 				A9FEB5EB2199A51F0035A16A /* Main.storyboard */,
+				A9FEB6072199ADA20035A16A /* Question.swift */,
 				A9FEB5EE2199A51F0035A16A /* Assets.xcassets */,
 				A9FEB5F02199A51F0035A16A /* LaunchScreen.storyboard */,
 				A9FEB5F32199A51F0035A16A /* Info.plist */,
@@ -197,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9FEB6082199ADA20035A16A /* Question.swift in Sources */,
 				A9FEB5EA2199A51F0035A16A /* ViewController.swift in Sources */,
 				A9FEB5E82199A51F0035A16A /* AppDelegate.swift in Sources */,
 			);
