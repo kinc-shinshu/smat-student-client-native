@@ -1,16 +1,25 @@
 //
-//  QuestionsTableViewController.swift
-//  smat
+//  QuestionTableViewController.swift
+//  
 //
 //  Created by Hiroshi Tamura on 2018/11/12.
-//  Copyright © 2018 KINC. All rights reserved.
 //
 
 import UIKit
 import iosMath
 
-class QuestionsTableViewController: UITableViewController {
-
+class QuestionTableViewController: UITableViewController {
+    
+    var questions = [Question]()
+    
+    private func loadQuestions() {
+        let questionT = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
+        guard let question1 = Question(questionText: questionT) else {
+            fatalError("Unable to instantiate meal1")
+        }
+        questions += [question1]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,29 +28,38 @@ class QuestionsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        loadQuestions()
+        
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return questions.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        
+        // Table view cells are reused and should be dequeued using a cell identifier.
+        let cellIdentifier = "QuestionsTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? QuestionsTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+        }
+        
+        // Fetches the appropriate meal for the data source layout.
+        let question = questions[indexPath.row]
+        
+        //cell.texLabel.latex = question.questionText
+        cell.texLabel?.latex = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
