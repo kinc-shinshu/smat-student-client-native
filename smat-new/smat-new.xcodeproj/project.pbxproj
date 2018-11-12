@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E61FB5A50397F028BD730DB /* Pods_smat_newTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 403FE11E9C703C87F7A30120 /* Pods_smat_newTests.framework */; };
+		63D9D63A00C784966B0A14D1 /* Pods_smat_new.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5BF4775B4A57EBD5C69C296 /* Pods_smat_new.framework */; };
 		A9FEB5E82199A51F0035A16A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEB5E72199A51F0035A16A /* AppDelegate.swift */; };
 		A9FEB5EA2199A51F0035A16A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEB5E92199A51F0035A16A /* ViewController.swift */; };
 		A9FEB5ED2199A51F0035A16A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9FEB5EB2199A51F0035A16A /* Main.storyboard */; };
@@ -14,6 +16,7 @@
 		A9FEB5F22199A51F0035A16A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9FEB5F02199A51F0035A16A /* LaunchScreen.storyboard */; };
 		A9FEB5FD2199A51F0035A16A /* smat_newTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEB5FC2199A51F0035A16A /* smat_newTests.swift */; };
 		A9FEB6082199ADA20035A16A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEB6072199ADA20035A16A /* Question.swift */; };
+		A9FEB60A2199AFDF0035A16A /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FEB6092199AFDF0035A16A /* QuestionTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C8ECB30E41BE0F139E9BA1C /* Pods-smat-newTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smat-newTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-smat-newTests/Pods-smat-newTests.release.xcconfig"; sourceTree = "<group>"; };
+		403FE11E9C703C87F7A30120 /* Pods_smat_newTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smat_newTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B9812DA6E8C49A11B846765 /* Pods-smat-new.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smat-new.release.xcconfig"; path = "Pods/Target Support Files/Pods-smat-new/Pods-smat-new.release.xcconfig"; sourceTree = "<group>"; };
 		A9FEB5E42199A51F0035A16A /* smat-new.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "smat-new.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9FEB5E72199A51F0035A16A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9FEB5E92199A51F0035A16A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +44,10 @@
 		A9FEB5FC2199A51F0035A16A /* smat_newTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = smat_newTests.swift; sourceTree = "<group>"; };
 		A9FEB5FE2199A51F0035A16A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9FEB6072199ADA20035A16A /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		A9FEB6092199AFDF0035A16A /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
+		AA6C0E73D69657B17E6AF41F /* Pods-smat-newTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smat-newTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smat-newTests/Pods-smat-newTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B5BF4775B4A57EBD5C69C296 /* Pods_smat_new.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smat_new.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBD2937DA5C5AE9E741EB74A /* Pods-smat-new.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smat-new.debug.xcconfig"; path = "Pods/Target Support Files/Pods-smat-new/Pods-smat-new.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63D9D63A00C784966B0A14D1 /* Pods_smat_new.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,18 +63,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E61FB5A50397F028BD730DB /* Pods_smat_newTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08220195DEE1D2DDEE61F03F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EBD2937DA5C5AE9E741EB74A /* Pods-smat-new.debug.xcconfig */,
+				6B9812DA6E8C49A11B846765 /* Pods-smat-new.release.xcconfig */,
+				AA6C0E73D69657B17E6AF41F /* Pods-smat-newTests.debug.xcconfig */,
+				2C8ECB30E41BE0F139E9BA1C /* Pods-smat-newTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A9FEB5DB2199A51F0035A16A = {
 			isa = PBXGroup;
 			children = (
 				A9FEB5E62199A51F0035A16A /* smat-new */,
 				A9FEB5FB2199A51F0035A16A /* smat-newTests */,
 				A9FEB5E52199A51F0035A16A /* Products */,
+				08220195DEE1D2DDEE61F03F /* Pods */,
+				B7F9F45C16FC274FFDE669A1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,6 +107,7 @@
 				A9FEB5E72199A51F0035A16A /* AppDelegate.swift */,
 				A9FEB5E92199A51F0035A16A /* ViewController.swift */,
 				A9FEB5EB2199A51F0035A16A /* Main.storyboard */,
+				A9FEB6092199AFDF0035A16A /* QuestionTableViewCell.swift */,
 				A9FEB6072199ADA20035A16A /* Question.swift */,
 				A9FEB5EE2199A51F0035A16A /* Assets.xcassets */,
 				A9FEB5F02199A51F0035A16A /* LaunchScreen.storyboard */,
@@ -99,6 +125,15 @@
 			path = "smat-newTests";
 			sourceTree = "<group>";
 		};
+		B7F9F45C16FC274FFDE669A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5BF4775B4A57EBD5C69C296 /* Pods_smat_new.framework */,
+				403FE11E9C703C87F7A30120 /* Pods_smat_newTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +141,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9FEB6012199A51F0035A16A /* Build configuration list for PBXNativeTarget "smat-new" */;
 			buildPhases = (
+				91DC2F32315D5BE335EC84D5 /* [CP] Check Pods Manifest.lock */,
 				A9FEB5E02199A51F0035A16A /* Sources */,
 				A9FEB5E12199A51F0035A16A /* Frameworks */,
 				A9FEB5E22199A51F0035A16A /* Resources */,
+				C50E92C84740E3FD2FD96AAD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +160,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9FEB6042199A51F0035A16A /* Build configuration list for PBXNativeTarget "smat-newTests" */;
 			buildPhases = (
+				F20A507CBC259E9BEDE6B31E /* [CP] Check Pods Manifest.lock */,
 				A9FEB5F42199A51F0035A16A /* Sources */,
 				A9FEB5F52199A51F0035A16A /* Frameworks */,
 				A9FEB5F62199A51F0035A16A /* Resources */,
@@ -195,12 +233,82 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		91DC2F32315D5BE335EC84D5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-smat-new-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C50E92C84740E3FD2FD96AAD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-smat-new/Pods-smat-new-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/iosMath/iosMath.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iosMath.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smat-new/Pods-smat-new-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F20A507CBC259E9BEDE6B31E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-smat-newTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A9FEB5E02199A51F0035A16A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A9FEB6082199ADA20035A16A /* Question.swift in Sources */,
+				A9FEB60A2199AFDF0035A16A /* QuestionTableViewCell.swift in Sources */,
 				A9FEB5EA2199A51F0035A16A /* ViewController.swift in Sources */,
 				A9FEB5E82199A51F0035A16A /* AppDelegate.swift in Sources */,
 			);
@@ -362,6 +470,7 @@
 		};
 		A9FEB6022199A51F0035A16A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBD2937DA5C5AE9E741EB74A /* Pods-smat-new.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -380,6 +489,7 @@
 		};
 		A9FEB6032199A51F0035A16A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B9812DA6E8C49A11B846765 /* Pods-smat-new.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -398,6 +508,7 @@
 		};
 		A9FEB6052199A51F0035A16A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA6C0E73D69657B17E6AF41F /* Pods-smat-newTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -419,6 +530,7 @@
 		};
 		A9FEB6062199A51F0035A16A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C8ECB30E41BE0F139E9BA1C /* Pods-smat-newTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

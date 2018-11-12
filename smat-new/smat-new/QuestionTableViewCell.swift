@@ -9,7 +9,8 @@
 import UIKit
 
 class QuestionTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var texLabel: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

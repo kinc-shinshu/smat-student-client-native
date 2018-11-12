@@ -17,7 +17,7 @@ class ViewController: UIViewController, UITextFieldDelegate  {
         // Do any additional setup after loading the view, typically from a nib.
         roomNumber.becomeFirstResponder()
         roomNumber.delegate = self
-        roomNumber.keyboardType = numberPad
+        roomNumber.keyboardType = UIKeyboardType.numberPad
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
