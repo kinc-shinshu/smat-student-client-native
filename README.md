@@ -1,2 +1,2 @@
 # smat-student-client-new
-not start
+just start

@@ -78,9 +78,7 @@
                             <outlet property="delegate" destination="Wvf-a1-E9E" id="nfy-RH-tI3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="問題一覧" id="fYO-pq-pNn">
-                        <barButtonItem key="rightBarButtonItem" title="次のページ" style="done" id="Plb-I9-Qa7"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="問題一覧" id="fYO-pq-pNn"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6jX-Oe-tbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
