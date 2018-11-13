@@ -116,44 +116,58 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxz-B0-Rii">
-                                <rect key="frame" x="50" y="456.5" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxz-B0-Rii">
+                                <rect key="frame" x="50" y="456.5" width="130" height="60"/>
                                 <color key="backgroundColor" red="1" green="0.0141923555" blue="0.091291482389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="DuO-4w-coa"/>
+                                    <constraint firstAttribute="height" constant="60" id="M39-JI-h4D"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFe-Q7-x3d">
-                                <rect key="frame" x="279" y="516.5" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFe-Q7-x3d">
+                                <rect key="frame" x="195" y="536.5" width="130" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="Inf-U8-isi"/>
+                                    <constraint firstAttribute="height" constant="60" id="cap-89-6Xx"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ee4-Pj-LfS">
-                                <rect key="frame" x="50" y="516.5" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hu1-TH-GUK">
-                                <rect key="frame" x="279" y="456.5" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hu1-TH-GUK">
+                                <rect key="frame" x="195" y="456.5" width="130" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="PFt-gR-8nI"/>
+                                    <constraint firstAttribute="height" constant="60" id="U5r-2R-rNk"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ee4-Pj-LfS">
+                                <rect key="frame" x="50" y="536.5" width="130" height="60"/>
+                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="JO4-sQ-tgy"/>
+                                    <constraint firstAttribute="width" constant="130" id="hly-xc-QpP"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ee4-Pj-LfS" firstAttribute="top" secondItem="rxz-B0-Rii" secondAttribute="bottom" constant="30" id="1gd-LO-de9"/>
-                            <constraint firstItem="WFe-Q7-x3d" firstAttribute="top" secondItem="Hu1-TH-GUK" secondAttribute="bottom" constant="30" id="7fN-LO-9Q5"/>
-                            <constraint firstItem="Hu1-TH-GUK" firstAttribute="leading" secondItem="rxz-B0-Rii" secondAttribute="trailing" constant="50" id="Dbd-R7-fIQ"/>
-                            <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="Hu1-TH-GUK" secondAttribute="trailing" constant="50" id="Kby-vg-4ci"/>
+                            <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="WFe-Q7-x3d" secondAttribute="trailing" constant="50" id="5Ky-nW-MWD"/>
+                            <constraint firstItem="ee4-Pj-LfS" firstAttribute="top" secondItem="rxz-B0-Rii" secondAttribute="bottom" constant="20" id="CLa-Gb-UIB"/>
+                            <constraint firstItem="WFe-Q7-x3d" firstAttribute="top" secondItem="Hu1-TH-GUK" secondAttribute="bottom" constant="20" id="KdZ-8I-p0K"/>
+                            <constraint firstItem="rxz-B0-Rii" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="50" id="UYR-Br-o4Q"/>
+                            <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="Hu1-TH-GUK" secondAttribute="trailing" constant="50" id="W0I-hO-iZo"/>
                             <constraint firstItem="bTk-aJ-zP5" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="30" id="Ztl-7c-c7u"/>
                             <constraint firstItem="rxz-B0-Rii" firstAttribute="top" secondItem="QUq-m7-bfs" secondAttribute="bottom" constant="200" id="aNn-6J-kqN"/>
-                            <constraint firstItem="ee4-Pj-LfS" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="50" id="cHi-Qx-FZx"/>
                             <constraint firstItem="Hu1-TH-GUK" firstAttribute="top" secondItem="QUq-m7-bfs" secondAttribute="bottom" constant="200" id="fj6-Uj-dRq"/>
                             <constraint firstItem="QUq-m7-bfs" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="30" id="n59-lK-o3H"/>
                             <constraint firstItem="bTk-aJ-zP5" firstAttribute="top" secondItem="iZl-RQ-uTg" secondAttribute="top" constant="30" id="odU-Xm-EKU"/>
-                            <constraint firstItem="WFe-Q7-x3d" firstAttribute="leading" secondItem="ee4-Pj-LfS" secondAttribute="trailing" constant="50" id="pDS-xR-pRx"/>
+                            <constraint firstItem="ee4-Pj-LfS" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="50" id="suc-7g-anR"/>
                             <constraint firstItem="QUq-m7-bfs" firstAttribute="top" secondItem="bTk-aJ-zP5" secondAttribute="bottom" constant="100" id="sue-xa-5k3"/>
                             <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="QUq-m7-bfs" secondAttribute="trailing" constant="30" id="xde-J4-3Uv"/>
-                            <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="WFe-Q7-x3d" secondAttribute="trailing" constant="50" id="yuU-yw-EZr"/>
-                            <constraint firstItem="rxz-B0-Rii" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="50" id="zMe-V2-XPj"/>
                             <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="bTk-aJ-zP5" secondAttribute="trailing" constant="30" id="zXh-K1-F2p"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iZl-RQ-uTg"/>
