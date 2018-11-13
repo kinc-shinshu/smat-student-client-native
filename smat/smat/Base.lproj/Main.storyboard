@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hbw-oA-1Ma">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -45,7 +45,6 @@
         <!--問題一覧-->
         <scene sceneID="C9e-AB-eZ8">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6jX-Oe-tbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Wvf-a1-E9E" customClass="QuestionTableViewController" customModule="smat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="z4C-WO-38W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -59,7 +58,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vln-OI-RxJ">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vln-OI-RxJ" customClass="MTMathUILabel">
                                             <rect key="frame" x="16" y="11" width="343" height="68"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="34"/>
@@ -80,53 +79,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="問題一覧" id="fYO-pq-pNn"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6jX-Oe-tbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1940" y="1.3493253373313345"/>
-        </scene>
-        <!--Question Table View Controller-->
-        <scene sceneID="udL-nF-oOe">
-            <objects>
-                <tableViewController id="Hbw-oA-1Ma" customClass="QuestionTableViewController" customModule="smat" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="HYa-n8-anr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuestionsTableViewCell" id="hK2-yR-3Cl" customClass="QuestionsTableViewCell" customModule="smat" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hK2-yR-3Cl" id="7ii-0R-8eZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LOB-JA-jKz">
-                                            <rect key="frame" x="150" y="26" width="509" height="37"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="texLabel" destination="LOB-JA-jKz" id="xLa-BM-22N"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Hbw-oA-1Ma" id="kF2-Q0-b2e"/>
-                            <outlet property="delegate" destination="Hbw-oA-1Ma" id="OkG-Ux-sae"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rl1-4q-GO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1130" y="-747"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pqp-A2-Nol">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S25-Nc-Uar" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sSK-Oz-1zn" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Uj2-4a-2eF">
@@ -138,6 +97,7 @@
                         <segue destination="Wvf-a1-E9E" kind="relationship" relationship="rootViewController" id="mjk-xb-4rL"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S25-Nc-Uar" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1181.5999999999999" y="2.2488755622188905"/>
         </scene>

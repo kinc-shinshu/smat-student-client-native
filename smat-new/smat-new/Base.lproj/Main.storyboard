@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vfv-pv-loH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -33,15 +33,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="6aP-Ff-Nbi"/>
                     <connections>
                         <outlet property="roomNumber" destination="ZAo-MD-5ub" id="gtb-kb-uQD"/>
+                        <segue destination="aCb-QO-15m" kind="presentation" id="TSm-Y3-AXF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="364" y="27"/>
+            <point key="canvasLocation" x="1303.2" y="26.53673163418291"/>
         </scene>
-        <!--Question Table View Controller-->
+        <!--問題一覧-->
         <scene sceneID="9KI-3X-Elf">
             <objects>
                 <tableViewController id="vfv-pv-loH" customClass="QuestionTableViewController" customModule="smat_new" customModuleProvider="target" sceneMemberID="viewController">
@@ -82,10 +84,29 @@
                             <outlet property="delegate" destination="vfv-pv-loH" id="Xhg-cR-Fyt"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="問題一覧" id="MLq-Jp-0Og"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFl-wF-0SH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1384.8" y="26.53673163418291"/>
+            <point key="canvasLocation" x="3455.1999999999998" y="26.53673163418291"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nFw-TP-qX3">
+            <objects>
+                <navigationController storyboardIdentifier="roomNumber" automaticallyAdjustsScrollViewInsets="NO" id="aCb-QO-15m" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vj9-Ez-gc3">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vfv-pv-loH" kind="relationship" relationship="rootViewController" id="2KL-GQ-1de"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oYs-fj-tLD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2516" y="26.53673163418291"/>
         </scene>
     </scenes>
 </document>

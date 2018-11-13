@@ -11,13 +11,14 @@ import iosMath
 class QuestionTableViewController: UITableViewController {
     
     var questions = [Question]()
+    //let roomNumber = 100
     
     private func loadQuestions() {
         let questionT = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
         guard let question1 = Question(questionText: questionT) else {
             fatalError("Unable to instantiate meal1")
         }
-        questions += [question1]
+        questions += [question1, question1, question1, question1, question1]
     }
     
     override func viewDidLoad() {
@@ -56,7 +57,7 @@ class QuestionTableViewController: UITableViewController {
         let question = questions[indexPath.row]
         
         //cell.texLabel.latex = question.questionText
-        cell.texLabel?.latex = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
+        cell.texLabel?.latex = question.questionText
         
         return cell
     }
