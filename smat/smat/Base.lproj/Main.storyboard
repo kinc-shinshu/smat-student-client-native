@@ -69,6 +69,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="texLabel" destination="vln-OI-RxJ" id="Ev0-KV-cNR"/>
+                                    <segue destination="b8O-H6-DJ5" kind="presentation" id="HMd-7U-96M"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -77,11 +78,52 @@
                             <outlet property="delegate" destination="Wvf-a1-E9E" id="nfy-RH-tI3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="問題一覧" id="fYO-pq-pNn"/>
+                    <navigationItem key="navigationItem" title="問題一覧" id="fYO-pq-pNn">
+                        <barButtonItem key="rightBarButtonItem" title="次のページ" style="done" id="Plb-I9-Qa7"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6jX-Oe-tbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1940" y="1.3493253373313345"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="MQc-LL-n5R">
+            <objects>
+                <viewController id="KIh-Ha-bSx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d02-eS-1XF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTk-aJ-zP5">
+                                <rect key="frame" x="16" y="64" width="343" height="90"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUq-m7-bfs">
+                                <rect key="frame" x="16" y="188" width="343" height="90"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QUq-m7-bfs" firstAttribute="top" secondItem="bTk-aJ-zP5" secondAttribute="bottom" constant="40" id="sue-xa-5k3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iZl-RQ-uTg"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QQb-zo-mOF">
+                        <barButtonItem key="rightBarButtonItem" title="問題一覧" id="sEJ-lA-tsI">
+                            <connections>
+                                <segue destination="sSK-Oz-1zn" kind="presentation" identifier="roomNumber" id="U1O-V2-mb1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xD4-AY-GHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3517.5999999999999" y="-754.27286356821594"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pqp-A2-Nol">
@@ -101,5 +143,26 @@
             </objects>
             <point key="canvasLocation" x="1181.5999999999999" y="2.2488755622188905"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Q39-f4-9pr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b8O-H6-DJ5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rbB-C8-8rP">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KIh-Ha-bSx" kind="relationship" relationship="rootViewController" id="6fd-9W-VCn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z7j-AE-MFq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2713" y="-754"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="U1O-V2-mb1"/>
+    </inferredMetricsTieBreakers>
 </document>

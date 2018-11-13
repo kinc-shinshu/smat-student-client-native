@@ -13,7 +13,7 @@ class QuestionTableViewController: UITableViewController {
     var questions = [Question]()
     //let roomNumber = 100
     
-    private func loadQuestions() {
+    func loadQuestions() {
         let questionT = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
         guard let question1 = Question(questionText: questionT) else {
             fatalError("Unable to instantiate meal1")
