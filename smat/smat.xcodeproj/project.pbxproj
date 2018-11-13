@@ -189,6 +189,7 @@
 				8BEE04DFF0592495EFE5A328 /* Frameworks */,
 				8BEE063667495DD25A90FBEC /* Resources */,
 				FA2CB13E4E8BA2AF9C096444 /* [CP] Embed Pods Frameworks */,
+				049699517639B7C3FF64C111 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,6 +208,8 @@
 				8BEE0B235CB79522BF011402 /* Sources */,
 				8BEE0F7F02D52079126BF591 /* Frameworks */,
 				8BEE074682CF1337847615C4 /* Resources */,
+				4F3811E9DEDADCBC6305AABD /* [CP] Embed Pods Frameworks */,
+				306512D0BB9E23D771B7BEE5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -226,6 +229,8 @@
 				8BEE055A575A9FBF43BEAEBD /* Sources */,
 				8BEE0EC87ECA31368A48F528 /* Frameworks */,
 				8BEE0DD13F9CD5B2BBD3AC7E /* Resources */,
+				6E35D778EE575F89D0FFF756 /* [CP] Embed Pods Frameworks */,
+				5DC27F02E005CA20B24957B1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -292,6 +297,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		049699517639B7C3FF64C111 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smat/Pods-smat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		0794065524F2B2EF9B02BEB1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -312,6 +336,82 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		306512D0BB9E23D771B7BEE5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smatTests/Pods-smatTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F3811E9DEDADCBC6305AABD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smatTests/Pods-smatTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5DC27F02E005CA20B24957B1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smatUITests/Pods-smatUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E35D778EE575F89D0FFF756 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smatUITests/Pods-smatUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		974CD7CFCC224E220CEE2A8D /* [CP] Check Pods Manifest.lock */ = {
