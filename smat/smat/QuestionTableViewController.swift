@@ -7,19 +7,42 @@
 
 import UIKit
 import iosMath
+import Alamofire
+import SwiftyJSON
 
-class QuestionTableViewController: UITableViewController {
+class QuestionTableViewController: UITableViewController{
     
     var questions = [Question]()
-    //let roomNumber = 100
+    var examNumber:String?
     
     func loadQuestions() {
-        let questionT = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
-        guard let question1 = Question(questionText: questionT) else {
-            fatalError("Unable to instantiate meal1")
+        Alamofire.request("https://smat-api.herokuapp.com/rooms/" + examNumber! + "/questions").responseJSON {response in
+            guard let object = response.result.value else {
+                return
+            }
+            
+            let json = JSON(object)
+            json.forEach { (_, json) in
+                let questionT = json["text"].string
+                guard let question = Question(questionText: questionT!) else {
+                    fatalError("Unable to instantiate meal1")
+                }
+                self.questions += [question]
+            }
+            self.tableView.reloadData()
         }
-        questions += [question1, question1, question1, question1, question1]
     }
+    
+    
+    //  画面変移の際に部屋番号を渡している
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "questionDetail") {
+            let nav = segue.destination as! UINavigationController
+            let questionList = nav.topViewController as! AppleViewController
+            questionList.examNumber = self.examNumber
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +52,6 @@ class QuestionTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         loadQuestions()
         
     }
@@ -57,6 +79,7 @@ class QuestionTableViewController: UITableViewController {
         let question = questions[indexPath.row]
         
         //cell.texLabel.latex = question.questionText
+        print(question.questionText)
         cell.texLabel?.latex = question.questionText
         
         return cell
