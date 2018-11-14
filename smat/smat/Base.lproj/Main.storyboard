@@ -226,6 +226,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="HMd-7U-96M"/>
         <segue reference="U1O-V2-mb1"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -21,11 +21,11 @@ class ViewController: UIViewController, UITextFieldDelegate  {
         roomNumber.keyboardType = UIKeyboardType.numberPad
     }
     
+    //  問題一覧にる部屋番号を渡している
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "roomNumber") {
             let nav = segue.destination as! UINavigationController
             let questionList = nav.topViewController as! QuestionTableViewController
-            // ViewControllerのtextVC2にメッセージを設定
             questionList.examNumber = sender as? String
         }
     }

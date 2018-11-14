@@ -26,7 +26,7 @@ class AppleViewController: UIViewController {
         
     }
     
-    //  問題一覧に戻る際に部屋番号を渡している
+    //  画面変移の際に部屋番号を渡している
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "detailToList") {
             let nav = segue.destination as! UINavigationController

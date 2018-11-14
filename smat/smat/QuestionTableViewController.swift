@@ -34,7 +34,7 @@ class QuestionTableViewController: UITableViewController{
     }
     
     
-    //  画面変移の際に部屋番号を渡している
+    //  問題詳細に移動する際に部屋番号を渡している
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "questionDetail") {
             let nav = segue.destination as! UINavigationController
