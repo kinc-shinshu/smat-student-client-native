@@ -24,6 +24,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ak-PA-DA2">
+                                <rect key="frame" x="37" y="259" width="306" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -34,13 +41,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="questionLabel" destination="9ak-PA-DA2" id="ly6-Y8-wjw"/>
                         <outlet property="roomNumber" destination="Dfd-6c-QyC" id="c4x-ru-4EJ"/>
+                        <outlet property="testFile" destination="9ak-PA-DA2" id="GcY-ah-wSb"/>
                         <segue destination="sSK-Oz-1zn" kind="presentation" identifier="roomNumber" id="BvC-Ms-ect"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="380" y="4"/>
+            <point key="canvasLocation" x="380" y="3.1484257871064472"/>
         </scene>
         <!--問題一覧-->
         <scene sceneID="C9e-AB-eZ8">
@@ -226,6 +235,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="U1O-V2-mb1"/>
+        <segue reference="BvC-Ms-ect"/>
     </inferredMetricsTieBreakers>
 </document>
