@@ -9,10 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate  {
-
-    @IBOutlet weak var testFile: UILabel!
+    //  入力スペースをリンク
     @IBOutlet weak var roomNumber: UITextField!
     
+    //  画面を表示、キーボードの自動起動、タイプ指定
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -30,6 +30,7 @@ class ViewController: UIViewController, UITextFieldDelegate  {
         }
     }
     
+    //  入力された数字が３つになったら問題一覧行くようにしている。
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let text = textField.text,
             let textRange = Range(range, in: text) {

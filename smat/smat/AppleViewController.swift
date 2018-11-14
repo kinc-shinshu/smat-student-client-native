@@ -10,14 +10,20 @@ import UIKit
 import iosMath
 
 class AppleViewController: UIViewController {
-
+    
+    //  問題と答えを表示するためのViewを作る
     @IBOutlet weak var questionView: MTMathUILabel!
     @IBOutlet weak var AnswerView: MTMathUILabel!
-    // 部屋番号、問題一覧に戻るために必要
+    
+    // 部屋番号（問題一覧に戻るため）
     var examNumber:String?
+    
+    // 問題を取得する関数が必要
     // let QuestionText = "x"
     // let QuestionAnswer = "x"
     
+    
+    //  画面を表示
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

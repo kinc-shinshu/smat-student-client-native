@@ -12,9 +12,13 @@ import SwiftyJSON
 
 class QuestionTableViewController: UITableViewController{
     
+    // 問題一覧を定義（独自クラスQuestion）
     var questions = [Question]()
+    
+    // 試験番号（Api叩くに必要）
     var examNumber:String?
     
+    //  Apiを叩いて問題一覧を取得する
     func loadQuestions() {
         Alamofire.request("https://smat-api.herokuapp.com/rooms/" + examNumber! + "/questions").responseJSON {response in
             guard let object = response.result.value else {
@@ -43,7 +47,7 @@ class QuestionTableViewController: UITableViewController{
         }
     }
     
-    
+    //  画面を表示している
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -57,15 +61,14 @@ class QuestionTableViewController: UITableViewController{
     }
 
     // MARK: - Table view data source
-
+    // TableView利用する際の決まり文句
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return questions.count
     }
-
+    // セルごとを定義している、これも決まり文句
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Table view cells are reused and should be dequeued using a cell identifier.
@@ -79,7 +82,6 @@ class QuestionTableViewController: UITableViewController{
         let question = questions[indexPath.row]
         
         //cell.texLabel.latex = question.questionText
-        print(question.questionText)
         cell.texLabel?.latex = question.questionText
         
         return cell
