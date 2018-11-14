@@ -17,6 +17,7 @@
 		8BEE0914CF870D28DC1A0A5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BEE01613F3D46DD739B9061 /* Assets.xcassets */; };
 		8BEE0C39E9093D471A13FA36 /* smatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE095856A81EBD201D71B6 /* smatTests.swift */; };
 		8BEE0ED4449B0AC2B83CFDAB /* smatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEE061CB301A6F209FC09B7 /* smatUITests.swift */; };
+		A91B5BBB219B002C009B4893 /* AppleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B5BBA219B002C009B4893 /* AppleViewController.swift */; };
 		A9ABB90A21995B1B00BCA775 /* QuestionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ABB90921995B1B00BCA775 /* QuestionsTableViewCell.swift */; };
 		A9ABB91421998C4400BCA775 /* QuestionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ABB91321998C4400BCA775 /* QuestionTableViewController.swift */; };
 		A9ABB91621998FA200BCA775 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ABB91521998FA200BCA775 /* Question.swift */; };
@@ -57,6 +58,7 @@
 		8BEE0BDD79EE6A40F85EC451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		8BEE0C15FEEF41C6ED300E60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BEE0F6DA6B1249C0FEFC250 /* smatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = smatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A91B5BBA219B002C009B4893 /* AppleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleViewController.swift; sourceTree = "<group>"; };
 		A9ABB90921995B1B00BCA775 /* QuestionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsTableViewCell.swift; sourceTree = "<group>"; };
 		A9ABB91321998C4400BCA775 /* QuestionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuestionTableViewController.swift; path = "/Users/hiroshitamura/1MyWordTools/github/shinshuapp/smat-student-client-new/smat/smat/QuestionTableViewController.swift"; sourceTree = "<absolute>"; };
 		A9ABB91521998FA200BCA775 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -130,12 +132,13 @@
 				8BEE0BDD79EE6A40F85EC451 /* Info.plist */,
 				8BEE01613F3D46DD739B9061 /* Assets.xcassets */,
 				8BEE09055EAE0B8257D8EE30 /* LaunchScreen.storyboard */,
+				8BEE0ADC80EA4F03242D3917 /* Main.storyboard */,
 				8BEE048E17E8F115A21CAEB6 /* AppDelegate.swift */,
+				8BEE04F45540936D993D84E1 /* ViewController.swift */,
+				A9ABB91521998FA200BCA775 /* Question.swift */,
 				A9ABB91321998C4400BCA775 /* QuestionTableViewController.swift */,
 				A9ABB90921995B1B00BCA775 /* QuestionsTableViewCell.swift */,
-				A9ABB91521998FA200BCA775 /* Question.swift */,
-				8BEE0ADC80EA4F03242D3917 /* Main.storyboard */,
-				8BEE04F45540936D993D84E1 /* ViewController.swift */,
+				A91B5BBA219B002C009B4893 /* AppleViewController.swift */,
 			);
 			path = smat;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				8BEE04DFF0592495EFE5A328 /* Frameworks */,
 				8BEE063667495DD25A90FBEC /* Resources */,
 				FA2CB13E4E8BA2AF9C096444 /* [CP] Embed Pods Frameworks */,
+				049699517639B7C3FF64C111 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -204,6 +208,8 @@
 				8BEE0B235CB79522BF011402 /* Sources */,
 				8BEE0F7F02D52079126BF591 /* Frameworks */,
 				8BEE074682CF1337847615C4 /* Resources */,
+				4F3811E9DEDADCBC6305AABD /* [CP] Embed Pods Frameworks */,
+				306512D0BB9E23D771B7BEE5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -223,6 +229,8 @@
 				8BEE055A575A9FBF43BEAEBD /* Sources */,
 				8BEE0EC87ECA31368A48F528 /* Frameworks */,
 				8BEE0DD13F9CD5B2BBD3AC7E /* Resources */,
+				6E35D778EE575F89D0FFF756 /* [CP] Embed Pods Frameworks */,
+				5DC27F02E005CA20B24957B1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -289,6 +297,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		049699517639B7C3FF64C111 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smat/Pods-smat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		0794065524F2B2EF9B02BEB1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -309,6 +336,82 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		306512D0BB9E23D771B7BEE5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smatTests/Pods-smatTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F3811E9DEDADCBC6305AABD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smatTests/Pods-smatTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5DC27F02E005CA20B24957B1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smatUITests/Pods-smatUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E35D778EE575F89D0FFF756 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-smatUITests/Pods-smatUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		974CD7CFCC224E220CEE2A8D /* [CP] Check Pods Manifest.lock */ = {
@@ -364,12 +467,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-smat/Pods-smat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/iosMath/iosMath.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iosMath.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,6 +496,7 @@
 				A9ABB91421998C4400BCA775 /* QuestionTableViewController.swift in Sources */,
 				8BEE0417A3DE4C8387EFF477 /* ViewController.swift in Sources */,
 				A9ABB90A21995B1B00BCA775 /* QuestionsTableViewCell.swift in Sources */,
+				A91B5BBB219B002C009B4893 /* AppleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
