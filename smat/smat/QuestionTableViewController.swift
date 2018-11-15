@@ -28,7 +28,10 @@ class QuestionTableViewController: UITableViewController{
             let json = JSON(object)
             json.forEach { (_, json) in
                 let questionT = json["text"].string
-                guard let question = Question(questionText: questionT!) else {
+                let questionI = json["id"].int
+                let questionIS = String(questionI!)
+                guard let question = Question(questionText: questionT!,
+                                              questionId: questionIS) else {
                     fatalError("Unable to instantiate meal1")
                 }
                 self.questions += [question]
@@ -44,6 +47,7 @@ class QuestionTableViewController: UITableViewController{
             let nav = segue.destination as! UINavigationController
             let questionList = nav.topViewController as! AppleViewController
             questionList.examNumber = self.examNumber
+            questionList.questionNumber = 100
         }
     }
     

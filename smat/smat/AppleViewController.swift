@@ -16,7 +16,8 @@ class AppleViewController: UIViewController {
     @IBOutlet weak var AnswerView: MTMathUILabel!
     
     // 部屋番号（問題一覧に戻るため）
-    var examNumber:String?
+    var examNumber: String?
+    var questionNumber: Int?
     
     // 問題を取得する関数が必要
     // let QuestionText = "x"
@@ -29,6 +30,7 @@ class AppleViewController: UIViewController {
         // Do any additional setup after loading the view.
         questionView.latex = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
         AnswerView.latex = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
+        print(questionNumber)
         
     }
     
