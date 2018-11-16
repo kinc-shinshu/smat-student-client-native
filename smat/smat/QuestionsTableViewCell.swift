@@ -11,7 +11,7 @@ import iosMath
 
 class QuestionsTableViewCell: UITableViewCell{
     
-    
+    // セルごとにテフ文のスペースを作る
     @IBOutlet weak var texLabel: MTMathUILabel!
     
     override func awakeFromNib() {

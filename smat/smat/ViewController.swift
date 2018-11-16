@@ -7,54 +7,36 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
 
 class ViewController: UIViewController, UITextFieldDelegate  {
-
-    @IBOutlet weak var testFile: UILabel!
+    //  入力スペースをリンク
     @IBOutlet weak var roomNumber: UITextField!
-    @IBOutlet weak var questionLabel: UILabel!
     
-    //  Alamofire.request(method: Method, URLString: URL)
-    func getArticles() {
-        Alamofire.request("https://smat-api.herokuapp.com/rooms/168/questions").responseJSON {response in
-            guard let object = response.result.value else {
-                return
-            }
-            var articles: [[String: String?]] = []
-            let json = JSON(object)
-            json.forEach { (_, json) in
-                let article: [String: String?] = [
-                    "questionText": json["text"].string,
-                    "questionAnswer": json["answer"].string,
-                    "questionId": json["id"].string
-                ]
-                articles.append(article)
-                self.questionLabel.text = article["questionText"] as? String
-            }
-            print(articles)
-            
-        }
-    }
-    
+    //  画面を表示、キーボードの自動起動、タイプ指定
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         roomNumber.becomeFirstResponder()
         roomNumber.delegate = self
         roomNumber.keyboardType = UIKeyboardType.numberPad
-        getArticles()
     }
     
+    //  問題一覧にる部屋番号を渡している
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "roomNumber") {
+            let nav = segue.destination as! UINavigationController
+            let questionList = nav.topViewController as! QuestionTableViewController
+            questionList.examNumber = sender as? String
+        }
+    }
+    
+    //  入力された数字が３つになったら問題一覧行くようにしている。
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let text = textField.text,
             let textRange = Range(range, in: text) {
-            let updatedText = text.replacingCharacters(in: textRange,
-                                                       with: string)
+            let updatedText = text.replacingCharacters(in: textRange,with: string)
             if updatedText.count == 3 {
-                print("s")
-                self.performSegue(withIdentifier: "roomNumber", sender: nil)
+                self.performSegue(withIdentifier: "roomNumber", sender: String(updatedText))
             }
         }
         return true

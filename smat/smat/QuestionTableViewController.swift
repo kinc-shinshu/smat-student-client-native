@@ -7,20 +7,47 @@
 
 import UIKit
 import iosMath
+import Alamofire
+import SwiftyJSON
 
-class QuestionTableViewController: UITableViewController {
+class QuestionTableViewController: UITableViewController{
     
+    // 問題一覧を定義（独自クラスQuestion）
     var questions = [Question]()
-    //let roomNumber = 100
     
+    // 試験番号（Api叩くに必要）
+    var examNumber:String?
+    
+    //  Apiを叩いて問題一覧を取得する
     func loadQuestions() {
-        let questionT = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
-        guard let question1 = Question(questionText: questionT) else {
-            fatalError("Unable to instantiate meal1")
+        Alamofire.request("https://smat-api.herokuapp.com/rooms/" + examNumber! + "/questions").responseJSON {response in
+            guard let object = response.result.value else {
+                return
+            }
+            
+            let json = JSON(object)
+            json.forEach { (_, json) in
+                let questionT = json["text"].string
+                guard let question = Question(questionText: questionT!) else {
+                    fatalError("Unable to instantiate meal1")
+                }
+                self.questions += [question]
+            }
+            self.tableView.reloadData()
         }
-        questions += [question1, question1, question1, question1, question1]
     }
     
+    
+    //  問題詳細に移動する際に部屋番号を渡している
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "questionDetail") {
+            let nav = segue.destination as! UINavigationController
+            let questionList = nav.topViewController as! AppleViewController
+            questionList.examNumber = self.examNumber
+        }
+    }
+    
+    //  画面を表示している
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,21 +56,19 @@ class QuestionTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         loadQuestions()
         
     }
 
     // MARK: - Table view data source
-
+    // TableView利用する際の決まり文句
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return questions.count
     }
-
+    // セルごとを定義している、これも決まり文句
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Table view cells are reused and should be dequeued using a cell identifier.
