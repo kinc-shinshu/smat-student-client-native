@@ -67,6 +67,11 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="texLabel" destination="vln-OI-RxJ" id="Ev0-KV-cNR"/>
                                     <segue destination="b8O-H6-DJ5" kind="presentation" identifier="questionDetail" id="HMd-7U-96M"/>
@@ -226,6 +231,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BvC-Ms-ect"/>
+        <segue reference="HMd-7U-96M"/>
+        <segue reference="U1O-V2-mb1"/>
     </inferredMetricsTieBreakers>
 </document>

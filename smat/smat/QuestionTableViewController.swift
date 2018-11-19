@@ -17,6 +17,7 @@ class QuestionTableViewController: UITableViewController{
     
     // 試験番号（Api叩くに必要）
     var examNumber:String?
+    var questionNumber:Int?
     
     //  Apiを叩いて問題一覧を取得する
     func loadQuestions() {
@@ -47,7 +48,8 @@ class QuestionTableViewController: UITableViewController{
             let nav = segue.destination as! UINavigationController
             let questionList = nav.topViewController as! AppleViewController
             questionList.examNumber = self.examNumber
-            questionList.questionNumber = 100
+            questionList.questionNumber = self.questionNumber
+            
         }
     }
     
@@ -82,13 +84,21 @@ class QuestionTableViewController: UITableViewController{
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
+        
+        
         // Fetches the appropriate meal for the data source layout.
         let question = questions[indexPath.row]
         
         //cell.texLabel.latex = question.questionText
         cell.texLabel?.latex = question.questionText
+        cell.texLabel?.tag = indexPath.row
+        
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.questionNumber = indexPath.row
     }
 
     /*

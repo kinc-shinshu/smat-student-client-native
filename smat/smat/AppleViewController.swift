@@ -30,8 +30,8 @@ class AppleViewController: UIViewController {
         // Do any additional setup after loading the view.
         questionView.latex = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
         AnswerView.latex = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
+        print(examNumber)
         print(questionNumber)
-        
     }
     
     //  画面変移の際に部屋番号を渡している
