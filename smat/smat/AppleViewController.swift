@@ -8,17 +8,40 @@
 
 import UIKit
 import iosMath
+import Alamofire
+import SwiftyJSON
 
 class AppleViewController: UIViewController {
     
     //  問題と答えを表示するためのViewを作る
     @IBOutlet weak var questionView: MTMathUILabel!
-    @IBOutlet weak var AnswerView: MTMathUILabel!
+    @IBOutlet weak var answerView: MTMathUILabel!
     
     // 部屋番号（問題一覧に戻るため）
-    var examNumber:String?
+    var examNumber: String?
+    var questionNumber: Int?
     
-    // 問題を取得する関数が必要
+    // 答えをパーサーにかける
+    func answerParser(answerLatex: String) -> String {
+        return "x"
+    }
+    
+    // 問題を取得する関数
+    func loadQuestion(questionId: Int) {
+        Alamofire.request("https://smat-api.herokuapp.com/rooms/" + examNumber! + "/questions/" + String(questionId)).responseJSON {response in
+            guard let object = response.result.value else {
+                return
+            }
+            
+            let json = JSON(object)
+            json.forEach { (_, json) in
+                self.questionView.latex = json["latex"].string
+                self.answerView.latex = json["ans_latex"].string
+                
+            }
+        }
+    }
+            
     // let QuestionText = "x"
     // let QuestionAnswer = "x"
     
@@ -26,10 +49,8 @@ class AppleViewController: UIViewController {
     //  画面を表示
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        questionView.latex = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
-        AnswerView.latex = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
-        
+        // Do any additional setup after loading the vie
+        loadQuestion(questionId: questionNumber!)
     }
     
     //  画面変移の際に部屋番号を渡している

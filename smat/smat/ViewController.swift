@@ -12,6 +12,26 @@ class ViewController: UIViewController, UITextFieldDelegate  {
     //  入力スペースをリンク
     @IBOutlet weak var roomNumber: UITextField!
     
+    /*
+    func exChange(before: String, re: String, rp: String) -> String {
+        if let range = before.range(of: re, options: .regularExpression) {
+            let repStr = before.replacingCharacters(in: range, with: rp)
+            print(repStr)
+            return repStr
+        }else{
+            print("no")
+            return before
+        }
+    }
+    func toTex(before:String) -> String {
+        //var after = self.exChange(before: before, re: "/\\*g", rp: "\\times")
+        after = self.exChange(before: after, re: "/\\//g", rp: "\\div")
+        after = self.exChange(before: after, re: "/\\+-/g", rp: "\\pm")
+        after = self.exChange(before: after, re: "/-\\+/g", rp: "\\mp")
+        return after
+    }
+    */
+    
     //  画面を表示、キーボードの自動起動、タイプ指定
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,3 +63,4 @@ class ViewController: UIViewController, UITextFieldDelegate  {
     }
     
 }
+

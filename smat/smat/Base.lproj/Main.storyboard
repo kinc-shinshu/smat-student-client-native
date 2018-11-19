@@ -67,9 +67,13 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="texLabel" destination="vln-OI-RxJ" id="Ev0-KV-cNR"/>
-                                    <segue destination="b8O-H6-DJ5" kind="presentation" identifier="questionDetail" id="HMd-7U-96M"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -79,6 +83,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="問題一覧" id="fYO-pq-pNn"/>
+                    <connections>
+                        <outlet property="tableView" destination="z4C-WO-38W" id="uEX-yr-BCL"/>
+                        <segue destination="b8O-H6-DJ5" kind="presentation" identifier="forTest" id="oRq-IF-upg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6jX-Oe-tbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -226,7 +234,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="HMd-7U-96M"/>
+        <segue reference="oRq-IF-upg"/>
         <segue reference="U1O-V2-mb1"/>
     </inferredMetricsTieBreakers>
 </document>
