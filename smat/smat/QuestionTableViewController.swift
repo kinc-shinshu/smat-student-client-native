@@ -10,14 +10,18 @@ import iosMath
 import Alamofire
 import SwiftyJSON
 
-class QuestionTableViewController: UITableViewController{
+class QuestionTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     // 問題一覧を定義（独自クラスQuestion）
     var questions = [Question]()
     
     // 試験番号（Api叩くに必要）
+    @IBOutlet var tableView: UITableView!
+    
+    
     var examNumber:String?
     var questionNumber:Int?
+    
     
     //  Apiを叩いて問題一覧を取得する
     func loadQuestions() {
@@ -41,21 +45,24 @@ class QuestionTableViewController: UITableViewController{
         }
     }
     
-    
     //  問題詳細に移動する際に部屋番号を渡している
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "questionDetail") {
+        if (segue.identifier == "forTest") {
             let nav = segue.destination as! UINavigationController
             let questionList = nav.topViewController as! AppleViewController
             questionList.examNumber = self.examNumber
-            questionList.questionNumber = self.questionNumber
-            
+            questionList.questionNumber = sender as? Int
         }
+        
     }
     
     //  画面を表示している
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -68,14 +75,15 @@ class QuestionTableViewController: UITableViewController{
 
     // MARK: - Table view data source
     // TableView利用する際の決まり文句
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return questions.count
     }
     // セルごとを定義している、これも決まり文句
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "QuestionsTableViewCell"
@@ -91,14 +99,13 @@ class QuestionTableViewController: UITableViewController{
         
         //cell.texLabel.latex = question.questionText
         cell.texLabel?.latex = question.questionText
-        cell.texLabel?.tag = indexPath.row
-        
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ table: UITableView,didSelectRowAt indexPath: IndexPath) {
         self.questionNumber = indexPath.row
+        self.performSegue(withIdentifier: "forTest", sender: indexPath.row)
     }
 
     /*
