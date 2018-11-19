@@ -10,7 +10,7 @@ import iosMath
 import Alamofire
 import SwiftyJSON
 
-class QuestionTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class QuestionTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // 問題一覧を定義（独自クラスQuestion）
     var questions = [Question]()
@@ -33,11 +33,8 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
             let json = JSON(object)
             json.forEach { (_, json) in
                 let questionT = json["text"].string
-                let questionI = json["id"].int
-                let questionIS = String(questionI!)
-                guard let question = Question(questionText: questionT!,
-                                              questionId: questionIS) else {
-                    fatalError("Unable to instantiate meal1")
+                guard let question = Question(questionText: questionT!) else {
+                    fatalError("Unable to instantiate questionT")
                 }
                 self.questions += [question]
             }
@@ -105,7 +102,7 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ table: UITableView,didSelectRowAt indexPath: IndexPath) {
         self.questionNumber = indexPath.row
-        self.performSegue(withIdentifier: "forTest", sender: indexPath.row)
+        self.performSegue(withIdentifier: "forTest", sender: indexPath.row + 1)
     }
 
     /*
