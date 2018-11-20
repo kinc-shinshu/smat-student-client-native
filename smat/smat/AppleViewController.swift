@@ -18,6 +18,8 @@ class AppleViewController: UIViewController {
     @IBOutlet weak var questionView: MTMathUILabel!
     @IBOutlet weak var answerView: MTMathUILabel!
     
+    var inputText = ""
+    
     // MARK: - Function for Buttons
     // 入力用の選択肢に関与する関数
     // 答えをパーサーにかける
@@ -67,12 +69,17 @@ class AppleViewController: UIViewController {
     @IBOutlet weak var input3: UIButton!
     @IBOutlet weak var input4: UIButton!
     
+    // 入力を記録する関数
+    func saveInput(input: String) {
+        return self.inputText += input
+    }
+    
     // 入力用のボタンのアクションを定義する
     @IBAction func inputButton1(_ sender: Any) {
-        self.questionView.latex = "x1"
-        self.answerView.latex = "xX1"
-        self.input1.setTitle("ボタン１", for: .normal)
+        self.input1.setTitle("ボタン2", for: .normal)
+        saveInput(input: self.input1.currentTitle!)
         self.goToNextBackFunc()
+        print(self.inputText)
     }
     @IBAction func inputButton2(_ sender: Any) {
         self.questionView.latex = "x2"
