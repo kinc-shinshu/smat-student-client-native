@@ -19,6 +19,7 @@ class AppleViewController: UIViewController {
     @IBOutlet weak var answerView: MTMathUILabel!
     
     var inputText = ""
+    var inputTextNumber = 0
     
     // MARK: - Function for Buttons
     // 入力用の選択肢に関与する関数
@@ -29,7 +30,7 @@ class AppleViewController: UIViewController {
     
     // 答えから選択肢を生成する関数
     func getSelection(parserAnswer: String) -> [[String]] {
-        return [["x1", "x2", "x3", "x4"], ["x1", "x2", "x3", "x4"], ["x1", "x2", "x3", "x4"]]
+        return [["x1", "x2", "x3", "x4"], ["x5", "x6", "x7", "x8"], ["x9", "x10", "x11", "x12"]]
     }
     
     // 結果をAPIサーバーに投げる関数
@@ -69,6 +70,19 @@ class AppleViewController: UIViewController {
     @IBOutlet weak var input3: UIButton!
     @IBOutlet weak var input4: UIButton!
     
+    // 入力用のボタンのテキストを変更する関数
+    func setInputButtons(nowInputTextNumber: Int){
+        let forSetInputText = self.getSelection(parserAnswer: "X")
+        if (forSetInputText.count == self.inputTextNumber) {
+            self.goToNextBackFunc()
+        } else {
+            self.input1.setTitle(forSetInputText[nowInputTextNumber][0], for: .normal)
+            self.input2.setTitle(forSetInputText[nowInputTextNumber][1], for: .normal)
+            self.input3.setTitle(forSetInputText[nowInputTextNumber][2], for: .normal)
+            self.input4.setTitle(forSetInputText[nowInputTextNumber][3], for: .normal)
+        }
+    }
+    
     // 入力を記録する関数
     func saveInput(input: String) {
         return self.inputText += input
@@ -76,25 +90,28 @@ class AppleViewController: UIViewController {
     
     // 入力用のボタンのアクションを定義する
     @IBAction func inputButton1(_ sender: Any) {
-        self.input1.setTitle("ボタン2", for: .normal)
         saveInput(input: self.input1.currentTitle!)
-        self.goToNextBackFunc()
+        self.inputTextNumber += 1
+        self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
         print(self.inputText)
     }
     @IBAction func inputButton2(_ sender: Any) {
-        self.questionView.latex = "x2"
-        self.answerView.latex = "xX2"
-        self.input2.setTitle("ボタン2", for: .normal)
+        saveInput(input: self.input2.currentTitle!)
+        self.inputTextNumber += 1
+        self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
+        print(self.inputText)
     }
     @IBAction func inputButton3(_ sender: Any) {
-        self.questionView.latex = "x3"
-        self.answerView.latex = "xX3"
-        self.input3.setTitle("ボタン3", for: .normal)
+        saveInput(input: self.input3.currentTitle!)
+        self.inputTextNumber += 1
+        self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
+        print(self.inputText)
     }
     @IBAction func inputButton4(_ sender: Any) {
-        self.questionView.latex = "x4"
-        self.answerView.latex = "xX4"
-        self.input4.setTitle("ボタン4", for: .normal)
+        saveInput(input: self.input4.currentTitle!)
+        self.inputTextNumber += 1
+        self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
+        print(self.inputText)
     }
     
     // MARK: - next back question buttons
@@ -113,16 +130,16 @@ class AppleViewController: UIViewController {
         if (self.questionNumber! > 1){
             self.nextButton.isHidden = false
             self.backButton.isHidden = false
-            self.input1.isHidden = false
-            self.input2.isHidden = false
-            self.input3.isHidden = false
-            self.input4.isHidden = false
+            self.input1.isHidden = true
+            self.input2.isHidden = true
+            self.input3.isHidden = true
+            self.input4.isHidden = true
         } else {
             self.nextButton.isHidden = false
-            self.input1.isHidden = false
-            self.input2.isHidden = false
-            self.input3.isHidden = false
-            self.input4.isHidden = false
+            self.input1.isHidden = true
+            self.input2.isHidden = true
+            self.input3.isHidden = true
+            self.input4.isHidden = true
         }
     }
     
@@ -155,6 +172,7 @@ class AppleViewController: UIViewController {
         // loadQuestion(questionId: questionNumber!)
         print(self.examNumber)
         print(self.questionNumber)
+        self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
     }
     
     // 画面変移の際に部屋番号を渡している

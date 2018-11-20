@@ -144,7 +144,6 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="inputButton3:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="EUm-Fd-Wgk"/>
-                                    <action selector="inputButton4:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="V9Q-Tb-bOn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hu1-TH-GUK">
@@ -191,7 +190,7 @@
                                     <constraint firstAttribute="height" constant="60" id="ZKw-8w-wqI"/>
                                     <constraint firstAttribute="width" constant="150" id="tOJ-1c-TaE"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="次の問題"/>
                                 <connections>
                                     <action selector="nextButtonAction:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="Z0m-sC-ax1"/>
                                     <segue destination="b8O-H6-DJ5" kind="presentation" identifier="nextQuestion" id="I4E-OB-UOm"/>
@@ -236,7 +235,7 @@
                         <outlet property="input1" destination="rxz-B0-Rii" id="5qM-z4-Ad0"/>
                         <outlet property="input2" destination="Hu1-TH-GUK" id="UTX-aP-EZi"/>
                         <outlet property="input3" destination="ee4-Pj-LfS" id="HMT-A1-rSh"/>
-                        <outlet property="input4" destination="WFe-Q7-x3d" id="MQR-W4-rFa"/>
+                        <outlet property="input4" destination="WFe-Q7-x3d" id="7cf-pl-zAV"/>
                         <outlet property="nextButton" destination="S4b-jr-fTi" id="iqe-fr-apF"/>
                         <outlet property="questionView" destination="bTk-aJ-zP5" id="9eF-o1-aBa"/>
                     </connections>
