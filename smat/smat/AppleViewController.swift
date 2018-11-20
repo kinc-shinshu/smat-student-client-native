@@ -31,17 +31,31 @@ class AppleViewController: UIViewController {
     }
     
     // 結果をAPIサーバーに投げる関数
-    func postResult(inputNumber: Int, inputResult: Int) -> Bool {
-        // ここでに結果をサーバーに投げる
-        return false
+    func postResult(examNumber: String, questionId: Int, inputNumber: Int, inputResult: Int) -> Bool {
+        // ここで結果をサーバーに投げる
+        let URL = "https://" + examNumber
+        let paramData = [
+            "試行錯誤回数": inputNumber,
+            "結果": inputResult
+        ]
+        Alamofire.request(URL, method: .post, parameters: paramData, encoding: JSONEncoding.default).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print(json)
+            case .failure(let error):
+                print(error)
+            }
+        }
+        return true
     }
     
     // 正解を判別する関数
     func isTF(inputAnswer: String, trueAnswer: String, tryNumber: Int) {
         if inputAnswer == trueAnswer && tryNumber >= 0{
-            self.postResult(inputNumber: tryNumber + 1, inputResult: 1)
+            self.postResult(examNumber: self.examNumber!, questionId: self.questionNumber!, inputNumber: tryNumber + 1, inputResult: 1)
         } else if inputAnswer != trueAnswer && tryNumber >= 0 {
-            self.postResult(inputNumber: tryNumber + 1, inputResult: 0)
+            self.postResult(examNumber: self.examNumber!, questionId: questionNumber!, inputNumber: tryNumber + 1, inputResult: 0)
         }
     }
     
