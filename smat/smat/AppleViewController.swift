@@ -42,7 +42,7 @@ class AppleViewController: UIViewController {
     }
     
     // 結果をAPIサーバーに投げる関数
-    func postResult(examNumber: String, questionId: Int, inputNumber: Int, inputResult: Int) -> Bool {
+    func postResult(examNumber: String, questionId: Int, inputNumber: Int, inputResult: Int) {
         // ここで結果をサーバーに投げる
         let URL = "https://" + examNumber
         let paramData = [
@@ -58,7 +58,6 @@ class AppleViewController: UIViewController {
                 print(error)
             }
         }
-        return true
     }
     
     // 正解を判別する関数
