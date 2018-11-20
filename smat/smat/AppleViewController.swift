@@ -19,8 +19,15 @@ class AppleViewController: UIViewController {
     @IBOutlet weak var questionView: MTMathUILabel!
     @IBOutlet weak var answerView: MTMathUILabel!
     
+    // 入力された結果を格納するための変数
     var inputText = ""
     var inputTextNumber = 0
+    
+    // 答えをパーサーにかけるために
+    func ansify(texAnswer: String) -> String {
+        let result = texAnswer.pregReplace(pattern: "/[0-9a-w]+/g", with: "\\boxed{\\phantom{0}}")
+        return result
+    }
     
     // MARK: - Function for Buttons
     // 入力用の選択肢に関与する関数
@@ -171,8 +178,15 @@ class AppleViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the vie
         // loadQuestion(questionId: questionNumber!)
-        print(self.examNumber)
-        print(self.questionNumber)
+        questionView.latex = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
+        questionView.textAlignment = .center
+        questionView.sizeToFit()
+        answerView.latex = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
+        answerView.textAlignment = .center
+        answerView.sizeToFit()
+        var x = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
+        answerView.latex = x.pregReplace(pattern: "[0-9]+", with: "\\\\{boxed{\\\\phantom{0}}}")
+        print(x.pregReplace(pattern: "[0-9]+", with: "\\\\{boxed{\\\\phantom{0}}}"))
         self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
     }
     
@@ -216,6 +230,8 @@ class AppleViewController: UIViewController {
 
 }
 
+// 正規表現用に拡張
+// https://qiita.com/KikurageChan/items/807e84e3fa68bb9c4de6
 extension String {
     //絵文字など(2文字分)も含めた文字数を返します
     var length: Int {
