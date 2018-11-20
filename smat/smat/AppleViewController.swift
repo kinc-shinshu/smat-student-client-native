@@ -52,9 +52,9 @@ class AppleViewController: UIViewController {
     
     // 正解を判別する関数
     func isTF(inputAnswer: String, trueAnswer: String, tryNumber: Int) {
-        if inputAnswer == trueAnswer && tryNumber >= 0{
+        if (inputAnswer == trueAnswer && tryNumber >= 0) {
             self.postResult(examNumber: self.examNumber!, questionId: self.questionNumber!, inputNumber: tryNumber + 1, inputResult: 1)
-        } else if inputAnswer != trueAnswer && tryNumber >= 0 {
+        } else if (inputAnswer != trueAnswer && tryNumber >= 0) {
             self.postResult(examNumber: self.examNumber!, questionId: questionNumber!, inputNumber: tryNumber + 1, inputResult: 0)
         }
     }
@@ -72,13 +72,12 @@ class AppleViewController: UIViewController {
         self.questionView.latex = "x1"
         self.answerView.latex = "xX1"
         self.input1.setTitle("ボタン１", for: .normal)
-        self.nextButton.isHidden = true
+        self.goToNextBackFunc()
     }
     @IBAction func inputButton2(_ sender: Any) {
         self.questionView.latex = "x2"
         self.answerView.latex = "xX2"
         self.input2.setTitle("ボタン2", for: .normal)
-        self.nextButton.isHidden = false
     }
     @IBAction func inputButton3(_ sender: Any) {
         self.questionView.latex = "x3"
@@ -100,6 +99,16 @@ class AppleViewController: UIViewController {
     @IBAction func nextButtonAction(_ sender: Any) {
     }
     @IBAction func backButtonAction(_ sender: Any) {
+    }
+    
+    // 前後の問題に移動するボタンを表示するかどうかを決める関数
+    func goToNextBackFunc() {
+        if (self.questionNumber! > 1){
+            self.nextButton.isHidden = false
+            self.backButton.isHidden = false
+        } else {
+            self.nextButton.isHidden = false
+        }
     }
     
     
