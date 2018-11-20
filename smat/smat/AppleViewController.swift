@@ -113,8 +113,16 @@ class AppleViewController: UIViewController {
         if (self.questionNumber! > 1){
             self.nextButton.isHidden = false
             self.backButton.isHidden = false
+            self.input1.isHidden = false
+            self.input2.isHidden = false
+            self.input3.isHidden = false
+            self.input4.isHidden = false
         } else {
             self.nextButton.isHidden = false
+            self.input1.isHidden = false
+            self.input2.isHidden = false
+            self.input3.isHidden = false
+            self.input4.isHidden = false
         }
     }
     
