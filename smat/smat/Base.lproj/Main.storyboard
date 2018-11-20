@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KIh-Ha-bSx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -130,6 +130,9 @@
                                     <constraint firstAttribute="height" constant="60" id="M39-JI-h4D"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="inputButton1:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="WUN-dV-7fY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFe-Q7-x3d">
                                 <rect key="frame" x="195" y="536.5" width="130" height="60"/>
@@ -139,6 +142,10 @@
                                     <constraint firstAttribute="height" constant="60" id="cap-89-6Xx"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="inputButton3:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="EUm-Fd-Wgk"/>
+                                    <action selector="inputButton4:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="V9Q-Tb-bOn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hu1-TH-GUK">
                                 <rect key="frame" x="195" y="456.5" width="130" height="60"/>
@@ -148,6 +155,9 @@
                                     <constraint firstAttribute="height" constant="60" id="U5r-2R-rNk"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="inputButton2:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="zUA-SW-a6o"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ee4-Pj-LfS">
                                 <rect key="frame" x="50" y="536.5" width="130" height="60"/>
@@ -157,6 +167,9 @@
                                     <constraint firstAttribute="width" constant="130" id="hly-xc-QpP"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="inputButton3:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="R4K-md-yz1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -189,6 +202,10 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="AnswerView" destination="QUq-m7-bfs" id="zlr-Fe-vLY"/>
+                        <outlet property="input1" destination="rxz-B0-Rii" id="5qM-z4-Ad0"/>
+                        <outlet property="input2" destination="Hu1-TH-GUK" id="UTX-aP-EZi"/>
+                        <outlet property="input3" destination="ee4-Pj-LfS" id="HMT-A1-rSh"/>
+                        <outlet property="input4" destination="WFe-Q7-x3d" id="MQR-W4-rFa"/>
                         <outlet property="questionView" destination="bTk-aJ-zP5" id="9eF-o1-aBa"/>
                     </connections>
                 </viewController>
@@ -234,7 +251,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oRq-IF-upg"/>
         <segue reference="U1O-V2-mb1"/>
     </inferredMetricsTieBreakers>
 </document>
