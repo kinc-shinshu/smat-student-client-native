@@ -249,6 +249,11 @@
 			isa = PBXProject;
 			attributes = {
 				ORGANIZATIONNAME = KINC;
+				TargetAttributes = {
+					8BEE04A05EB9623926793831 = {
+						DevelopmentTeam = 5TL845RUG4;
+					};
+				};
 			};
 			buildConfigurationList = 8BEE088F89718D078BD6CDEF /* Build configuration list for PBXProject "smat" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -715,6 +720,7 @@
 			baseConfigurationReference = 590E11C036EAC8BB3E5298A6 /* Pods-smat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5TL845RUG4;
 				INFOPLIST_FILE = smat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kinc-shinshu.smat";
@@ -743,6 +749,7 @@
 			baseConfigurationReference = 28879B720E442853DB22DA96 /* Pods-smat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5TL845RUG4;
 				INFOPLIST_FILE = smat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kinc-shinshu.smat";
