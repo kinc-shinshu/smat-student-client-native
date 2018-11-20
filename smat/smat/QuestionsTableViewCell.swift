@@ -13,6 +13,9 @@ class QuestionsTableViewCell: UITableViewCell{
     
     // セルごとにテフ文のスペースを作る
     @IBOutlet weak var texLabel: MTMathUILabel!
+    @IBAction func finishButton(_ sender: UIBarButtonItem) {
+        print("x")
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

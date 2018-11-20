@@ -18,6 +18,12 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
     // 試験番号（Api叩くに必要）
     @IBOutlet var tableView: UITableView!
     
+    // 完成ボタンを追加
+    @IBOutlet weak var finishButton: UIButton!
+    @IBAction func postFinish(_ sender: UIButton) {
+    }
+    
+    
     
     var examNumber:String?
     var questionNumber:Int?
@@ -39,6 +45,7 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
                 self.questions += [question]
             }
             self.tableView.reloadData()
+            self.finishButton.isHidden = false
         }
     }
     

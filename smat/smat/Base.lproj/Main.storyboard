@@ -50,6 +50,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <button key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bgo-Sz-TjI">
+                            <rect key="frame" x="0.0" y="74" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                            <state key="normal" title="結果提出">
+                                <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="postFinish:" destination="Wvf-a1-E9E" eventType="touchUpInside" id="gEG-k1-iRE"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="NEr-Zi-jPx"/>
+                            </connections>
+                        </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuestionsTableViewCell" rowHeight="90" id="I0B-W9-kHi" customClass="QuestionsTableViewCell" customModule="smat" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
@@ -84,13 +97,14 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="問題一覧" id="fYO-pq-pNn"/>
                     <connections>
+                        <outlet property="finishButton" destination="bgo-Sz-TjI" id="mX4-0Y-Lx5"/>
                         <outlet property="tableView" destination="z4C-WO-38W" id="uEX-yr-BCL"/>
                         <segue destination="b8O-H6-DJ5" kind="presentation" identifier="forTest" id="oRq-IF-upg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6jX-Oe-tbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1938" y="2"/>
+            <point key="canvasLocation" x="1946" y="-754"/>
         </scene>
         <!--Apple View Controller-->
         <scene sceneID="MQc-LL-n5R">
@@ -177,7 +191,7 @@
                                     <constraint firstAttribute="width" constant="150" id="D7W-19-xzF"/>
                                     <constraint firstAttribute="height" constant="60" id="Fgd-WU-HQk"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="前の問題"/>
                                 <connections>
                                     <action selector="backButtonAction:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="o50-Yy-UJR"/>
                                     <segue destination="b8O-H6-DJ5" kind="presentation" identifier="backQuestion" id="nr2-yE-1V6"/>
@@ -282,7 +296,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nr2-yE-1V6"/>
+        <segue reference="oRq-IF-upg"/>
         <segue reference="U1O-V2-mb1"/>
     </inferredMetricsTieBreakers>
 </document>
