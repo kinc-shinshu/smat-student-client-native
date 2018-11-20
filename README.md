@@ -3,5 +3,5 @@
 ## Usage
 
 ```
-bug a iphone
+buy a iphone
 ```
