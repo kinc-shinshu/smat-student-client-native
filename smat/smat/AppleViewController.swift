@@ -18,10 +18,38 @@ class AppleViewController: UIViewController {
     @IBOutlet weak var questionView: MTMathUILabel!
     @IBOutlet weak var answerView: MTMathUILabel!
     
+    
     // MARK: - Function for Buttons
     // 入力用の選択肢に関与する関数
+    // 答えをパーサーにかける
+    func getAnswer(answerLatex: String) -> String {
+        return "x"
+    }
     
-    // MARK: - Buttons
+    // 答えから選択肢を生成する関数
+    func getSelection(parserAnswer: String) -> [[String]] {
+        return [["x1", "x2", "x3", "x4"], ["x1", "x2", "x3", "x4"], ["x1", "x2", "x3", "x4"]]
+    }
+    
+    // 結果をAPIサーバーに投げる関数
+    func postResult(inputNumber: Int, inputResult: Int) -> Bool {
+        // ここでに結果をサーバーに投げる
+        return false
+    }
+    
+    // 正解を判別する関数
+    func isTF(inputAnswer: String, trueAnswer: String, tryNumber: Int) {
+        if inputAnswer == trueAnswer {
+            self.postResult(inputNumber: tryNumber + 1, inputResult: 1)
+        } else {
+            self.postResult(inputNumber: tryNumber + 1, inputResult: 0)
+        }
+    }
+    
+    
+    
+    
+    // MARK: - Input Buttons
     // 入力用のボタンをリンクする
     @IBOutlet weak var input1: UIButton!
     @IBOutlet weak var input2: UIButton!
@@ -50,10 +78,9 @@ class AppleViewController: UIViewController {
         self.input4.setTitle("ボタン4", for: .normal)
     }
     
-    // 答えをパーサーにかける
-    func answerParser(answerLatex: String) -> String {
-        return "x"
-    }
+    // MARK: - next Buttons
+    // 次の問題に行く画面
+    
     
     // MARK: - for get question from api
     // 部屋番号（問題一覧に戻るため）
