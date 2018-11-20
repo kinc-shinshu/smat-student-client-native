@@ -45,19 +45,19 @@ class AppleViewController: UIViewController {
     
     // 答えから選択肢を生成する関数
     func getSelection(parserAnswer: String) -> [[String]] {
-        let x = "242"
-        for i in x {
-            print(i)
+        var selections = [[String]]()
+        for ans in parserAnswer {
+            var selection = [String]()
+            selection += [String(ans)]
+            for _ in 0..<3 {
+                let random = String(arc4random_uniform(10))
+                selection += [random]
+            }
+            selections += [selection]
         }
-        return [["x1", "x2", "x3", "x4"], ["x5", "x6", "x7", "x8"], ["x9", "x10", "x11", "x12"]]
+        return selections
     }
     
-    func test(){
-        let x = "242"
-        for i in x {
-            print(i)
-        }
-    }
     
     // 結果をAPIサーバーに投げる関数
     func postResult(examNumber: String, questionId: Int, inputNumber: Int, inputResult: Int) {
@@ -97,7 +97,7 @@ class AppleViewController: UIViewController {
     
     // 入力用のボタンのテキストを変更する関数
     func setInputButtons(nowInputTextNumber: Int){
-        let forSetInputText = self.getSelection(parserAnswer: "X")
+        let forSetInputText = self.getSelection(parserAnswer: "24242")
         if (forSetInputText.count == self.inputTextNumber) {
             self.goToNextBackFunc()
         } else {
