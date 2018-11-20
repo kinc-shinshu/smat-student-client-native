@@ -22,6 +22,7 @@ class AppleViewController: UIViewController {
     // 入力された結果を格納するための変数
     var inputText = ""
     var inputTextNumber = 0
+    var answerLatex = ""
     
     // 答えをパーサーにかけるために
     func ansify(texAnswer: String) -> String {
@@ -32,13 +33,30 @@ class AppleViewController: UIViewController {
     // MARK: - Function for Buttons
     // 入力用の選択肢に関与する関数
     // 答えをパーサーにかける
-    func getAnswer(answerLatex: String) -> String {
-        return "x"
+    func makeAnswer(answerLatex: String) -> String {
+        return answerLatex.pregReplace(pattern: "[0-9]+", with: "\\\\square ")
     }
+    
+    // 答えを取り出す
+    func getAnswer(answerLatex: String) -> String {
+        return answerLatex.pregReplace(pattern: "[^0-9]+", with: "")
+    }
+    
     
     // 答えから選択肢を生成する関数
     func getSelection(parserAnswer: String) -> [[String]] {
+        let x = "242"
+        for i in x {
+            print(i)
+        }
         return [["x1", "x2", "x3", "x4"], ["x5", "x6", "x7", "x8"], ["x9", "x10", "x11", "x12"]]
+    }
+    
+    func test(){
+        let x = "242"
+        for i in x {
+            print(i)
+        }
     }
     
     // 結果をAPIサーバーに投げる関数
@@ -166,23 +184,15 @@ class AppleViewController: UIViewController {
             let json = JSON(object)
             json.forEach { (_, json) in
                 self.questionView.latex = json["latex"].string
-                self.answerView.latex = json["ans_latex"].string
-                
+                self.questionView.textAlignment = .center
+                self.questionView.sizeToFit()
+                let ansLatex = json["ans_latex"].string
+                self.answerView.latex = self.makeAnswer(answerLatex: ansLatex!)
+                self.answerView.textAlignment = .center
+                self.answerView.sizeToFit()
+                self.answerLatex = self.getAnswer(answerLatex: ansLatex!)
             }
         }
-    }
-    
-    // MARK: - for view question and answer
-    // 問題文と答えを表示する
-    func loadQuestionAndAnswer() {
-        questionView.latex = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
-        questionView.textAlignment = .center
-        questionView.sizeToFit()
-        let x = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
-        answerView.latex = x.pregReplace(pattern: "[0-9]+", with: "\\\\square ")
-        answerView.textAlignment = .center
-        answerView.sizeToFit()
-        print(answerView.latex as Any)
     }
     
     // 画面を表示
@@ -190,7 +200,6 @@ class AppleViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the vie
         // loadQuestion(questionId: questionNumber!)
-        loadQuestionAndAnswer()
         self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
     }
     
