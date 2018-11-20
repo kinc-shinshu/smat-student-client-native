@@ -53,7 +53,7 @@
                         <button key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bgo-Sz-TjI">
                             <rect key="frame" x="0.0" y="74" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.27450980392156865" green="0.6470588235294118" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="32"/>
                             <state key="normal" title="結果提出">
                                 <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -137,77 +137,95 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxz-B0-Rii">
-                                <rect key="frame" x="50" y="456.5" width="130" height="60"/>
-                                <color key="backgroundColor" red="1" green="0.0141923555" blue="0.091291482389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="50" y="456" width="130" height="60"/>
+                                <color key="backgroundColor" red="0.24313725490196078" green="0.65098039215686276" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="DuO-4w-coa"/>
                                     <constraint firstAttribute="height" constant="60" id="M39-JI-h4D"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="inputButton1:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="WUN-dV-7fY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFe-Q7-x3d">
-                                <rect key="frame" x="195" y="536.5" width="130" height="60"/>
-                                <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="Inf-U8-isi"/>
-                                    <constraint firstAttribute="height" constant="60" id="cap-89-6Xx"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="inputButton3:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="EUm-Fd-Wgk"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hu1-TH-GUK">
-                                <rect key="frame" x="195" y="456.5" width="130" height="60"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="195" y="456" width="130" height="60"/>
+                                <color key="backgroundColor" red="0.24313725490196078" green="0.65098039215686276" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="PFt-gR-8nI"/>
                                     <constraint firstAttribute="height" constant="60" id="U5r-2R-rNk"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="inputButton2:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="zUA-SW-a6o"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ee4-Pj-LfS">
-                                <rect key="frame" x="50" y="536.5" width="130" height="60"/>
-                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="50" y="536" width="130" height="60"/>
+                                <color key="backgroundColor" red="0.24313725490196078" green="0.65098039215686276" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="JO4-sQ-tgy"/>
                                     <constraint firstAttribute="width" constant="130" id="hly-xc-QpP"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="inputButton3:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="R4K-md-yz1"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrA-kO-W1C">
-                                <rect key="frame" x="50" y="604" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFe-Q7-x3d">
+                                <rect key="frame" x="195" y="536" width="130" height="60"/>
+                                <color key="backgroundColor" red="0.24313725490196078" green="0.65098039215686276" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="D7W-19-xzF"/>
-                                    <constraint firstAttribute="height" constant="60" id="Fgd-WU-HQk"/>
+                                    <constraint firstAttribute="width" constant="130" id="Inf-U8-isi"/>
+                                    <constraint firstAttribute="height" constant="60" id="cap-89-6Xx"/>
                                 </constraints>
-                                <state key="normal" title="前の問題"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="backButtonAction:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="o50-Yy-UJR"/>
-                                    <segue destination="b8O-H6-DJ5" kind="presentation" identifier="backQuestion" id="nr2-yE-1V6"/>
+                                    <action selector="inputButton3:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="EUm-Fd-Wgk"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4b-jr-fTi">
                                 <rect key="frame" x="237" y="604" width="46" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.0141923555" blue="0.091291482389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.43529411759999997" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ZKw-8w-wqI"/>
                                     <constraint firstAttribute="width" constant="150" id="tOJ-1c-TaE"/>
                                 </constraints>
-                                <state key="normal" title="次の問題"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="次の問題">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="nextButtonAction:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="Z0m-sC-ax1"/>
                                     <segue destination="b8O-H6-DJ5" kind="presentation" identifier="nextQuestion" id="I4E-OB-UOm"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrA-kO-W1C">
+                                <rect key="frame" x="50" y="604" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.93333333333333335" green="0.43529411764705883" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="D7W-19-xzF"/>
+                                    <constraint firstAttribute="height" constant="60" id="Fgd-WU-HQk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="前の問題">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonAction:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="o50-Yy-UJR"/>
+                                    <segue destination="b8O-H6-DJ5" kind="presentation" identifier="backQuestion" id="nr2-yE-1V6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -296,7 +314,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oRq-IF-upg"/>
+        <segue reference="nr2-yE-1V6"/>
         <segue reference="U1O-V2-mb1"/>
     </inferredMetricsTieBreakers>
 </document>
