@@ -23,6 +23,7 @@ class AppleViewController: UIViewController {
     var inputText = ""
     var inputTextNumber = 0
     var answerLatex = ""
+    var tryNumber = 0
     
     // 答えをパーサーにかけるために
     func ansify(texAnswer: String) -> String {
@@ -97,8 +98,9 @@ class AppleViewController: UIViewController {
     
     // 入力用のボタンのテキストを変更する関数
     func setInputButtons(nowInputTextNumber: Int){
-        let forSetInputText = self.getSelection(parserAnswer: "24242")
+        let forSetInputText = self.getSelection(parserAnswer: self.answerLatex)
         if (forSetInputText.count == self.inputTextNumber) {
+            self.isTF(inputAnswer: self.inputText, trueAnswer: self.answerLatex, tryNumber: self.tryNumber)
             self.goToNextBackFunc()
         } else {
             self.input1.setTitle(forSetInputText[nowInputTextNumber][0], for: .normal)
@@ -184,6 +186,7 @@ class AppleViewController: UIViewController {
             let json = JSON(object)
             json.forEach { (_, json) in
                 self.questionView.latex = json["latex"].string
+                print(json["latex"].string)
                 self.questionView.textAlignment = .center
                 self.questionView.sizeToFit()
                 let ansLatex = json["ans_latex"].string
@@ -191,6 +194,7 @@ class AppleViewController: UIViewController {
                 self.answerView.textAlignment = .center
                 self.answerView.sizeToFit()
                 self.answerLatex = self.getAnswer(answerLatex: ansLatex!)
+                self.tryNumber = json["c"].int!
             }
         }
     }
@@ -201,6 +205,11 @@ class AppleViewController: UIViewController {
         // Do any additional setup after loading the vie
         // loadQuestion(questionId: questionNumber!)
         self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadQuestion(questionId: self.questionNumber!)
     }
     
     // 画面変移の際に部屋番号を渡している

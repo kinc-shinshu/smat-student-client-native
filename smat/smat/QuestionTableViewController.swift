@@ -31,14 +31,15 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     //  Apiを叩いて問題一覧を取得する
     func loadQuestions() {
-        Alamofire.request("https://smat-api.herokuapp.com/rooms/" + examNumber! + "/questions").responseJSON {response in
+        Alamofire.request("https://smat-api-dev.herokuapp.com/rooms/" + examNumber! + "/questions").responseJSON {response in
             guard let object = response.result.value else {
                 return
             }
             
             let json = JSON(object)
             json.forEach { (_, json) in
-                let questionT = json["text"].string
+                let questionT = json["latex"].string
+                print(json["latex"].string)
                 guard let question = Question(questionText: questionT!) else {
                     fatalError("Unable to instantiate questionT")
                 }
