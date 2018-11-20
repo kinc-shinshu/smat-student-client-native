@@ -184,7 +184,7 @@ class AppleViewController: UIViewController {
         answerView.latex = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
         answerView.textAlignment = .center
         answerView.sizeToFit()
-        var x = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
+        let x = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
         answerView.latex = x.pregReplace(pattern: "[0-9]+", with: "\\\\{boxed{\\\\phantom{0}}}")
         print(x.pregReplace(pattern: "[0-9]+", with: "\\\\{boxed{\\\\phantom{0}}}"))
         self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
