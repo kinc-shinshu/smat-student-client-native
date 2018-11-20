@@ -172,20 +172,25 @@ class AppleViewController: UIViewController {
         }
     }
     
+    // MARK: - for view question and answer
+    // 問題文と答えを表示する
+    func loadQuestionAndAnswer() {
+        questionView.latex = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
+        questionView.textAlignment = .center
+        questionView.sizeToFit()
+        let x = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
+        answerView.latex = x.pregReplace(pattern: "[0-9]+", with: "\\\\square ")
+        answerView.textAlignment = .center
+        answerView.sizeToFit()
+        print(answerView.latex as Any)
+    }
+    
     // 画面を表示
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the vie
         // loadQuestion(questionId: questionNumber!)
-        questionView.latex = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
-        questionView.textAlignment = .center
-        questionView.sizeToFit()
-        answerView.latex = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
-        answerView.textAlignment = .center
-        answerView.sizeToFit()
-        let x = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
-        answerView.latex = x.pregReplace(pattern: "[0-9]+", with: "\\\\{boxed{\\\\phantom{0}}}")
-        print(x.pregReplace(pattern: "[0-9]+", with: "\\\\{boxed{\\\\phantom{0}}}"))
+        loadQuestionAndAnswer()
         self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
     }
     
