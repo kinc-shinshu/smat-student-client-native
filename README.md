@@ -1,2 +1,7 @@
-# smat-student-client-new
-just start
+# SmaT Student Client
+
+## Usage
+
+```
+bug a iphone
+```
