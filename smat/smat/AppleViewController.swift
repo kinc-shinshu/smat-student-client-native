@@ -18,7 +18,6 @@ class AppleViewController: UIViewController {
     @IBOutlet weak var questionView: MTMathUILabel!
     @IBOutlet weak var answerView: MTMathUILabel!
     
-    
     // MARK: - Function for Buttons
     // 入力用の選択肢に関与する関数
     // 答えをパーサーにかける
@@ -61,11 +60,13 @@ class AppleViewController: UIViewController {
         self.questionView.latex = "x1"
         self.answerView.latex = "xX1"
         self.input1.setTitle("ボタン１", for: .normal)
+        self.nextButton.isHidden = true
     }
     @IBAction func inputButton2(_ sender: Any) {
         self.questionView.latex = "x2"
         self.answerView.latex = "xX2"
         self.input2.setTitle("ボタン2", for: .normal)
+        self.nextButton.isHidden = false
     }
     @IBAction func inputButton3(_ sender: Any) {
         self.questionView.latex = "x3"
@@ -79,7 +80,12 @@ class AppleViewController: UIViewController {
     }
     
     // MARK: - next Buttons
-    // 次の問題に行く画面
+    // 次の問題に行くボタン
+    @IBOutlet weak var nextButton: UIButton!
+    
+    // 次の問題に行くボタンの動作
+    @IBAction func nextButtonAction(_ sender: Any) {
+    }
     
     
     // MARK: - for get question from api
@@ -108,6 +114,8 @@ class AppleViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the vie
         // loadQuestion(questionId: questionNumber!)
+        print(self.examNumber)
+        print(self.questionNumber)
     }
     
     // 画面変移の際に部屋番号を渡している
@@ -116,6 +124,13 @@ class AppleViewController: UIViewController {
             let nav = segue.destination as! UINavigationController
             let questionList = nav.topViewController as! QuestionTableViewController
             questionList.examNumber = self.examNumber
+        }
+        
+        if (segue.identifier == "nextQuestion") {
+            let nav = segue.destination as! UINavigationController
+            let questionList = nav.topViewController as! AppleViewController
+            questionList.examNumber = self.examNumber
+            questionList.questionNumber = self.questionNumber! + 1
         }
     }
     
