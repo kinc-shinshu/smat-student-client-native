@@ -171,11 +171,25 @@
                                     <action selector="inputButton3:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="R4K-md-yz1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrA-kO-W1C">
+                                <rect key="frame" x="50" y="604" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="D7W-19-xzF"/>
+                                    <constraint firstAttribute="height" constant="60" id="Fgd-WU-HQk"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="backButtonAction:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="o50-Yy-UJR"/>
+                                    <segue destination="b8O-H6-DJ5" kind="presentation" identifier="backQuestion" id="nr2-yE-1V6"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4b-jr-fTi">
-                                <rect key="frame" x="164" y="604" width="46" height="30"/>
+                                <rect key="frame" x="237" y="604" width="46" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.0141923555" blue="0.091291482389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ZKw-8w-wqI"/>
+                                    <constraint firstAttribute="width" constant="150" id="tOJ-1c-TaE"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -189,18 +203,19 @@
                             <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="WFe-Q7-x3d" secondAttribute="trailing" constant="50" id="5Ky-nW-MWD"/>
                             <constraint firstItem="ee4-Pj-LfS" firstAttribute="top" secondItem="rxz-B0-Rii" secondAttribute="bottom" constant="20" id="CLa-Gb-UIB"/>
                             <constraint firstItem="WFe-Q7-x3d" firstAttribute="top" secondItem="Hu1-TH-GUK" secondAttribute="bottom" constant="20" id="KdZ-8I-p0K"/>
-                            <constraint firstItem="S4b-jr-fTi" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="30" id="MOr-CO-IfF"/>
+                            <constraint firstItem="S4b-jr-fTi" firstAttribute="top" secondItem="WFe-Q7-x3d" secondAttribute="bottom" constant="30" id="LhC-nm-gbX"/>
                             <constraint firstItem="rxz-B0-Rii" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="50" id="UYR-Br-o4Q"/>
-                            <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="S4b-jr-fTi" secondAttribute="trailing" constant="30" id="VjC-Dq-vm2"/>
                             <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="Hu1-TH-GUK" secondAttribute="trailing" constant="50" id="W0I-hO-iZo"/>
                             <constraint firstItem="bTk-aJ-zP5" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="30" id="Ztl-7c-c7u"/>
                             <constraint firstItem="rxz-B0-Rii" firstAttribute="top" secondItem="QUq-m7-bfs" secondAttribute="bottom" constant="200" id="aNn-6J-kqN"/>
+                            <constraint firstItem="nrA-kO-W1C" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="30" id="eAQ-5h-ZTh"/>
+                            <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="S4b-jr-fTi" secondAttribute="trailing" constant="30" id="eyo-6K-iA3"/>
                             <constraint firstItem="Hu1-TH-GUK" firstAttribute="top" secondItem="QUq-m7-bfs" secondAttribute="bottom" constant="200" id="fj6-Uj-dRq"/>
                             <constraint firstItem="QUq-m7-bfs" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="30" id="n59-lK-o3H"/>
-                            <constraint firstItem="S4b-jr-fTi" firstAttribute="top" secondItem="WFe-Q7-x3d" secondAttribute="bottom" constant="30" id="oBB-QY-HJ8"/>
                             <constraint firstItem="bTk-aJ-zP5" firstAttribute="top" secondItem="iZl-RQ-uTg" secondAttribute="top" constant="30" id="odU-Xm-EKU"/>
                             <constraint firstItem="ee4-Pj-LfS" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="50" id="suc-7g-anR"/>
                             <constraint firstItem="QUq-m7-bfs" firstAttribute="top" secondItem="bTk-aJ-zP5" secondAttribute="bottom" constant="100" id="sue-xa-5k3"/>
+                            <constraint firstItem="nrA-kO-W1C" firstAttribute="top" secondItem="ee4-Pj-LfS" secondAttribute="bottom" constant="30" id="tKA-KF-v4X"/>
                             <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="QUq-m7-bfs" secondAttribute="trailing" constant="30" id="xde-J4-3Uv"/>
                             <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="bTk-aJ-zP5" secondAttribute="trailing" constant="30" id="zXh-K1-F2p"/>
                         </constraints>
@@ -217,6 +232,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="answerView" destination="QUq-m7-bfs" id="mRl-i6-lKi"/>
+                        <outlet property="backButton" destination="nrA-kO-W1C" id="EqM-b7-Zx2"/>
                         <outlet property="input1" destination="rxz-B0-Rii" id="5qM-z4-Ad0"/>
                         <outlet property="input2" destination="Hu1-TH-GUK" id="UTX-aP-EZi"/>
                         <outlet property="input3" destination="ee4-Pj-LfS" id="HMT-A1-rSh"/>
@@ -267,7 +283,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oRq-IF-upg"/>
+        <segue reference="nr2-yE-1V6"/>
         <segue reference="U1O-V2-mb1"/>
     </inferredMetricsTieBreakers>
 </document>

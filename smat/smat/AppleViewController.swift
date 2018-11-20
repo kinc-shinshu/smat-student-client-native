@@ -38,14 +38,12 @@ class AppleViewController: UIViewController {
     
     // 正解を判別する関数
     func isTF(inputAnswer: String, trueAnswer: String, tryNumber: Int) {
-        if inputAnswer == trueAnswer {
+        if inputAnswer == trueAnswer && tryNumber >= 0{
             self.postResult(inputNumber: tryNumber + 1, inputResult: 1)
-        } else {
+        } else if inputAnswer != trueAnswer && tryNumber >= 0 {
             self.postResult(inputNumber: tryNumber + 1, inputResult: 0)
         }
     }
-    
-    
     
     
     // MARK: - Input Buttons
@@ -79,12 +77,15 @@ class AppleViewController: UIViewController {
         self.input4.setTitle("ボタン4", for: .normal)
     }
     
-    // MARK: - next Buttons
-    // 次の問題に行くボタン
+    // MARK: - next back question buttons
+    // 前後の問題に移動するボタン
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
-    // 次の問題に行くボタンの動作
+    // 前後の問題に移動する関数
     @IBAction func nextButtonAction(_ sender: Any) {
+    }
+    @IBAction func backButtonAction(_ sender: Any) {
     }
     
     
@@ -131,6 +132,17 @@ class AppleViewController: UIViewController {
             let questionList = nav.topViewController as! AppleViewController
             questionList.examNumber = self.examNumber
             questionList.questionNumber = self.questionNumber! + 1
+        }
+        
+        if (segue.identifier == "backQuestion") {
+            let nav = segue.destination as! UINavigationController
+            let questionList = nav.topViewController as! AppleViewController
+            questionList.examNumber = self.examNumber
+            if (self.questionNumber! > 1) {
+                questionList.questionNumber = self.questionNumber! - 1
+            } else {
+                questionList.questionNumber = 1
+            }
         }
     }
     
