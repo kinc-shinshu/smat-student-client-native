@@ -14,6 +14,7 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     // 問題一覧を定義（独自クラスQuestion）
     var questions = [Question]()
+    var questionsSumNumber = 0
     
     // 試験番号（Api叩くに必要）
     @IBOutlet var tableView: UITableView!
@@ -42,6 +43,7 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
                 }
                 self.questions += [question]
             }
+            self.questionsSumNumber = self.questions.count
             self.tableView.reloadData()
             self.finishButton.isHidden = false
         }
@@ -54,6 +56,7 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
             let questionList = nav.topViewController as! AppleViewController
             questionList.examNumber = self.examNumber
             questionList.questionNumber = sender as? Int
+            questionList.questionSumNumber = self.questionsSumNumber
         }
         
     }

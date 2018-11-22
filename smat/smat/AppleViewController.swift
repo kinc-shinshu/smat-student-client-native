@@ -192,19 +192,17 @@ class AppleViewController: UIViewController {
     
     // 前後の問題に移動するボタンを表示するかどうかを決める関数
     func goToNextBackFunc() {
-        if (self.questionNumber! > 1){
+        self.input1.isHidden = true
+        self.input2.isHidden = true
+        self.input3.isHidden = true
+        self.input4.isHidden = true
+        if (self.questionNumber! > 1 && self.questionSumNumber != questionNumber){
             self.nextButton.isHidden = false
             self.backButton.isHidden = false
-            self.input1.isHidden = true
-            self.input2.isHidden = true
-            self.input3.isHidden = true
-            self.input4.isHidden = true
-        } else {
+        } else if (self.questionNumber! > 1 && self.questionSumNumber == questionNumber){
+            self.backButton.isHidden = false
+        } else if (self.questionNumber! == 1){
             self.nextButton.isHidden = false
-            self.input1.isHidden = true
-            self.input2.isHidden = true
-            self.input3.isHidden = true
-            self.input4.isHidden = true
         }
     }
     
@@ -213,6 +211,7 @@ class AppleViewController: UIViewController {
     // 部屋番号（問題一覧に戻るため）
     var examNumber: String?
     var questionNumber: Int?
+    var questionSumNumber: Int?
     
     // 問題を取得する関数
     func loadQuestion(questionId: Int){
@@ -262,6 +261,7 @@ class AppleViewController: UIViewController {
             let questionList = nav.topViewController as! AppleViewController
             questionList.examNumber = self.examNumber
             questionList.questionNumber = self.questionNumber! + 1
+            questionList.questionSumNumber = self.questionSumNumber
         }
         
         if (segue.identifier == "backQuestion") {
@@ -273,6 +273,7 @@ class AppleViewController: UIViewController {
             } else {
                 questionList.questionNumber = 1
             }
+            questionList.questionSumNumber = self.questionSumNumber
         }
     }
     
