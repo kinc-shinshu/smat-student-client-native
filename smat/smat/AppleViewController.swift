@@ -201,6 +201,7 @@ class AppleViewController: UIViewController {
     var questionSumNumber: Int?
     var questionResultC: [Int]?
     var questionResultJ: [Int]?
+    var questionResultQid: [Int]?
     
     // 問題を取得する関数
     func loadQuestion(questionId: Int){
@@ -246,6 +247,7 @@ class AppleViewController: UIViewController {
             questionList.forResultJ = 1
             questionList.resultJ = self.questionResultJ!
             questionList.resultC = self.questionResultC!
+            questionList.resultQid = self.questionResultQid!
         }
         
         if (segue.identifier == "nextQuestion") {
@@ -256,7 +258,7 @@ class AppleViewController: UIViewController {
             questionList.questionSumNumber = self.questionSumNumber
             questionList.questionResultJ = self.questionResultJ
             questionList.questionResultC = self.questionResultC
-            
+            questionList.questionResultQid = self.questionResultQid
         }
         
         if (segue.identifier == "backQuestion") {
@@ -271,6 +273,7 @@ class AppleViewController: UIViewController {
             questionList.questionSumNumber = self.questionSumNumber
             questionList.questionResultJ = self.questionResultJ
             questionList.questionResultC = self.questionResultC
+            questionList.questionResultQid = self.questionResultQid
         }
     }
     
