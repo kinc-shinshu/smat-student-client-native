@@ -49,8 +49,9 @@ class AppleViewController: UIViewController {
         var newAnswer = ""
         if let range = now.range(of: "?") {
             newAnswer = now.replacingCharacters(in: range, with: inputAnswer)
+        } else {
+            newAnswer = now
         }
-        print(newAnswer)
         self.answerView.latex = newAnswer
     }
     
@@ -60,8 +61,9 @@ class AppleViewController: UIViewController {
         var newAnswer = ""
         if let range = now.range(of: "\\square ") {
             newAnswer = now.replacingCharacters(in: range, with: "?")
+        } else {
+            newAnswer = now
         }
-        print(newAnswer)
         self.answerView.latex = newAnswer
     }
     
