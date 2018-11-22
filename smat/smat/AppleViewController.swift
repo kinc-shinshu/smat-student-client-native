@@ -20,6 +20,7 @@ class AppleViewController: UIViewController {
     @IBOutlet weak var answerView: MTMathUILabel!
     @IBOutlet weak var tfLabel: UILabel!
     
+    // 結果表示用のもの
     let trueText = "正解です！"
     let falseText = "残念..."
     
@@ -87,35 +88,21 @@ class AppleViewController: UIViewController {
         return selections
     }
     
-    
-    // 結果をAPIサーバーに投げる関数
-    func postResult(examNumber: String, questionId: Int, inputNumber: Int, inputResult: Int) {
-        // ここで結果をサーバーに投げる
-        let URL = "https://" + examNumber
-        let paramData = [
-            "試行錯誤回数": inputNumber,
-            "結果": inputResult
-        ]
-        Alamofire.request(URL, method: .post, parameters: paramData, encoding: JSONEncoding.default).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print(json)
-            case .failure(let error):
-                print(error)
-            }
-        }
+    // MARK for result api
+    func saveResult(j: Int) {
+        self.questionResultC![self.questionNumber! - 1] += 1
+        self.questionResultJ![self.questionNumber! - 1] = j
     }
     
     // 正解を判別する関数
     func isTF(inputAnswer: String, trueAnswer: String, tryNumber: Int) {
         if (inputAnswer == trueAnswer && tryNumber >= 0) {
-            self.postResult(examNumber: self.examNumber!, questionId: self.questionNumber!, inputNumber: tryNumber + 1, inputResult: 1)
+            self.saveResult(j: 1)
             self.tfLabel.text = self.trueText
             self.tfLabel.textColor = UIColor(red: 62/255, green: 166/255, blue: 154/255, alpha: 1)
             self.tfLabel.isHidden = false
         } else if (inputAnswer != trueAnswer && tryNumber >= 0) {
-            self.postResult(examNumber: self.examNumber!, questionId: questionNumber!, inputNumber: tryNumber + 1, inputResult: 0)
+            self.saveResult(j: 0)
             self.tfLabel.text = self.falseText
             self.tfLabel.textColor = UIColor(red: 238/255, green: 111/255, blue: 115/255, alpha: 1)
             self.tfLabel.isHidden = false
@@ -212,6 +199,8 @@ class AppleViewController: UIViewController {
     var examNumber: String?
     var questionNumber: Int?
     var questionSumNumber: Int?
+    var questionResultC: [Int]?
+    var questionResultJ: [Int]?
     
     // 問題を取得する関数
     func loadQuestion(questionId: Int){
@@ -254,6 +243,9 @@ class AppleViewController: UIViewController {
             let nav = segue.destination as! UINavigationController
             let questionList = nav.topViewController as! QuestionTableViewController
             questionList.examNumber = self.examNumber
+            questionList.forResultJ = 1
+            questionList.resultJ = self.questionResultJ!
+            questionList.resultC = self.questionResultC!
         }
         
         if (segue.identifier == "nextQuestion") {
@@ -262,6 +254,9 @@ class AppleViewController: UIViewController {
             questionList.examNumber = self.examNumber
             questionList.questionNumber = self.questionNumber! + 1
             questionList.questionSumNumber = self.questionSumNumber
+            questionList.questionResultJ = self.questionResultJ
+            questionList.questionResultC = self.questionResultC
+            
         }
         
         if (segue.identifier == "backQuestion") {
@@ -274,6 +269,8 @@ class AppleViewController: UIViewController {
                 questionList.questionNumber = 1
             }
             questionList.questionSumNumber = self.questionSumNumber
+            questionList.questionResultJ = self.questionResultJ
+            questionList.questionResultC = self.questionResultC
         }
     }
     
