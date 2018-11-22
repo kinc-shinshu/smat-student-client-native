@@ -43,6 +43,27 @@ class AppleViewController: UIViewController {
         return answerLatex.pregReplace(pattern: "[^0-9]+", with: "")
     }
     
+    // 答えを一つずつ代入する関数
+    func makeAnswerBetter(nowAnswer: String, inputAnswer: String) {
+        let now = nowAnswer
+        var newAnswer = ""
+        if let range = now.range(of: "?") {
+            newAnswer = now.replacingCharacters(in: range, with: inputAnswer)
+        }
+        print(newAnswer)
+        self.answerView.latex = newAnswer
+    }
+    
+    // ？をつける
+    func makeNowInput(nowAnswer: String) {
+        let now = nowAnswer
+        var newAnswer = ""
+        if let range = now.range(of: "\\square ") {
+            newAnswer = now.replacingCharacters(in: range, with: "?")
+        }
+        print(newAnswer)
+        self.answerView.latex = newAnswer
+    }
     
     // 答えから選択肢を生成する関数
     func getSelection(parserAnswer: String) -> [[String]] {
@@ -118,21 +139,29 @@ class AppleViewController: UIViewController {
     // 入力用のボタンのアクションを定義する
     @IBAction func inputButton1(_ sender: Any) {
         saveInput(input: self.input1.currentTitle!)
+        self.makeNowInput(nowAnswer: self.answerView.latex!)
+        self.makeAnswerBetter(nowAnswer: self.answerView.latex!, inputAnswer: self.input1.currentTitle!)
         self.inputTextNumber += 1
         self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
     }
     @IBAction func inputButton2(_ sender: Any) {
         saveInput(input: self.input2.currentTitle!)
+        self.makeNowInput(nowAnswer: self.answerView.latex!)
+        self.makeAnswerBetter(nowAnswer: self.answerView.latex!, inputAnswer: self.input2.currentTitle!)
         self.inputTextNumber += 1
         self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
     }
     @IBAction func inputButton3(_ sender: Any) {
         saveInput(input: self.input3.currentTitle!)
+        self.makeNowInput(nowAnswer: self.answerView.latex!)
+        self.makeAnswerBetter(nowAnswer: self.answerView.latex!, inputAnswer: self.input3.currentTitle!)
         self.inputTextNumber += 1
         self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
     }
     @IBAction func inputButton4(_ sender: Any) {
         saveInput(input: self.input4.currentTitle!)
+        self.makeNowInput(nowAnswer: self.answerView.latex!)
+        self.makeAnswerBetter(nowAnswer: self.answerView.latex!, inputAnswer: self.input4.currentTitle!)
         self.inputTextNumber += 1
         self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
     }
@@ -173,7 +202,7 @@ class AppleViewController: UIViewController {
     var questionNumber: Int?
     
     // 問題を取得する関数
-    func loadQuestion(questionId: Int) {
+    func loadQuestion(questionId: Int){
         Alamofire.request("https://smat-api-dev.herokuapp.com/v1/rooms/" + examNumber! + "/questions/" + String(questionId)).responseJSON {response in
             guard let object = response.result.value else {
                 return
@@ -188,7 +217,7 @@ class AppleViewController: UIViewController {
             self.answerView.sizeToFit()
             self.answerLatex = self.getAnswer(answerLatex: ansLatex!)
             self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
-            //tryNumber = json["c"].int!
+            self.makeNowInput(nowAnswer: self.answerView.latex!)
         }
     }
     
@@ -202,6 +231,8 @@ class AppleViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadQuestion(questionId: self.questionNumber!)
+        
+        
     }
     
     // 画面変移の際に部屋番号を渡している
