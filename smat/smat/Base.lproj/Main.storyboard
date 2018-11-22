@@ -145,7 +145,7 @@
                                 <rect key="frame" x="50" y="366" width="122.5" height="42"/>
                                 <color key="backgroundColor" red="0.24313725490196078" green="0.65098039215686276" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="　">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -156,7 +156,7 @@
                                 <rect key="frame" x="202.5" y="366" width="122.5" height="42"/>
                                 <color key="backgroundColor" red="0.24313725490196078" green="0.65098039215686276" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="　">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -167,7 +167,7 @@
                                 <rect key="frame" x="50" y="428" width="122.5" height="42"/>
                                 <color key="backgroundColor" red="0.24313725490196078" green="0.65098039215686276" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="　">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -178,7 +178,7 @@
                                 <rect key="frame" x="202.5" y="428" width="122.5" height="42"/>
                                 <color key="backgroundColor" red="0.24313725490196078" green="0.65098039215686276" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="　">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -209,6 +209,18 @@
                                     <segue destination="b8O-H6-DJ5" kind="presentation" identifier="backQuestion" id="nr2-yE-1V6"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSj-Bl-ooh">
+                                <rect key="frame" x="166" y="304" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="？に入る数字を選べ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GW9-af-l7Z">
+                                <rect key="frame" x="166" y="201" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -217,10 +229,14 @@
                             <constraint firstItem="Hu1-TH-GUK" firstAttribute="width" secondItem="rxz-B0-Rii" secondAttribute="width" id="9ze-jW-NUj"/>
                             <constraint firstItem="ee4-Pj-LfS" firstAttribute="width" secondItem="rxz-B0-Rii" secondAttribute="width" id="Ar9-YX-Mpv"/>
                             <constraint firstItem="ee4-Pj-LfS" firstAttribute="top" secondItem="rxz-B0-Rii" secondAttribute="bottom" constant="20" id="CLa-Gb-UIB"/>
+                            <constraint firstItem="rSj-Bl-ooh" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="30" id="E9z-FY-fcj"/>
+                            <constraint firstItem="GW9-af-l7Z" firstAttribute="top" secondItem="bTk-aJ-zP5" secondAttribute="bottom" constant="30" id="Hmj-Xn-TtE"/>
                             <constraint firstItem="WFe-Q7-x3d" firstAttribute="top" secondItem="Hu1-TH-GUK" secondAttribute="bottom" constant="20" id="KdZ-8I-p0K"/>
                             <constraint firstItem="S4b-jr-fTi" firstAttribute="top" secondItem="WFe-Q7-x3d" secondAttribute="bottom" constant="30" id="LhC-nm-gbX"/>
+                            <constraint firstItem="QUq-m7-bfs" firstAttribute="top" secondItem="GW9-af-l7Z" secondAttribute="bottom" constant="30" id="Npa-m9-i7G"/>
                             <constraint firstItem="Hu1-TH-GUK" firstAttribute="leading" secondItem="rxz-B0-Rii" secondAttribute="trailing" constant="30" id="UML-Hr-XlL"/>
                             <constraint firstItem="rxz-B0-Rii" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="50" id="UYR-Br-o4Q"/>
+                            <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="GW9-af-l7Z" secondAttribute="trailing" constant="30" id="UaH-Lk-MKX"/>
                             <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="Hu1-TH-GUK" secondAttribute="trailing" constant="50" id="W0I-hO-iZo"/>
                             <constraint firstItem="bTk-aJ-zP5" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="30" id="Ztl-7c-c7u"/>
                             <constraint firstItem="rxz-B0-Rii" firstAttribute="top" secondItem="QUq-m7-bfs" secondAttribute="bottom" constant="100" id="aNn-6J-kqN"/>
@@ -228,7 +244,9 @@
                             <constraint firstItem="S4b-jr-fTi" firstAttribute="width" secondItem="nrA-kO-W1C" secondAttribute="width" id="eaN-Pv-Bcx"/>
                             <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="S4b-jr-fTi" secondAttribute="trailing" constant="30" id="eyo-6K-iA3"/>
                             <constraint firstItem="Hu1-TH-GUK" firstAttribute="top" secondItem="QUq-m7-bfs" secondAttribute="bottom" constant="100" id="fj6-Uj-dRq"/>
+                            <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="rSj-Bl-ooh" secondAttribute="trailing" constant="30" id="jhR-XS-Mx4"/>
                             <constraint firstItem="WFe-Q7-x3d" firstAttribute="width" secondItem="rxz-B0-Rii" secondAttribute="width" id="kwP-p9-5SC"/>
+                            <constraint firstItem="rSj-Bl-ooh" firstAttribute="top" secondItem="QUq-m7-bfs" secondAttribute="bottom" constant="30" id="mSx-QD-25p"/>
                             <constraint firstItem="Hu1-TH-GUK" firstAttribute="height" secondItem="rxz-B0-Rii" secondAttribute="height" id="n3h-Ps-Rer"/>
                             <constraint firstItem="QUq-m7-bfs" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="30" id="n59-lK-o3H"/>
                             <constraint firstItem="bTk-aJ-zP5" firstAttribute="top" secondItem="iZl-RQ-uTg" secondAttribute="top" constant="30" id="odU-Xm-EKU"/>
@@ -240,6 +258,7 @@
                             <constraint firstItem="S4b-jr-fTi" firstAttribute="leading" secondItem="nrA-kO-W1C" secondAttribute="trailing" constant="30" id="tkB-yF-AEI"/>
                             <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="QUq-m7-bfs" secondAttribute="trailing" constant="30" id="xde-J4-3Uv"/>
                             <constraint firstItem="WFe-Q7-x3d" firstAttribute="height" secondItem="rxz-B0-Rii" secondAttribute="height" id="xeo-sn-hu2"/>
+                            <constraint firstItem="GW9-af-l7Z" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="30" id="y2g-m5-KUp"/>
                             <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="bTk-aJ-zP5" secondAttribute="trailing" constant="30" id="zXh-K1-F2p"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iZl-RQ-uTg"/>
@@ -262,11 +281,12 @@
                         <outlet property="input4" destination="WFe-Q7-x3d" id="7cf-pl-zAV"/>
                         <outlet property="nextButton" destination="S4b-jr-fTi" id="iqe-fr-apF"/>
                         <outlet property="questionView" destination="bTk-aJ-zP5" id="9eF-o1-aBa"/>
+                        <outlet property="tfLabel" destination="rSj-Bl-ooh" id="zr9-MJ-1hk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xD4-AY-GHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3463" y="-1504"/>
+            <point key="canvasLocation" x="3461.5999999999999" y="-1504.4977511244379"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pqp-A2-Nol">
@@ -307,6 +327,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="nr2-yE-1V6"/>
-        <segue reference="BvC-Ms-ect"/>
+        <segue reference="U1O-V2-mb1"/>
     </inferredMetricsTieBreakers>
 </document>

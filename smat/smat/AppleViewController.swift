@@ -18,6 +18,11 @@ class AppleViewController: UIViewController {
     // 問題と答えを表示するためのViewを作る
     @IBOutlet weak var questionView: MTMathUILabel!
     @IBOutlet weak var answerView: MTMathUILabel!
+    @IBOutlet weak var tfLabel: UILabel!
+    
+    // 結果表示用のもの
+    let trueText = "正解です！"
+    let falseText = "残念..."
     
     // 入力された結果を格納するための変数
     var inputText = ""
@@ -43,6 +48,29 @@ class AppleViewController: UIViewController {
         return answerLatex.pregReplace(pattern: "[^0-9]+", with: "")
     }
     
+    // 答えを一つずつ代入する関数
+    func makeAnswerBetter(nowAnswer: String, inputAnswer: String) {
+        let now = nowAnswer
+        var newAnswer = ""
+        if let range = now.range(of: "?") {
+            newAnswer = now.replacingCharacters(in: range, with: inputAnswer)
+        } else {
+            newAnswer = now
+        }
+        self.answerView.latex = newAnswer
+    }
+    
+    // ？をつける
+    func makeNowInput(nowAnswer: String) {
+        let now = nowAnswer
+        var newAnswer = ""
+        if let range = now.range(of: "\\square ") {
+            newAnswer = now.replacingCharacters(in: range, with: "?")
+        } else {
+            newAnswer = now
+        }
+        self.answerView.latex = newAnswer
+    }
     
     // 答えから選択肢を生成する関数
     func getSelection(parserAnswer: String) -> [[String]] {
@@ -54,37 +82,30 @@ class AppleViewController: UIViewController {
                 let random = String(arc4random_uniform(10))
                 selection += [random]
             }
+            selection.sort()
             selections += [selection]
         }
         return selections
     }
     
-    
-    // 結果をAPIサーバーに投げる関数
-    func postResult(examNumber: String, questionId: Int, inputNumber: Int, inputResult: Int) {
-        // ここで結果をサーバーに投げる
-        let URL = "https://" + examNumber
-        let paramData = [
-            "試行錯誤回数": inputNumber,
-            "結果": inputResult
-        ]
-        Alamofire.request(URL, method: .post, parameters: paramData, encoding: JSONEncoding.default).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print(json)
-            case .failure(let error):
-                print(error)
-            }
-        }
+    // MARK for result api
+    func saveResult(j: Int) {
+        self.questionResultC![self.questionNumber! - 1] += 1
+        self.questionResultJ![self.questionNumber! - 1] = j
     }
     
     // 正解を判別する関数
     func isTF(inputAnswer: String, trueAnswer: String, tryNumber: Int) {
         if (inputAnswer == trueAnswer && tryNumber >= 0) {
-            self.postResult(examNumber: self.examNumber!, questionId: self.questionNumber!, inputNumber: tryNumber + 1, inputResult: 1)
+            self.saveResult(j: 1)
+            self.tfLabel.text = self.trueText
+            self.tfLabel.textColor = UIColor(red: 62/255, green: 166/255, blue: 154/255, alpha: 1)
+            self.tfLabel.isHidden = false
         } else if (inputAnswer != trueAnswer && tryNumber >= 0) {
-            self.postResult(examNumber: self.examNumber!, questionId: questionNumber!, inputNumber: tryNumber + 1, inputResult: 0)
+            self.saveResult(j: 0)
+            self.tfLabel.text = self.falseText
+            self.tfLabel.textColor = UIColor(red: 238/255, green: 111/255, blue: 115/255, alpha: 1)
+            self.tfLabel.isHidden = false
         }
     }
     
@@ -118,27 +139,31 @@ class AppleViewController: UIViewController {
     // 入力用のボタンのアクションを定義する
     @IBAction func inputButton1(_ sender: Any) {
         saveInput(input: self.input1.currentTitle!)
+        self.makeNowInput(nowAnswer: self.answerView.latex!)
+        self.makeAnswerBetter(nowAnswer: self.answerView.latex!, inputAnswer: self.input1.currentTitle!)
         self.inputTextNumber += 1
         self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
-        print(self.inputText)
     }
     @IBAction func inputButton2(_ sender: Any) {
         saveInput(input: self.input2.currentTitle!)
+        self.makeNowInput(nowAnswer: self.answerView.latex!)
+        self.makeAnswerBetter(nowAnswer: self.answerView.latex!, inputAnswer: self.input2.currentTitle!)
         self.inputTextNumber += 1
         self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
-        print(self.inputText)
     }
     @IBAction func inputButton3(_ sender: Any) {
         saveInput(input: self.input3.currentTitle!)
+        self.makeNowInput(nowAnswer: self.answerView.latex!)
+        self.makeAnswerBetter(nowAnswer: self.answerView.latex!, inputAnswer: self.input3.currentTitle!)
         self.inputTextNumber += 1
         self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
-        print(self.inputText)
     }
     @IBAction func inputButton4(_ sender: Any) {
         saveInput(input: self.input4.currentTitle!)
+        self.makeNowInput(nowAnswer: self.answerView.latex!)
+        self.makeAnswerBetter(nowAnswer: self.answerView.latex!, inputAnswer: self.input4.currentTitle!)
         self.inputTextNumber += 1
         self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
-        print(self.inputText)
     }
     
     // MARK: - next back question buttons
@@ -154,19 +179,17 @@ class AppleViewController: UIViewController {
     
     // 前後の問題に移動するボタンを表示するかどうかを決める関数
     func goToNextBackFunc() {
-        if (self.questionNumber! > 1){
+        self.input1.isHidden = true
+        self.input2.isHidden = true
+        self.input3.isHidden = true
+        self.input4.isHidden = true
+        if (self.questionNumber! > 1 && self.questionSumNumber != questionNumber){
             self.nextButton.isHidden = false
             self.backButton.isHidden = false
-            self.input1.isHidden = true
-            self.input2.isHidden = true
-            self.input3.isHidden = true
-            self.input4.isHidden = true
-        } else {
+        } else if (self.questionNumber! > 1 && self.questionSumNumber == questionNumber){
+            self.backButton.isHidden = false
+        } else if (self.questionNumber! == 1){
             self.nextButton.isHidden = false
-            self.input1.isHidden = true
-            self.input2.isHidden = true
-            self.input3.isHidden = true
-            self.input4.isHidden = true
         }
     }
     
@@ -175,27 +198,27 @@ class AppleViewController: UIViewController {
     // 部屋番号（問題一覧に戻るため）
     var examNumber: String?
     var questionNumber: Int?
+    var questionSumNumber: Int?
+    var questionResultC: [Int]?
+    var questionResultJ: [Int]?
     
     // 問題を取得する関数
-    func loadQuestion(questionId: Int) {
-        Alamofire.request("https://smat-api.herokuapp.com/rooms/" + examNumber! + "/questions/" + String(questionId)).responseJSON {response in
+    func loadQuestion(questionId: Int){
+        Alamofire.request("https://smat-api-dev.herokuapp.com/v1/rooms/" + examNumber! + "/questions/" + String(questionId)).responseJSON {response in
             guard let object = response.result.value else {
                 return
             }
-            
             let json = JSON(object)
-            json.forEach { (_, json) in
-                self.questionView.latex = json["latex"].string
-                print(json["latex"].string)
-                self.questionView.textAlignment = .center
-                self.questionView.sizeToFit()
-                let ansLatex = json["ans_latex"].string
-                self.answerView.latex = self.makeAnswer(answerLatex: ansLatex!)
-                self.answerView.textAlignment = .center
-                self.answerView.sizeToFit()
-                self.answerLatex = self.getAnswer(answerLatex: ansLatex!)
-                self.tryNumber = json["c"].int!
-            }
+            self.questionView.latex = json["latex"].string
+            self.questionView.textAlignment = .center
+            self.questionView.sizeToFit()
+            let ansLatex = json["ans_latex"].string
+            self.answerView.latex = self.makeAnswer(answerLatex: ansLatex!)
+            self.answerView.textAlignment = .center
+            self.answerView.sizeToFit()
+            self.answerLatex = self.getAnswer(answerLatex: ansLatex!)
+            self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
+            self.makeNowInput(nowAnswer: self.answerView.latex!)
         }
     }
     
@@ -204,12 +227,14 @@ class AppleViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the vie
         // loadQuestion(questionId: questionNumber!)
-        self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
+        self.navigationItem.title = "問題" + String(self.questionNumber!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadQuestion(questionId: self.questionNumber!)
+        
+        
     }
     
     // 画面変移の際に部屋番号を渡している
@@ -218,6 +243,9 @@ class AppleViewController: UIViewController {
             let nav = segue.destination as! UINavigationController
             let questionList = nav.topViewController as! QuestionTableViewController
             questionList.examNumber = self.examNumber
+            questionList.forResultJ = 1
+            questionList.resultJ = self.questionResultJ!
+            questionList.resultC = self.questionResultC!
         }
         
         if (segue.identifier == "nextQuestion") {
@@ -225,6 +253,10 @@ class AppleViewController: UIViewController {
             let questionList = nav.topViewController as! AppleViewController
             questionList.examNumber = self.examNumber
             questionList.questionNumber = self.questionNumber! + 1
+            questionList.questionSumNumber = self.questionSumNumber
+            questionList.questionResultJ = self.questionResultJ
+            questionList.questionResultC = self.questionResultC
+            
         }
         
         if (segue.identifier == "backQuestion") {
@@ -236,7 +268,15 @@ class AppleViewController: UIViewController {
             } else {
                 questionList.questionNumber = 1
             }
+            questionList.questionSumNumber = self.questionSumNumber
+            questionList.questionResultJ = self.questionResultJ
+            questionList.questionResultC = self.questionResultC
         }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
 

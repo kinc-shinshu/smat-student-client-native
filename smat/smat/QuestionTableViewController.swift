@@ -14,24 +14,61 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     // 問題一覧を定義（独自クラスQuestion）
     var questions = [Question]()
+    var questionsSumNumber = 0
+    
+    // 結果を作る
+    var resultQid = [Int]()
+    var resultC = [Int]()
+    var resultJ = [Int]()
+    var forResultJ = 0
     
     // 試験番号（Api叩くに必要）
     @IBOutlet var tableView: UITableView!
     
+    // 結果をAPIサーバーに投げる関数
+    func postResult() {
+        // ここで結果をサーバーに投げる
+        var strResultQid = [String]()
+        var strResultC = [String]()
+        var strResultJ = [String]()
+        for i in self.resultQid {
+            strResultQid.append(String(i))
+        }
+        for i in self.resultC {
+            strResultC.append(String(i))
+        }
+        for i in self.resultJ {
+            strResultJ.append(String(i))
+        }
+        let URL = "https://smat-api-dev.herokuapp.com/v1/results"
+        let paramData = [
+            "q_id": strResultQid.joined(separator: ","),
+            "j": strResultJ.joined(separator: ","),
+            "c": strResultC.joined(separator: ","),
+        ]
+        Alamofire.request(URL, method: .post, parameters: paramData, encoding: JSONEncoding.default).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print(json)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     // 完成ボタンを追加
     @IBOutlet weak var finishButton: UIButton!
     @IBAction func postFinish(_ sender: UIButton) {
+        postResult()
     }
-    
-    
     
     var examNumber:String?
     var questionNumber:Int?
     
-    
     //  Apiを叩いて問題一覧を取得する
     func loadQuestions() {
-        Alamofire.request("https://smat-api-dev.herokuapp.com/rooms/" + examNumber! + "/questions").responseJSON {response in
+        Alamofire.request("https://smat-api-dev.herokuapp.com/v1/rooms/" + examNumber! + "/questions").responseJSON {response in
             guard let object = response.result.value else {
                 return
             }
@@ -39,12 +76,19 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
             let json = JSON(object)
             json.forEach { (_, json) in
                 let questionT = json["latex"].string
-                print(json["latex"].string)
+                let questionI = json["id"].int
                 guard let question = Question(questionText: questionT!) else {
                     fatalError("Unable to instantiate questionT")
                 }
                 self.questions += [question]
+                if (self.forResultJ == 0) {
+                    self.resultQid.append(questionI!)
+                    self.resultC.append(0)
+                    self.resultJ.append(0)
+                }
             }
+            self.forResultJ = 1
+            self.questionsSumNumber = self.questions.count
             self.tableView.reloadData()
             self.finishButton.isHidden = false
         }
@@ -57,6 +101,9 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
             let questionList = nav.topViewController as! AppleViewController
             questionList.examNumber = self.examNumber
             questionList.questionNumber = sender as? Int
+            questionList.questionSumNumber = self.questionsSumNumber
+            questionList.questionResultJ = self.resultJ
+            questionList.questionResultC = self.resultC
         }
         
     }
