@@ -145,7 +145,7 @@
                                 <rect key="frame" x="50" y="366" width="122.5" height="42"/>
                                 <color key="backgroundColor" red="0.24313725490196078" green="0.65098039215686276" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="　">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -156,7 +156,7 @@
                                 <rect key="frame" x="202.5" y="366" width="122.5" height="42"/>
                                 <color key="backgroundColor" red="0.24313725490196078" green="0.65098039215686276" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="　">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -167,7 +167,7 @@
                                 <rect key="frame" x="50" y="428" width="122.5" height="42"/>
                                 <color key="backgroundColor" red="0.24313725490196078" green="0.65098039215686276" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="　">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -178,7 +178,7 @@
                                 <rect key="frame" x="202.5" y="428" width="122.5" height="42"/>
                                 <color key="backgroundColor" red="0.24313725490196078" green="0.65098039215686276" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="　">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -266,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xD4-AY-GHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3463" y="-1504"/>
+            <point key="canvasLocation" x="3461.5999999999999" y="-1504.4977511244379"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pqp-A2-Nol">
@@ -306,7 +306,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nr2-yE-1V6"/>
+        <segue reference="oRq-IF-upg"/>
         <segue reference="BvC-Ms-ect"/>
     </inferredMetricsTieBreakers>
 </document>

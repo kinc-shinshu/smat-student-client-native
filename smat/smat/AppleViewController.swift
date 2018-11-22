@@ -120,25 +120,21 @@ class AppleViewController: UIViewController {
         saveInput(input: self.input1.currentTitle!)
         self.inputTextNumber += 1
         self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
-        print(self.inputText)
     }
     @IBAction func inputButton2(_ sender: Any) {
         saveInput(input: self.input2.currentTitle!)
         self.inputTextNumber += 1
         self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
-        print(self.inputText)
     }
     @IBAction func inputButton3(_ sender: Any) {
         saveInput(input: self.input3.currentTitle!)
         self.inputTextNumber += 1
         self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
-        print(self.inputText)
     }
     @IBAction func inputButton4(_ sender: Any) {
         saveInput(input: self.input4.currentTitle!)
         self.inputTextNumber += 1
         self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
-        print(self.inputText)
     }
     
     // MARK: - next back question buttons
@@ -178,24 +174,21 @@ class AppleViewController: UIViewController {
     
     // 問題を取得する関数
     func loadQuestion(questionId: Int) {
-        Alamofire.request("https://smat-api.herokuapp.com/rooms/" + examNumber! + "/questions/" + String(questionId)).responseJSON {response in
+        Alamofire.request("https://smat-api-dev.herokuapp.com/v1/rooms/" + examNumber! + "/questions/" + String(questionId)).responseJSON {response in
             guard let object = response.result.value else {
                 return
             }
-            
             let json = JSON(object)
-            json.forEach { (_, json) in
-                self.questionView.latex = json["latex"].string
-                print(json["latex"].string)
-                self.questionView.textAlignment = .center
-                self.questionView.sizeToFit()
-                let ansLatex = json["ans_latex"].string
-                self.answerView.latex = self.makeAnswer(answerLatex: ansLatex!)
-                self.answerView.textAlignment = .center
-                self.answerView.sizeToFit()
-                self.answerLatex = self.getAnswer(answerLatex: ansLatex!)
-                self.tryNumber = json["c"].int!
-            }
+            self.questionView.latex = json["latex"].string
+            self.questionView.textAlignment = .center
+            self.questionView.sizeToFit()
+            let ansLatex = json["ans_latex"].string
+            self.answerView.latex = self.makeAnswer(answerLatex: ansLatex!)
+            self.answerView.textAlignment = .center
+            self.answerView.sizeToFit()
+            self.answerLatex = self.getAnswer(answerLatex: ansLatex!)
+            self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
+            //tryNumber = json["c"].int!
         }
     }
     
@@ -204,7 +197,6 @@ class AppleViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the vie
         // loadQuestion(questionId: questionNumber!)
-        self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -237,6 +229,11 @@ class AppleViewController: UIViewController {
                 questionList.questionNumber = 1
             }
         }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
 
