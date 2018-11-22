@@ -42,6 +42,60 @@
             </objects>
             <point key="canvasLocation" x="380" y="3.1484257871064472"/>
         </scene>
+        <!--Finish View Controller-->
+        <scene sceneID="FCj-cj-i3f">
+            <objects>
+                <viewController id="BU7-hB-D43" customClass="FinishViewController" customModule="smat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s1p-YW-pfR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お疲れ様でした！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jn-HC-QpL">
+                                <rect key="frame" x="30" y="70" width="315" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.93333333330000001" green="0.43529411759999997" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UN8-5R-0PR">
+                                <rect key="frame" x="0.0" y="306" width="375" height="41"/>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.43529411759999997" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="次の試験へ">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="PFg-LK-d4h"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmH-5t-wb5">
+                                <rect key="frame" x="50" y="206" width="275" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7Jn-HC-QpL" firstAttribute="top" secondItem="MFY-ce-TIn" secondAttribute="top" constant="50" id="3EH-hk-ioh"/>
+                            <constraint firstItem="fmH-5t-wb5" firstAttribute="leading" secondItem="MFY-ce-TIn" secondAttribute="leading" constant="50" id="57p-yr-fxl"/>
+                            <constraint firstItem="7Jn-HC-QpL" firstAttribute="leading" secondItem="MFY-ce-TIn" secondAttribute="leading" constant="30" id="9f8-dY-m7X"/>
+                            <constraint firstItem="fmH-5t-wb5" firstAttribute="top" secondItem="7Jn-HC-QpL" secondAttribute="bottom" constant="100" id="JEm-kV-U4f"/>
+                            <constraint firstItem="MFY-ce-TIn" firstAttribute="trailing" secondItem="7Jn-HC-QpL" secondAttribute="trailing" constant="30" id="U96-6H-4KC"/>
+                            <constraint firstItem="MFY-ce-TIn" firstAttribute="trailing" secondItem="fmH-5t-wb5" secondAttribute="trailing" constant="50" id="m4n-nB-iKV"/>
+                            <constraint firstItem="UN8-5R-0PR" firstAttribute="top" secondItem="fmH-5t-wb5" secondAttribute="bottom" constant="100" id="rjw-Kd-gQE"/>
+                            <constraint firstItem="UN8-5R-0PR" firstAttribute="leading" secondItem="MFY-ce-TIn" secondAttribute="leading" id="smO-Hu-545"/>
+                            <constraint firstItem="MFY-ce-TIn" firstAttribute="trailing" secondItem="UN8-5R-0PR" secondAttribute="trailing" id="zCw-wC-QQ9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MFY-ce-TIn"/>
+                    </view>
+                    <connections>
+                        <outlet property="scoreLabel" destination="fmH-5t-wb5" id="1Ug-U8-85i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="whs-U4-HIS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="877.60000000000002" y="-715.59220389805103"/>
+        </scene>
         <!--問題一覧-->
         <scene sceneID="C9e-AB-eZ8">
             <objects>
@@ -60,7 +114,7 @@
                             </state>
                             <connections>
                                 <action selector="postFinish:" destination="Wvf-a1-E9E" eventType="touchUpInside" id="gEG-k1-iRE"/>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="NEr-Zi-jPx"/>
+                                <segue destination="BU7-hB-D43" kind="presentation" identifier="finished" id="luW-c4-ZMb"/>
                             </connections>
                         </button>
                         <prototypes>
@@ -326,7 +380,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nr2-yE-1V6"/>
+        <segue reference="oRq-IF-upg"/>
         <segue reference="U1O-V2-mb1"/>
     </inferredMetricsTieBreakers>
 </document>
