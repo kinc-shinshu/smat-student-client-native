@@ -102,8 +102,17 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
             questionList.examNumber = self.examNumber
             questionList.questionNumber = sender as? Int
             questionList.questionSumNumber = self.questionsSumNumber
+            questionList.questionResultQid = self.resultQid
             questionList.questionResultJ = self.resultJ
             questionList.questionResultC = self.resultC
+        }
+        
+        if (segue.identifier == "finished") {
+            let nav = segue.destination as! UINavigationController
+            let questionList = nav.topViewController as! FinishViewController
+            questionList.questionsSum = self.resultQid.count
+            let plus = { (a: Int, b: Int) -> Int in a + b }
+            questionList.trueSum = self.resultJ.reduce(0, plus)
         }
         
     }
