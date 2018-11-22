@@ -18,6 +18,10 @@ class AppleViewController: UIViewController {
     // 問題と答えを表示するためのViewを作る
     @IBOutlet weak var questionView: MTMathUILabel!
     @IBOutlet weak var answerView: MTMathUILabel!
+    @IBOutlet weak var tfLabel: UILabel!
+    
+    let trueText = "正解です！"
+    let falseText = "残念..."
     
     // 入力された結果を格納するための変数
     var inputText = ""
@@ -77,6 +81,7 @@ class AppleViewController: UIViewController {
                 let random = String(arc4random_uniform(10))
                 selection += [random]
             }
+            selection.sort()
             selections += [selection]
         }
         return selections
@@ -106,8 +111,14 @@ class AppleViewController: UIViewController {
     func isTF(inputAnswer: String, trueAnswer: String, tryNumber: Int) {
         if (inputAnswer == trueAnswer && tryNumber >= 0) {
             self.postResult(examNumber: self.examNumber!, questionId: self.questionNumber!, inputNumber: tryNumber + 1, inputResult: 1)
+            self.tfLabel.text = self.trueText
+            self.tfLabel.textColor = UIColor(red: 62/255, green: 166/255, blue: 154/255, alpha: 1)
+            self.tfLabel.isHidden = false
         } else if (inputAnswer != trueAnswer && tryNumber >= 0) {
             self.postResult(examNumber: self.examNumber!, questionId: questionNumber!, inputNumber: tryNumber + 1, inputResult: 0)
+            self.tfLabel.text = self.falseText
+            self.tfLabel.textColor = UIColor(red: 238/255, green: 111/255, blue: 115/255, alpha: 1)
+            self.tfLabel.isHidden = false
         }
     }
     
@@ -228,6 +239,7 @@ class AppleViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the vie
         // loadQuestion(questionId: questionNumber!)
+        self.navigationItem.title = "問題" + String(self.questionNumber!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
