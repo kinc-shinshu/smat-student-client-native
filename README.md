@@ -3,5 +3,5 @@
 ## Usage
 
 ```
-buy a iphone and install Xcode
+buy a Mac and install Xcode
 ```
