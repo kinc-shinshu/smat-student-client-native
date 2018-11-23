@@ -41,7 +41,7 @@ class AppleViewController: UIViewController {
     // 入力用の選択肢に関与する関数
     // 答えをパーサーにかける
     func makeAnswer(answerLatex: String) -> String {
-        return answerLatex.pregReplace(pattern: "[0-9]+", with: "\\\\square ")
+        return answerLatex.pregReplace(pattern: "[0-9]", with: "\\\\square ")
     }
     
     // 答えを取り出す
