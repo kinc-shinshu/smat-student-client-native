@@ -229,6 +229,7 @@ class AppleViewController: UIViewController {
     
     // 問題を取得する関数(ローカル)
     func loadLocalQuestion(questionId: Int){
+        self.questionSumNumber = self.questions?.count
         let question = self.questions![questionId - 1]
         self.questionView.latex = question.questionLatex
         self.questionView.textAlignment = .center
@@ -274,7 +275,6 @@ class AppleViewController: UIViewController {
             let questionList = nav.topViewController as! AppleViewController
             questionList.examNumber = self.examNumber
             questionList.questionNumber = self.questionNumber! + 1
-            questionList.questionSumNumber = self.questionSumNumber
             questionList.questionResultJ = self.questionResultJ
             questionList.questionResultC = self.questionResultC
             questionList.questionResultQid = self.questionResultQid
@@ -290,7 +290,6 @@ class AppleViewController: UIViewController {
             } else {
                 questionList.questionNumber = 1
             }
-            questionList.questionSumNumber = self.questionSumNumber
             questionList.questionResultJ = self.questionResultJ
             questionList.questionResultC = self.questionResultC
             questionList.questionResultQid = self.questionResultQid

@@ -87,7 +87,6 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
                     self.resultC.append(0)
                     self.resultJ.append(-1)
                 }
-                self.questionsSumNumber = self.questions.count
                 self.tableView.reloadData()
                 self.finishButton.isHidden = false
             }
@@ -104,7 +103,6 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
             let questionList = nav.topViewController as! AppleViewController
             questionList.examNumber = self.examNumber
             questionList.questionNumber = sender as? Int
-            questionList.questionSumNumber = self.questionsSumNumber
             questionList.questionResultQid = self.resultQid
             questionList.questionResultJ = self.resultJ
             questionList.questionResultC = self.resultC
