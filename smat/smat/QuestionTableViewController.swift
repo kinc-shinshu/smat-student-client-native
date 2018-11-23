@@ -84,7 +84,7 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
                 if (self.forResultJ == 0) {
                     self.resultQid.append(questionI!)
                     self.resultC.append(0)
-                    self.resultJ.append(0)
+                    self.resultJ.append(-1)
                 }
             }
             self.forResultJ = 1
@@ -111,8 +111,12 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
             let nav = segue.destination as! UINavigationController
             let questionList = nav.topViewController as! FinishViewController
             questionList.questionsSum = self.resultQid.count
+            let filterBiggerThan0 = {
+                (a: Int) -> Bool in a >= 0
+            }
             let plus = { (a: Int, b: Int) -> Int in a + b }
-            questionList.trueSum = self.resultJ.reduce(0, plus)
+            let biggerThan0resultJ = self.resultJ.filter(filterBiggerThan0)
+            questionList.trueSum = biggerThan0resultJ.reduce(0, plus) + 0
         }
         
     }

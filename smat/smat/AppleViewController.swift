@@ -79,7 +79,10 @@ class AppleViewController: UIViewController {
             var selection = [String]()
             selection += [String(ans)]
             for _ in 0..<3 {
-                let random = String(arc4random_uniform(10))
+                var random = String(arc4random_uniform(10))
+                while (selection.index(of:random) != nil) {
+                    random = String(arc4random_uniform(10))
+                }
                 selection += [random]
             }
             selection.sort()
