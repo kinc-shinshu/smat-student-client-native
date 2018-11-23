@@ -163,6 +163,7 @@ class AppleViewController: UIViewController {
         self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
     }
     @IBAction func inputButton4(_ sender: Any) {
+        print()
         saveInput(input: self.input4.currentTitle!)
         self.makeNowInput(nowAnswer: self.answerView.latex!)
         self.makeAnswerBetter(nowAnswer: self.answerView.latex!, inputAnswer: self.input4.currentTitle!)
