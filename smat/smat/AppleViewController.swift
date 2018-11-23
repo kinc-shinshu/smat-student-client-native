@@ -41,7 +41,7 @@ class AppleViewController: UIViewController {
     // 入力用の選択肢に関与する関数
     // 答えをパーサーにかける
     func makeAnswer(answerLatex: String) -> String {
-        return answerLatex.pregReplace(pattern: "[0-9]", with: "\\\\square ")
+        return answerLatex.pregReplace(pattern: "[0-9]", with: "?")
     }
     
     // 答えを取り出す
@@ -53,7 +53,7 @@ class AppleViewController: UIViewController {
     func makeAnswerBetter(nowAnswer: String, inputAnswer: String) {
         let now = nowAnswer
         var newAnswer = ""
-        if let range = now.range(of: "?") {
+        if let range = now.range(of: "\\square") {
             newAnswer = now.replacingCharacters(in: range, with: inputAnswer)
         } else {
             newAnswer = now
@@ -65,8 +65,8 @@ class AppleViewController: UIViewController {
     func makeNowInput(nowAnswer: String) {
         let now = nowAnswer
         var newAnswer = ""
-        if let range = now.range(of: "\\square ") {
-            newAnswer = now.replacingCharacters(in: range, with: "?")
+        if let range = now.range(of: "?") {
+            newAnswer = now.replacingCharacters(in: range, with: "\\square ")
         } else {
             newAnswer = now
         }
