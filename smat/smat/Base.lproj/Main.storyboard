@@ -35,7 +35,7 @@
                     </view>
                     <connections>
                         <outlet property="roomNumber" destination="Dfd-6c-QyC" id="c4x-ru-4EJ"/>
-                        <segue destination="sSK-Oz-1zn" kind="presentation" identifier="roomNumber" modalTransitionStyle="crossDissolve" id="BvC-Ms-ect"/>
+                        <segue destination="sSK-Oz-1zn" kind="presentation" identifier="roomNumber" id="BvC-Ms-ect"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -114,7 +114,7 @@
                             </state>
                             <connections>
                                 <action selector="postFinish:" destination="Wvf-a1-E9E" eventType="touchUpInside" id="gEG-k1-iRE"/>
-                                <segue destination="3am-Ib-ajo" kind="presentation" identifier="finished" modalTransitionStyle="crossDissolve" id="luW-c4-ZMb"/>
+                                <segue destination="3am-Ib-ajo" kind="presentation" identifier="finished" animates="NO" id="luW-c4-ZMb"/>
                             </connections>
                         </button>
                         <prototypes>
@@ -158,7 +158,7 @@
                     <connections>
                         <outlet property="finishButton" destination="bgo-Sz-TjI" id="mX4-0Y-Lx5"/>
                         <outlet property="tableView" destination="z4C-WO-38W" id="uEX-yr-BCL"/>
-                        <segue destination="b8O-H6-DJ5" kind="presentation" identifier="forTest" modalTransitionStyle="crossDissolve" id="oRq-IF-upg"/>
+                        <segue destination="b8O-H6-DJ5" kind="presentation" identifier="forTest" animates="NO" modalTransitionStyle="crossDissolve" id="oRq-IF-upg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6jX-Oe-tbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -248,7 +248,7 @@
                                 </state>
                                 <connections>
                                     <action selector="nextButtonAction:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="Z0m-sC-ax1"/>
-                                    <segue destination="b8O-H6-DJ5" kind="presentation" identifier="nextQuestion" modalTransitionStyle="crossDissolve" id="I4E-OB-UOm"/>
+                                    <segue destination="b8O-H6-DJ5" kind="presentation" identifier="nextQuestion" animates="NO" modalTransitionStyle="crossDissolve" id="I4E-OB-UOm"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrA-kO-W1C">
@@ -260,7 +260,7 @@
                                 </state>
                                 <connections>
                                     <action selector="backButtonAction:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="o50-Yy-UJR"/>
-                                    <segue destination="b8O-H6-DJ5" kind="presentation" identifier="backQuestion" modalTransitionStyle="crossDissolve" id="nr2-yE-1V6"/>
+                                    <segue destination="b8O-H6-DJ5" kind="presentation" identifier="backQuestion" animates="NO" modalTransitionStyle="crossDissolve" id="nr2-yE-1V6"/>
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSj-Bl-ooh">
@@ -321,7 +321,7 @@
                     <navigationItem key="navigationItem" id="QQb-zo-mOF">
                         <barButtonItem key="rightBarButtonItem" title="問題一覧" id="sEJ-lA-tsI">
                             <connections>
-                                <segue destination="sSK-Oz-1zn" kind="presentation" identifier="detailToList" modalTransitionStyle="crossDissolve" id="U1O-V2-mb1"/>
+                                <segue destination="sSK-Oz-1zn" kind="presentation" identifier="detailToList" animates="NO" id="U1O-V2-mb1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -399,6 +399,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="I4E-OB-UOm"/>
-        <segue reference="U1O-V2-mb1"/>
+        <segue reference="BvC-Ms-ect"/>
     </inferredMetricsTieBreakers>
 </document>
