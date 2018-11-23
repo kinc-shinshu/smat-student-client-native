@@ -205,8 +205,9 @@ class AppleViewController: UIViewController {
     var questionResultC: [Int]?
     var questionResultJ: [Int]?
     var questionResultQid: [Int]?
+    var questions:[Question]? = []
     
-    // 問題を取得する関数
+    // 問題を取得する関数(Api)
     func loadQuestion(questionId: Int){
         Alamofire.request("https://smat-api-dev.herokuapp.com/v1/rooms/" + examNumber! + "/questions/" + String(questionId)).responseJSON {response in
             guard let object = response.result.value else {
@@ -226,6 +227,22 @@ class AppleViewController: UIViewController {
         }
     }
     
+    // 問題を取得する関数(ローカル)
+    func loadLocalQuestion(questionId: Int){
+        let question = self.questions![questionId - 1]
+        self.questionView.latex = question.questionLatex
+        self.questionView.textAlignment = .center
+        self.questionView.sizeToFit()
+        let ansLatex = question.questionAnsLatex
+        self.answerView.latex = self.makeAnswer(answerLatex: ansLatex)
+        self.answerView.textAlignment = .center
+        self.answerView.sizeToFit()
+        self.answerLatex = self.getAnswer(answerLatex: ansLatex)
+        self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
+        self.makeNowInput(nowAnswer: self.answerView.latex!)
+    }
+    
+    
     // 画面を表示
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -236,21 +253,20 @@ class AppleViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadQuestion(questionId: self.questionNumber!)
-        
-        
+        loadLocalQuestion(questionId: self.questionNumber!)
     }
     
-    // 画面変移の際に部屋番号を渡している
+    // 画面変移の際に部屋番号と諸々を渡している
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "detailToList") {
             let nav = segue.destination as! UINavigationController
             let questionList = nav.topViewController as! QuestionTableViewController
             questionList.examNumber = self.examNumber
-            questionList.forResultJ = 1
+            questionList.questionGetDone = 1
             questionList.resultJ = self.questionResultJ!
             questionList.resultC = self.questionResultC!
             questionList.resultQid = self.questionResultQid!
+            questionList.questions = self.questions!
         }
         
         if (segue.identifier == "nextQuestion") {
@@ -262,6 +278,7 @@ class AppleViewController: UIViewController {
             questionList.questionResultJ = self.questionResultJ
             questionList.questionResultC = self.questionResultC
             questionList.questionResultQid = self.questionResultQid
+            questionList.questions = self.questions
         }
         
         if (segue.identifier == "backQuestion") {
@@ -277,6 +294,7 @@ class AppleViewController: UIViewController {
             questionList.questionResultJ = self.questionResultJ
             questionList.questionResultC = self.questionResultC
             questionList.questionResultQid = self.questionResultQid
+            questionList.questions = self.questions
         }
     }
     

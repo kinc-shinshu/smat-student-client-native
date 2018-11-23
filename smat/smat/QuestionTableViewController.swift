@@ -15,12 +15,12 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
     // 問題一覧を定義（独自クラスQuestion）
     var questions = [Question]()
     var questionsSumNumber = 0
+    var questionGetDone = 0
     
     // 結果を作る
     var resultQid = [Int]()
     var resultC = [Int]()
     var resultJ = [Int]()
-    var forResultJ = 0
     
     // 試験番号（Api叩くに必要）
     @IBOutlet var tableView: UITableView!
@@ -68,33 +68,36 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     //  Apiを叩いて問題一覧を取得する
     func loadQuestions() {
-        Alamofire.request("https://smat-api-dev.herokuapp.com/v1/rooms/" + examNumber! + "/questions").responseJSON {response in
-            guard let object = response.result.value else {
-                return
-            }
-            
-            let json = JSON(object)
-            json.forEach { (_, json) in
-                let questionT = json["latex"].string
-                let questionI = json["id"].int
-                guard let question = Question(questionText: questionT!) else {
-                    fatalError("Unable to instantiate questionT")
+        if (self.questionGetDone == 0) {
+            Alamofire.request("https://smat-api-dev.herokuapp.com/v1/rooms/" + examNumber! + "/questions").responseJSON {response in
+                guard let object = response.result.value else {
+                    return
                 }
-                self.questions += [question]
-                if (self.forResultJ == 0) {
+                
+                let json = JSON(object)
+                json.forEach { (_, json) in
+                    let questionT = json["latex"].string
+                    let questionAnsT = json["ans_latex"].string
+                    let questionI = json["id"].int
+                    guard let question = Question(questionLatex: questionT!, questionAnsLatex: questionAnsT!) else {
+                        fatalError("Unable to instantiate questionT")
+                    }
+                    self.questions += [question]
                     self.resultQid.append(questionI!)
                     self.resultC.append(0)
                     self.resultJ.append(-1)
                 }
+                self.questionsSumNumber = self.questions.count
+                self.tableView.reloadData()
+                self.finishButton.isHidden = false
             }
-            self.forResultJ = 1
-            self.questionsSumNumber = self.questions.count
-            self.tableView.reloadData()
+            self.questionGetDone = 1
+        } else {
             self.finishButton.isHidden = false
         }
     }
     
-    //  問題詳細に移動する際に部屋番号を渡している
+    //  問題詳細に移動する際に部屋番号と諸々を渡している
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "forTest") {
             let nav = segue.destination as! UINavigationController
@@ -105,6 +108,7 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
             questionList.questionResultQid = self.resultQid
             questionList.questionResultJ = self.resultJ
             questionList.questionResultC = self.resultC
+            questionList.questions = self.questions
         }
         
         if (segue.identifier == "finished") {
@@ -157,13 +161,11 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
-        
-        
         // Fetches the appropriate meal for the data source layout.
         let question = questions[indexPath.row]
         
         //cell.texLabel.latex = question.questionText
-        cell.texLabel?.latex = question.questionText
+        cell.texLabel?.latex = question.questionLatex
         
         return cell
     }
