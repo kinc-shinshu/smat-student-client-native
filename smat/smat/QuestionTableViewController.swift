@@ -9,6 +9,7 @@ import UIKit
 import iosMath
 import Alamofire
 import SwiftyJSON
+import Material
 
 class QuestionTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -58,7 +59,7 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     // 完成ボタンを追加
-    @IBOutlet weak var finishButton: UIButton!
+    @IBOutlet weak var finishButton: RaisedButton!
     @IBAction func postFinish(_ sender: UIButton) {
         postResult()
     }

@@ -11,6 +11,7 @@ import iosMath
 import Alamofire
 import SwiftyJSON
 import Foundation
+import Material
 
 class AppleViewController: UIViewController {
     
@@ -115,10 +116,10 @@ class AppleViewController: UIViewController {
     
     // MARK: - Input Buttons
     // 入力用のボタンをリンクする
-    @IBOutlet weak var input1: UIButton!
-    @IBOutlet weak var input2: UIButton!
-    @IBOutlet weak var input3: UIButton!
-    @IBOutlet weak var input4: UIButton!
+    @IBOutlet weak var input1: RaisedButton!
+    @IBOutlet weak var input2: RaisedButton!
+    @IBOutlet weak var input3: RaisedButton!
+    @IBOutlet weak var input4: RaisedButton!
     
     // 入力用のボタンのテキストを変更する関数
     func setInputButtons(nowInputTextNumber: Int){
@@ -171,8 +172,8 @@ class AppleViewController: UIViewController {
     
     // MARK: - next back question buttons
     // 前後の問題に移動するボタン
-    @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var nextButton: RaisedButton!
+    @IBOutlet weak var backButton: RaisedButton!
     
     // 前後の問題に移動する関数
     @IBAction func nextButtonAction(_ sender: Any) {
