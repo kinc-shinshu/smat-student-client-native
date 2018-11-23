@@ -131,14 +131,29 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vln-OI-RxJ" customClass="MTMathUILabel">
-                                            <rect key="frame" x="20" y="11" width="374" height="68"/>
+                                            <rect key="frame" x="20" y="11" width="306" height="68"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="68" id="8R1-4y-sd5"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tbW-lC-HgI" customClass="UILabel">
+                                            <rect key="frame" x="326" y="11" width="68" height="68"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="68" id="eRM-3j-YUx"/>
+                                                <constraint firstAttribute="width" constant="68" id="mcy-fd-7k9"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="vln-OI-RxJ" firstAttribute="trailing" secondItem="tKu-xg-zby" secondAttribute="trailingMargin" id="2KW-bp-s7Y"/>
+                                        <constraint firstItem="tbW-lC-HgI" firstAttribute="leading" secondItem="vln-OI-RxJ" secondAttribute="trailing" id="SEc-Kk-Mh8"/>
+                                        <constraint firstItem="tbW-lC-HgI" firstAttribute="leading" secondItem="vln-OI-RxJ" secondAttribute="trailing" id="WxC-K3-hDh"/>
+                                        <constraint firstItem="tbW-lC-HgI" firstAttribute="trailing" secondItem="tKu-xg-zby" secondAttribute="trailingMargin" id="bt7-HV-cdd"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="tbW-lC-HgI" secondAttribute="bottom" id="fpR-ib-8c1"/>
+                                        <constraint firstItem="tbW-lC-HgI" firstAttribute="top" secondItem="tKu-xg-zby" secondAttribute="topMargin" id="gNm-RQ-Zh5"/>
                                         <constraint firstItem="vln-OI-RxJ" firstAttribute="top" secondItem="tKu-xg-zby" secondAttribute="topMargin" id="jAm-IJ-qxA"/>
                                         <constraint firstItem="vln-OI-RxJ" firstAttribute="bottom" secondItem="tKu-xg-zby" secondAttribute="bottomMargin" id="tFf-F2-ASx"/>
                                         <constraint firstItem="vln-OI-RxJ" firstAttribute="leading" secondItem="tKu-xg-zby" secondAttribute="leadingMargin" id="z8e-J0-1Zj"/>
@@ -151,6 +166,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="texLabel" destination="vln-OI-RxJ" id="Ev0-KV-cNR"/>
+                                    <outlet property="tfView" destination="tbW-lC-HgI" id="5JV-Uw-92Q"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -168,7 +184,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6jX-Oe-tbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2884" y="-754.27286356821594"/>
+            <point key="canvasLocation" x="2882.608695652174" y="-754.6875"/>
         </scene>
         <!--Apple View Controller-->
         <scene sceneID="MQc-LL-n5R">
@@ -449,8 +465,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LPB-M1-Jnx"/>
-        <segue reference="nr2-yE-1V6"/>
+        <segue reference="luW-c4-ZMb"/>
+        <segue reference="oRq-IF-upg"/>
         <segue reference="U1O-V2-mb1"/>
     </inferredMetricsTieBreakers>
 </document>

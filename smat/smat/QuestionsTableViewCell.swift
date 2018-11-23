@@ -13,6 +13,7 @@ class QuestionsTableViewCell: UITableViewCell{
     
     // セルごとにテフ文のスペースを作る
     @IBOutlet weak var texLabel: MTMathUILabel!
+    @IBOutlet weak var tfView: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

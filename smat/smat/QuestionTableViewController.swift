@@ -10,6 +10,7 @@ import iosMath
 import Alamofire
 import SwiftyJSON
 import Material
+import FontAwesome_swift
 
 class QuestionTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -165,6 +166,8 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
         
         //cell.texLabel.latex = question.questionText
         cell.texLabel?.latex = question.questionLatex
+        cell.tfView.font = UIFont.fontAwesome(ofSize: 34, style: .brands)
+        cell.tfView.text = String.fontAwesomeIcon(name: .github)
         
         return cell
     }

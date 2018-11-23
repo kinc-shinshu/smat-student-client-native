@@ -6,6 +6,7 @@ target 'smat' do
   use_frameworks!
 
   # Pods for smat
+  pod 'FontAwesome.swift'
   pod 'iosMath'
   pod 'SwiftyJSON'
   pod 'Alamofire'
