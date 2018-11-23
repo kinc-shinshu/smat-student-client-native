@@ -310,6 +310,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tU-Ll-5uP" customClass="RaisedButton" customModule="Material">
+                                <rect key="frame" x="0.0" y="761" width="414" height="60"/>
+                                <color key="backgroundColor" red="0.27450980390000002" green="0.64705882349999999" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="結果提出">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="postResultToApi:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="fhU-K8-r6w"/>
+                                    <segue destination="3am-Ib-ajo" kind="presentation" identifier="detailToFinish" animates="NO" id="LPB-M1-Jnx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -317,7 +329,9 @@
                             <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="WFe-Q7-x3d" secondAttribute="trailing" constant="50" id="5Ky-nW-MWD"/>
                             <constraint firstItem="Hu1-TH-GUK" firstAttribute="width" secondItem="rxz-B0-Rii" secondAttribute="width" id="9ze-jW-NUj"/>
                             <constraint firstItem="ee4-Pj-LfS" firstAttribute="width" secondItem="rxz-B0-Rii" secondAttribute="width" id="Ar9-YX-Mpv"/>
+                            <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="7tU-Ll-5uP" secondAttribute="trailing" id="Avn-BR-Nx2"/>
                             <constraint firstItem="ee4-Pj-LfS" firstAttribute="top" secondItem="rxz-B0-Rii" secondAttribute="bottom" constant="20" id="CLa-Gb-UIB"/>
+                            <constraint firstItem="7tU-Ll-5uP" firstAttribute="centerX" secondItem="d02-eS-1XF" secondAttribute="centerX" id="Dqu-gT-py3"/>
                             <constraint firstItem="rSj-Bl-ooh" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="30" id="E9z-FY-fcj"/>
                             <constraint firstItem="GW9-af-l7Z" firstAttribute="top" secondItem="bTk-aJ-zP5" secondAttribute="bottom" constant="50" id="Hmj-Xn-TtE"/>
                             <constraint firstItem="WFe-Q7-x3d" firstAttribute="top" secondItem="Hu1-TH-GUK" secondAttribute="bottom" constant="20" id="KdZ-8I-p0K"/>
@@ -345,6 +359,7 @@
                             <constraint firstItem="QUq-m7-bfs" firstAttribute="top" secondItem="bTk-aJ-zP5" secondAttribute="bottom" constant="150" id="sue-xa-5k3"/>
                             <constraint firstItem="nrA-kO-W1C" firstAttribute="top" secondItem="ee4-Pj-LfS" secondAttribute="bottom" constant="30" id="tKA-KF-v4X"/>
                             <constraint firstItem="S4b-jr-fTi" firstAttribute="leading" secondItem="nrA-kO-W1C" secondAttribute="trailing" constant="30" id="tkB-yF-AEI"/>
+                            <constraint firstItem="7tU-Ll-5uP" firstAttribute="top" secondItem="S4b-jr-fTi" secondAttribute="bottom" constant="100" id="wY9-w7-0Le"/>
                             <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="QUq-m7-bfs" secondAttribute="trailing" constant="30" id="xde-J4-3Uv"/>
                             <constraint firstItem="WFe-Q7-x3d" firstAttribute="height" secondItem="rxz-B0-Rii" secondAttribute="height" id="xeo-sn-hu2"/>
                             <constraint firstItem="GW9-af-l7Z" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="30" id="y2g-m5-KUp"/>
@@ -364,6 +379,7 @@
                     <connections>
                         <outlet property="answerView" destination="QUq-m7-bfs" id="mRl-i6-lKi"/>
                         <outlet property="backButton" destination="nrA-kO-W1C" id="EqM-b7-Zx2"/>
+                        <outlet property="finishButton" destination="7tU-Ll-5uP" id="JSr-Q7-Ybh"/>
                         <outlet property="input1" destination="rxz-B0-Rii" id="5qM-z4-Ad0"/>
                         <outlet property="input2" destination="Hu1-TH-GUK" id="UTX-aP-EZi"/>
                         <outlet property="input3" destination="ee4-Pj-LfS" id="HMT-A1-rSh"/>
@@ -433,6 +449,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="LPB-M1-Jnx"/>
         <segue reference="nr2-yE-1V6"/>
         <segue reference="U1O-V2-mb1"/>
     </inferredMetricsTieBreakers>

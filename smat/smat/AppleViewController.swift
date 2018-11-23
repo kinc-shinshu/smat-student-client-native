@@ -127,6 +127,7 @@ class AppleViewController: UIViewController {
         if (forSetInputText.count == self.inputTextNumber) {
             self.isTF(inputAnswer: self.inputText, trueAnswer: self.answerLatex, tryNumber: self.tryNumber)
             self.goToNextBackFunc()
+            self.makeFinishButtonNotHidden()
         } else {
             self.input1.setTitle(forSetInputText[nowInputTextNumber][0], for: .normal)
             self.input2.setTitle(forSetInputText[nowInputTextNumber][1], for: .normal)
@@ -245,6 +246,56 @@ class AppleViewController: UIViewController {
         self.makeNowInput(nowAnswer: self.answerView.latex!)
     }
     
+    // 提出ボタンを出すかどうか
+    @IBOutlet weak var finishButton: RaisedButton!
+    func makeFinishButtonNotHidden(){
+        let filterBiggerThan0 = {
+            (a: Int) -> Bool in a < 0
+        }
+        let biggerThan0resultJ = self.questionResultJ!.filter(filterBiggerThan0)
+        let plus = { (a: Int, b: Int) -> Int in a + b }
+        let trueSum = biggerThan0resultJ.reduce(0, plus) + 0
+        if (trueSum >= 0) {
+            self.finishButton.isHidden = false
+        }
+    }
+    
+    // 提出ボタンの処理
+    func postResult() {
+        // ここで結果をサーバーに投げる
+        var strResultQid = [String]()
+        var strResultC = [String]()
+        var strResultJ = [String]()
+        for i in self.questionResultQid! {
+            strResultQid.append(String(i))
+        }
+        for i in self.questionResultC! {
+            strResultC.append(String(i))
+        }
+        for i in self.questionResultJ! {
+            strResultJ.append(String(i))
+        }
+        let URL = "https://smat-api-dev.herokuapp.com/v1/results"
+        let paramData = [
+            "q_id": strResultQid.joined(separator: ","),
+            "j": strResultJ.joined(separator: ","),
+            "c": strResultC.joined(separator: ","),
+            ]
+        Alamofire.request(URL, method: .post, parameters: paramData, encoding: JSONEncoding.default).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print(json)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    @IBAction func postResultToApi(_ sender: Any) {
+        self.postResult()
+    }
+    
     
     // 画面を表示
     override func viewDidLoad() {
@@ -252,6 +303,7 @@ class AppleViewController: UIViewController {
         // Do any additional setup after loading the vie
         // loadQuestion(questionId: questionNumber!)
         self.navigationItem.title = "問題" + String(self.questionNumber!)
+        self.makeFinishButtonNotHidden()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -296,6 +348,18 @@ class AppleViewController: UIViewController {
             questionList.questionResultC = self.questionResultC
             questionList.questionResultQid = self.questionResultQid
             questionList.questions = self.questions
+        }
+        
+        if (segue.identifier == "detailToFinish") {
+            let nav = segue.destination as! UINavigationController
+            let questionList = nav.topViewController as! FinishViewController
+            questionList.questionsSum = self.questionResultQid!.count
+            let filterBiggerThan0 = {
+                (a: Int) -> Bool in a >= 0
+            }
+            let plus = { (a: Int, b: Int) -> Int in a + b }
+            let biggerThan0resultJ = self.questionResultJ!.filter(filterBiggerThan0)
+            questionList.trueSum = biggerThan0resultJ.reduce(0, plus) + 0
         }
     }
     
