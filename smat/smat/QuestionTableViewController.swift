@@ -163,11 +163,18 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
         
         // Fetches the appropriate meal for the data source layout.
         let question = questions[indexPath.row]
+        let questionResult = self.resultJ[indexPath.row]
         
         //cell.texLabel.latex = question.questionText
         cell.texLabel?.latex = question.questionLatex
-        cell.tfView.font = UIFont.fontAwesome(ofSize: 34, style: .brands)
-        cell.tfView.text = String.fontAwesomeIcon(name: .github)
+        
+        // ここで正解不正解を代入してる
+        // UIImageにIconを代入している
+        if (questionResult == 1) {
+            cell.tfView.image = UIImage.fontAwesomeIcon(name: .circle, style: .regular, textColor: .green, size: CGSize(width: 200, height: 200))
+        } else if (questionResult == 0) {
+            cell.tfView.image = UIImage.fontAwesomeIcon(name: .times, style: .solid, textColor: .red, size: CGSize(width: 200, height: 200))
+        }
         
         return cell
     }

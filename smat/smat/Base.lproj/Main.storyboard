@@ -139,23 +139,21 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tbW-lC-HgI" customClass="UILabel">
-                                            <rect key="frame" x="326" y="11" width="68" height="68"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tbW-lC-HgI" customClass="UIImageView">
+                                            <rect key="frame" x="334" y="11" width="68" height="68"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="68" id="eRM-3j-YUx"/>
-                                                <constraint firstAttribute="width" constant="68" id="mcy-fd-7k9"/>
+                                                <constraint firstAttribute="height" constant="50" id="4WU-tB-odO"/>
+                                                <constraint firstAttribute="width" constant="50" id="pAp-1k-INj"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="tbW-lC-HgI" firstAttribute="leading" secondItem="vln-OI-RxJ" secondAttribute="trailing" id="SEc-Kk-Mh8"/>
-                                        <constraint firstItem="tbW-lC-HgI" firstAttribute="leading" secondItem="vln-OI-RxJ" secondAttribute="trailing" id="WxC-K3-hDh"/>
                                         <constraint firstItem="tbW-lC-HgI" firstAttribute="trailing" secondItem="tKu-xg-zby" secondAttribute="trailingMargin" id="bt7-HV-cdd"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="tbW-lC-HgI" secondAttribute="bottom" id="fpR-ib-8c1"/>
-                                        <constraint firstItem="tbW-lC-HgI" firstAttribute="top" secondItem="tKu-xg-zby" secondAttribute="topMargin" id="gNm-RQ-Zh5"/>
                                         <constraint firstItem="vln-OI-RxJ" firstAttribute="top" secondItem="tKu-xg-zby" secondAttribute="topMargin" id="jAm-IJ-qxA"/>
+                                        <constraint firstItem="tbW-lC-HgI" firstAttribute="leading" secondItem="vln-OI-RxJ" secondAttribute="trailing" id="sPg-Mn-Kn6"/>
                                         <constraint firstItem="vln-OI-RxJ" firstAttribute="bottom" secondItem="tKu-xg-zby" secondAttribute="bottomMargin" id="tFf-F2-ASx"/>
+                                        <constraint firstItem="tbW-lC-HgI" firstAttribute="centerY" secondItem="tKu-xg-zby" secondAttribute="centerY" id="yB5-ge-56K"/>
                                         <constraint firstItem="vln-OI-RxJ" firstAttribute="leading" secondItem="tKu-xg-zby" secondAttribute="leadingMargin" id="z8e-J0-1Zj"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -166,7 +164,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="texLabel" destination="vln-OI-RxJ" id="Ev0-KV-cNR"/>
-                                    <outlet property="tfView" destination="tbW-lC-HgI" id="5JV-Uw-92Q"/>
+                                    <outlet property="tfView" destination="tbW-lC-HgI" id="5ws-No-ePf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
