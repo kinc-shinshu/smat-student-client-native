@@ -11,8 +11,20 @@ import Alamofire
 import SwiftyJSON
 import Material
 import FontAwesome_swift
+import NVActivityIndicatorView
 
 class QuestionTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    // add loading icon
+    private var activityIndicatorView: NVActivityIndicatorView!
+    private func start() {
+        activityIndicatorView.startAnimating()
+    }
+    
+    /// インジケータ 停止(stopメソッドは書かなくてもOKw)
+    private func stop() {
+        activityIndicatorView.stopAnimating()
+    }
     
     // 問題一覧を定義（独自クラスQuestion）
     var questions = [Question]()
@@ -71,6 +83,7 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
     //  Apiを叩いて問題一覧を取得する
     func loadQuestions() {
         if (self.questionGetDone == 0) {
+            self.start()
             Alamofire.request("https://smat-api-dev.herokuapp.com/v1/rooms/" + examNumber! + "/questions").responseJSON {response in
                 guard let object = response.result.value else {
                     return
@@ -89,6 +102,7 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
                     self.resultC.append(0)
                     self.resultJ.append(-1)
                 }
+                self.stop()
                 self.tableView.reloadData()
                 self.finishButton.isHidden = false
             }
@@ -131,7 +145,9 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
         
         tableView.delegate = self
         tableView.dataSource = self
-
+        activityIndicatorView = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 60, height: 60), type: NVActivityIndicatorType.lineSpinFadeLoader, color: UIColor.gray, padding: 0)
+        activityIndicatorView.center = self.view.center // 位置を中心に設定
+        view.addSubview(activityIndicatorView)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

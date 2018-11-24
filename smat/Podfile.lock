@@ -9,6 +9,9 @@ PODS:
   - Motion (1.5.0):
     - Motion/Core (= 1.5.0)
   - Motion/Core (1.5.0)
+  - NVActivityIndicatorView (4.4.0):
+    - NVActivityIndicatorView/Presenter (= 4.4.0)
+  - NVActivityIndicatorView/Presenter (4.4.0)
   - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
@@ -17,6 +20,7 @@ DEPENDENCIES:
   - iosMath
   - Material (from `https://github.com/CosmicMind/Material.git`, commit `4ab1b08c3365a00f409a210162ae72ed8425f299`)
   - Motion (from `https://github.com/CosmicMind/Motion.git`, commit `3141bdb87e30b4aa899a22562194a221ea2da388`)
+  - NVActivityIndicatorView
   - SwiftyJSON
 
 EXTERNAL SOURCES:
@@ -41,8 +45,9 @@ SPEC CHECKSUMS:
   iosMath: f7a6cbadf9d836d2149c2a84c435b1effc244cba
   Material: 856e0168ab93fc477f875577c152c9e62f4ab869
   Motion: 3acabedc5a499f6b12deaa34deb68b425b005720
+  NVActivityIndicatorView: ec7440a57af2450319d3a4181cca7da6fc127064
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 8fba751aa4d2cfa72f6d24dc36e506f0d196c820
+PODFILE CHECKSUM: 7bdc56f50d6a78f320d53592856cf314fc5a5020
 
 COCOAPODS: 1.4.0
