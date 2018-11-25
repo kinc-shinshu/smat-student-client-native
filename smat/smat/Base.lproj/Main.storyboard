@@ -56,13 +56,18 @@
                                 <color key="textColor" red="0.93333333330000001" green="0.43529411759999997" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UN8-5R-0PR">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UN8-5R-0PR" customClass="RaisedButton" customModule="Material">
                                 <rect key="frame" x="0.0" y="533.66666666666663" width="414" height="59"/>
                                 <color key="backgroundColor" red="0.93333333330000001" green="0.43529411759999997" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="39"/>
                                 <state key="normal" title="次の試験へ">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="0.93333333330000001" green="0.43529411759999997" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="PFg-LK-d4h"/>
                                 </connections>
@@ -104,7 +109,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <button key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bgo-Sz-TjI">
+                        <button key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bgo-Sz-TjI" customClass="RaisedButton" customModule="Material">
                             <rect key="frame" x="0.0" y="118" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.27450980392156865" green="0.6470588235294118" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -114,7 +119,7 @@
                             </state>
                             <connections>
                                 <action selector="postFinish:" destination="Wvf-a1-E9E" eventType="touchUpInside" id="gEG-k1-iRE"/>
-                                <segue destination="3am-Ib-ajo" kind="presentation" identifier="finished" id="luW-c4-ZMb"/>
+                                <segue destination="3am-Ib-ajo" kind="presentation" identifier="finished" animates="NO" id="luW-c4-ZMb"/>
                             </connections>
                         </button>
                         <prototypes>
@@ -126,16 +131,29 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vln-OI-RxJ" customClass="MTMathUILabel">
-                                            <rect key="frame" x="20" y="11" width="374" height="68"/>
+                                            <rect key="frame" x="20" y="11" width="324" height="68"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="68" id="8R1-4y-sd5"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tbW-lC-HgI" customClass="UIImageView">
+                                            <rect key="frame" x="344" y="20" width="50" height="50"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="4WU-tB-odO"/>
+                                                <constraint firstAttribute="width" constant="50" id="pAp-1k-INj"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="vln-OI-RxJ" firstAttribute="trailing" secondItem="tKu-xg-zby" secondAttribute="trailingMargin" id="2KW-bp-s7Y"/>
+                                        <constraint firstItem="tbW-lC-HgI" firstAttribute="trailing" secondItem="tKu-xg-zby" secondAttribute="trailingMargin" id="bt7-HV-cdd"/>
                                         <constraint firstItem="vln-OI-RxJ" firstAttribute="top" secondItem="tKu-xg-zby" secondAttribute="topMargin" id="jAm-IJ-qxA"/>
+                                        <constraint firstItem="tbW-lC-HgI" firstAttribute="leading" secondItem="vln-OI-RxJ" secondAttribute="trailing" id="sPg-Mn-Kn6"/>
                                         <constraint firstItem="vln-OI-RxJ" firstAttribute="bottom" secondItem="tKu-xg-zby" secondAttribute="bottomMargin" id="tFf-F2-ASx"/>
+                                        <constraint firstItem="tbW-lC-HgI" firstAttribute="centerY" secondItem="tKu-xg-zby" secondAttribute="centerY" id="yB5-ge-56K"/>
                                         <constraint firstItem="vln-OI-RxJ" firstAttribute="leading" secondItem="tKu-xg-zby" secondAttribute="leadingMargin" id="z8e-J0-1Zj"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -146,6 +164,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="texLabel" destination="vln-OI-RxJ" id="Ev0-KV-cNR"/>
+                                    <outlet property="tfView" destination="tbW-lC-HgI" id="5ws-No-ePf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -158,12 +177,12 @@
                     <connections>
                         <outlet property="finishButton" destination="bgo-Sz-TjI" id="mX4-0Y-Lx5"/>
                         <outlet property="tableView" destination="z4C-WO-38W" id="uEX-yr-BCL"/>
-                        <segue destination="b8O-H6-DJ5" kind="presentation" identifier="forTest" id="oRq-IF-upg"/>
+                        <segue destination="b8O-H6-DJ5" kind="presentation" identifier="forTest" animates="NO" modalTransitionStyle="crossDissolve" id="oRq-IF-upg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6jX-Oe-tbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2884" y="-754.27286356821594"/>
+            <point key="canvasLocation" x="2882.608695652174" y="-754.6875"/>
         </scene>
         <!--Apple View Controller-->
         <scene sceneID="MQc-LL-n5R">
@@ -174,7 +193,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTk-aJ-zP5" customClass="MTMathUILabel">
-                                <rect key="frame" x="30" y="118" width="354" height="36"/>
+                                <rect key="frame" x="30" y="138" width="354" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -185,7 +204,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUq-m7-bfs" customClass="MTMathUILabel">
-                                <rect key="frame" x="30" y="254" width="354" height="36"/>
+                                <rect key="frame" x="30" y="324" width="354" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -195,86 +214,128 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxz-B0-Rii">
-                                <rect key="frame" x="50" y="390" width="142" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxz-B0-Rii" customClass="RaisedButton" customModule="Material">
+                                <rect key="frame" x="50" y="485" width="142" height="42"/>
                                 <color key="backgroundColor" red="0.24313725490196078" green="0.65098039215686276" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="　">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="0.24313725489999999" green="0.65098039220000004" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="inputButton1:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="WUN-dV-7fY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hu1-TH-GUK">
-                                <rect key="frame" x="222" y="390" width="142" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hu1-TH-GUK" customClass="RaisedButton" customModule="Material">
+                                <rect key="frame" x="222" y="485" width="142" height="42"/>
                                 <color key="backgroundColor" red="0.24313725490196078" green="0.65098039215686276" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="　">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="0.24313725489999999" green="0.65098039220000004" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="inputButton2:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="zUA-SW-a6o"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ee4-Pj-LfS">
-                                <rect key="frame" x="50" y="452" width="142" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ee4-Pj-LfS" customClass="RaisedButton" customModule="Material">
+                                <rect key="frame" x="50" y="547" width="142" height="42"/>
                                 <color key="backgroundColor" red="0.24313725490196078" green="0.65098039215686276" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="　">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="0.24313725489999999" green="0.65098039220000004" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="inputButton3:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="R4K-md-yz1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFe-Q7-x3d">
-                                <rect key="frame" x="222" y="452" width="142" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFe-Q7-x3d" customClass="RaisedButton" customModule="Material">
+                                <rect key="frame" x="222" y="547" width="142" height="42"/>
                                 <color key="backgroundColor" red="0.24313725490196078" green="0.65098039215686276" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="　">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="0.24313725489999999" green="0.65098039220000004" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="inputButton3:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="EUm-Fd-Wgk"/>
+                                    <action selector="inputButton4:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="ct5-hv-0lo"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4b-jr-fTi">
-                                <rect key="frame" x="222" y="524" width="162" height="42"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4b-jr-fTi" customClass="RaisedButton" customModule="Material">
+                                <rect key="frame" x="222" y="619" width="162" height="42"/>
                                 <color key="backgroundColor" red="0.93333333330000001" green="0.43529411759999997" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="次の問題">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="0.93333333330000001" green="0.43529411759999997" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="nextButtonAction:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="Z0m-sC-ax1"/>
-                                    <segue destination="b8O-H6-DJ5" kind="presentation" identifier="nextQuestion" id="I4E-OB-UOm"/>
+                                    <segue destination="b8O-H6-DJ5" kind="presentation" identifier="nextQuestion" animates="NO" modalTransitionStyle="crossDissolve" id="I4E-OB-UOm"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrA-kO-W1C">
-                                <rect key="frame" x="30" y="524" width="162" height="42"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrA-kO-W1C" customClass="RaisedButton" customModule="Material">
+                                <rect key="frame" x="30" y="619" width="162" height="42"/>
                                 <color key="backgroundColor" red="0.93333333333333335" green="0.43529411764705883" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="前の問題">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="0.93333333330000001" green="0.43529411759999997" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="backButtonAction:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="o50-Yy-UJR"/>
-                                    <segue destination="b8O-H6-DJ5" kind="presentation" identifier="backQuestion" id="nr2-yE-1V6"/>
+                                    <segue destination="b8O-H6-DJ5" kind="presentation" identifier="backQuestion" animates="NO" modalTransitionStyle="crossDissolve" id="nr2-yE-1V6"/>
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSj-Bl-ooh">
-                                <rect key="frame" x="30" y="320" width="354" height="0.0"/>
+                                <rect key="frame" x="30" y="410" width="354" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="？に入る数字を選べ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GW9-af-l7Z">
-                                <rect key="frame" x="30" y="184" width="354" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="□ に入る数字を選べ。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GW9-af-l7Z">
+                                <rect key="frame" x="30" y="224" width="354" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tU-Ll-5uP" customClass="RaisedButton" customModule="Material">
+                                <rect key="frame" x="0.0" y="761" width="414" height="60"/>
+                                <color key="backgroundColor" red="0.27450980390000002" green="0.64705882349999999" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="結果提出">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="postResultToApi:" destination="KIh-Ha-bSx" eventType="touchUpInside" id="fhU-K8-r6w"/>
+                                    <segue destination="3am-Ib-ajo" kind="presentation" identifier="detailToFinish" animates="NO" id="LPB-M1-Jnx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -282,7 +343,9 @@
                             <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="WFe-Q7-x3d" secondAttribute="trailing" constant="50" id="5Ky-nW-MWD"/>
                             <constraint firstItem="Hu1-TH-GUK" firstAttribute="width" secondItem="rxz-B0-Rii" secondAttribute="width" id="9ze-jW-NUj"/>
                             <constraint firstItem="ee4-Pj-LfS" firstAttribute="width" secondItem="rxz-B0-Rii" secondAttribute="width" id="Ar9-YX-Mpv"/>
+                            <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="7tU-Ll-5uP" secondAttribute="trailing" id="Avn-BR-Nx2"/>
                             <constraint firstItem="ee4-Pj-LfS" firstAttribute="top" secondItem="rxz-B0-Rii" secondAttribute="bottom" constant="20" id="CLa-Gb-UIB"/>
+                            <constraint firstItem="7tU-Ll-5uP" firstAttribute="centerX" secondItem="d02-eS-1XF" secondAttribute="centerX" id="Dqu-gT-py3"/>
                             <constraint firstItem="rSj-Bl-ooh" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="30" id="E9z-FY-fcj"/>
                             <constraint firstItem="GW9-af-l7Z" firstAttribute="top" secondItem="bTk-aJ-zP5" secondAttribute="bottom" constant="50" id="Hmj-Xn-TtE"/>
                             <constraint firstItem="WFe-Q7-x3d" firstAttribute="top" secondItem="Hu1-TH-GUK" secondAttribute="bottom" constant="20" id="KdZ-8I-p0K"/>
@@ -310,6 +373,7 @@
                             <constraint firstItem="QUq-m7-bfs" firstAttribute="top" secondItem="bTk-aJ-zP5" secondAttribute="bottom" constant="150" id="sue-xa-5k3"/>
                             <constraint firstItem="nrA-kO-W1C" firstAttribute="top" secondItem="ee4-Pj-LfS" secondAttribute="bottom" constant="30" id="tKA-KF-v4X"/>
                             <constraint firstItem="S4b-jr-fTi" firstAttribute="leading" secondItem="nrA-kO-W1C" secondAttribute="trailing" constant="30" id="tkB-yF-AEI"/>
+                            <constraint firstItem="7tU-Ll-5uP" firstAttribute="top" secondItem="S4b-jr-fTi" secondAttribute="bottom" constant="100" id="wY9-w7-0Le"/>
                             <constraint firstItem="iZl-RQ-uTg" firstAttribute="trailing" secondItem="QUq-m7-bfs" secondAttribute="trailing" constant="30" id="xde-J4-3Uv"/>
                             <constraint firstItem="WFe-Q7-x3d" firstAttribute="height" secondItem="rxz-B0-Rii" secondAttribute="height" id="xeo-sn-hu2"/>
                             <constraint firstItem="GW9-af-l7Z" firstAttribute="leading" secondItem="iZl-RQ-uTg" secondAttribute="leading" constant="30" id="y2g-m5-KUp"/>
@@ -321,7 +385,7 @@
                     <navigationItem key="navigationItem" id="QQb-zo-mOF">
                         <barButtonItem key="rightBarButtonItem" title="問題一覧" id="sEJ-lA-tsI">
                             <connections>
-                                <segue destination="sSK-Oz-1zn" kind="presentation" identifier="detailToList" id="U1O-V2-mb1"/>
+                                <segue destination="sSK-Oz-1zn" kind="presentation" identifier="detailToList" animates="NO" id="U1O-V2-mb1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -329,6 +393,7 @@
                     <connections>
                         <outlet property="answerView" destination="QUq-m7-bfs" id="mRl-i6-lKi"/>
                         <outlet property="backButton" destination="nrA-kO-W1C" id="EqM-b7-Zx2"/>
+                        <outlet property="finishButton" destination="7tU-Ll-5uP" id="JSr-Q7-Ybh"/>
                         <outlet property="input1" destination="rxz-B0-Rii" id="5qM-z4-Ad0"/>
                         <outlet property="input2" destination="Hu1-TH-GUK" id="UTX-aP-EZi"/>
                         <outlet property="input3" destination="ee4-Pj-LfS" id="HMT-A1-rSh"/>
@@ -398,7 +463,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="I4E-OB-UOm"/>
-        <segue reference="BvC-Ms-ect"/>
+        <segue reference="LPB-M1-Jnx"/>
+        <segue reference="oRq-IF-upg"/>
+        <segue reference="U1O-V2-mb1"/>
     </inferredMetricsTieBreakers>
 </document>

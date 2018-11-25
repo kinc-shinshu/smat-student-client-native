@@ -11,6 +11,7 @@ import iosMath
 import Alamofire
 import SwiftyJSON
 import Foundation
+import Material
 
 class AppleViewController: UIViewController {
     
@@ -40,7 +41,7 @@ class AppleViewController: UIViewController {
     // 入力用の選択肢に関与する関数
     // 答えをパーサーにかける
     func makeAnswer(answerLatex: String) -> String {
-        return answerLatex.pregReplace(pattern: "[0-9]+", with: "\\\\square ")
+        return answerLatex.pregReplace(pattern: "[0-9]", with: "?")
     }
     
     // 答えを取り出す
@@ -52,7 +53,7 @@ class AppleViewController: UIViewController {
     func makeAnswerBetter(nowAnswer: String, inputAnswer: String) {
         let now = nowAnswer
         var newAnswer = ""
-        if let range = now.range(of: "?") {
+        if let range = now.range(of: "\\square") {
             newAnswer = now.replacingCharacters(in: range, with: inputAnswer)
         } else {
             newAnswer = now
@@ -64,8 +65,8 @@ class AppleViewController: UIViewController {
     func makeNowInput(nowAnswer: String) {
         let now = nowAnswer
         var newAnswer = ""
-        if let range = now.range(of: "\\square ") {
-            newAnswer = now.replacingCharacters(in: range, with: "?")
+        if let range = now.range(of: "?") {
+            newAnswer = now.replacingCharacters(in: range, with: "\\square ")
         } else {
             newAnswer = now
         }
@@ -79,7 +80,10 @@ class AppleViewController: UIViewController {
             var selection = [String]()
             selection += [String(ans)]
             for _ in 0..<3 {
-                let random = String(arc4random_uniform(10))
+                var random = String(arc4random_uniform(10))
+                while (selection.index(of:random) != nil) {
+                    random = String(arc4random_uniform(10))
+                }
                 selection += [random]
             }
             selection.sort()
@@ -112,10 +116,10 @@ class AppleViewController: UIViewController {
     
     // MARK: - Input Buttons
     // 入力用のボタンをリンクする
-    @IBOutlet weak var input1: UIButton!
-    @IBOutlet weak var input2: UIButton!
-    @IBOutlet weak var input3: UIButton!
-    @IBOutlet weak var input4: UIButton!
+    @IBOutlet weak var input1: RaisedButton!
+    @IBOutlet weak var input2: RaisedButton!
+    @IBOutlet weak var input3: RaisedButton!
+    @IBOutlet weak var input4: RaisedButton!
     
     // 入力用のボタンのテキストを変更する関数
     func setInputButtons(nowInputTextNumber: Int){
@@ -123,6 +127,7 @@ class AppleViewController: UIViewController {
         if (forSetInputText.count == self.inputTextNumber) {
             self.isTF(inputAnswer: self.inputText, trueAnswer: self.answerLatex, tryNumber: self.tryNumber)
             self.goToNextBackFunc()
+            self.makeFinishButtonNotHidden()
         } else {
             self.input1.setTitle(forSetInputText[nowInputTextNumber][0], for: .normal)
             self.input2.setTitle(forSetInputText[nowInputTextNumber][1], for: .normal)
@@ -159,6 +164,7 @@ class AppleViewController: UIViewController {
         self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
     }
     @IBAction func inputButton4(_ sender: Any) {
+        print()
         saveInput(input: self.input4.currentTitle!)
         self.makeNowInput(nowAnswer: self.answerView.latex!)
         self.makeAnswerBetter(nowAnswer: self.answerView.latex!, inputAnswer: self.input4.currentTitle!)
@@ -168,8 +174,8 @@ class AppleViewController: UIViewController {
     
     // MARK: - next back question buttons
     // 前後の問題に移動するボタン
-    @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var nextButton: RaisedButton!
+    @IBOutlet weak var backButton: RaisedButton!
     
     // 前後の問題に移動する関数
     @IBAction func nextButtonAction(_ sender: Any) {
@@ -202,8 +208,9 @@ class AppleViewController: UIViewController {
     var questionResultC: [Int]?
     var questionResultJ: [Int]?
     var questionResultQid: [Int]?
+    var questions:[Question]? = []
     
-    // 問題を取得する関数
+    // 問題を取得する関数(Api)
     func loadQuestion(questionId: Int){
         Alamofire.request("https://smat-api-dev.herokuapp.com/v1/rooms/" + examNumber! + "/questions/" + String(questionId)).responseJSON {response in
             guard let object = response.result.value else {
@@ -223,31 +230,98 @@ class AppleViewController: UIViewController {
         }
     }
     
+    // 問題を取得する関数(ローカル)
+    func loadLocalQuestion(questionId: Int){
+        self.questionSumNumber = self.questions?.count
+        let question = self.questions![questionId - 1]
+        self.questionView.latex = question.questionLatex
+        self.questionView.textAlignment = .center
+        self.questionView.sizeToFit()
+        let ansLatex = question.questionAnsLatex
+        self.answerView.latex = self.makeAnswer(answerLatex: ansLatex)
+        self.answerView.textAlignment = .center
+        self.answerView.sizeToFit()
+        self.answerLatex = self.getAnswer(answerLatex: ansLatex)
+        self.setInputButtons(nowInputTextNumber: self.inputTextNumber)
+        self.makeNowInput(nowAnswer: self.answerView.latex!)
+    }
+    
+    // 提出ボタンを出すかどうか
+    @IBOutlet weak var finishButton: RaisedButton!
+    func makeFinishButtonNotHidden(){
+        let filterBiggerThan0 = {
+            (a: Int) -> Bool in a < 0
+        }
+        let biggerThan0resultJ = self.questionResultJ!.filter(filterBiggerThan0)
+        let plus = { (a: Int, b: Int) -> Int in a + b }
+        let trueSum = biggerThan0resultJ.reduce(0, plus) + 0
+        if (trueSum >= 0) {
+            self.finishButton.isHidden = false
+        }
+    }
+    
+    // 提出ボタンの処理
+    func postResult() {
+        // ここで結果をサーバーに投げる
+        var strResultQid = [String]()
+        var strResultC = [String]()
+        var strResultJ = [String]()
+        for i in self.questionResultQid! {
+            strResultQid.append(String(i))
+        }
+        for i in self.questionResultC! {
+            strResultC.append(String(i))
+        }
+        for i in self.questionResultJ! {
+            strResultJ.append(String(i))
+        }
+        let URL = "https://smat-api-dev.herokuapp.com/v1/results"
+        let paramData = [
+            "q_id": strResultQid.joined(separator: ","),
+            "j": strResultJ.joined(separator: ","),
+            "c": strResultC.joined(separator: ","),
+            ]
+        Alamofire.request(URL, method: .post, parameters: paramData, encoding: JSONEncoding.default).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print(json)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    @IBAction func postResultToApi(_ sender: Any) {
+        self.postResult()
+    }
+    
+    
     // 画面を表示
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the vie
         // loadQuestion(questionId: questionNumber!)
         self.navigationItem.title = "問題" + String(self.questionNumber!)
+        self.makeFinishButtonNotHidden()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadQuestion(questionId: self.questionNumber!)
-        
-        
+        loadLocalQuestion(questionId: self.questionNumber!)
     }
     
-    // 画面変移の際に部屋番号を渡している
+    // 画面変移の際に部屋番号と諸々を渡している
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "detailToList") {
             let nav = segue.destination as! UINavigationController
             let questionList = nav.topViewController as! QuestionTableViewController
             questionList.examNumber = self.examNumber
-            questionList.forResultJ = 1
+            questionList.questionGetDone = 1
             questionList.resultJ = self.questionResultJ!
             questionList.resultC = self.questionResultC!
             questionList.resultQid = self.questionResultQid!
+            questionList.questions = self.questions!
         }
         
         if (segue.identifier == "nextQuestion") {
@@ -255,10 +329,10 @@ class AppleViewController: UIViewController {
             let questionList = nav.topViewController as! AppleViewController
             questionList.examNumber = self.examNumber
             questionList.questionNumber = self.questionNumber! + 1
-            questionList.questionSumNumber = self.questionSumNumber
             questionList.questionResultJ = self.questionResultJ
             questionList.questionResultC = self.questionResultC
             questionList.questionResultQid = self.questionResultQid
+            questionList.questions = self.questions
         }
         
         if (segue.identifier == "backQuestion") {
@@ -270,10 +344,22 @@ class AppleViewController: UIViewController {
             } else {
                 questionList.questionNumber = 1
             }
-            questionList.questionSumNumber = self.questionSumNumber
             questionList.questionResultJ = self.questionResultJ
             questionList.questionResultC = self.questionResultC
             questionList.questionResultQid = self.questionResultQid
+            questionList.questions = self.questions
+        }
+        
+        if (segue.identifier == "detailToFinish") {
+            let nav = segue.destination as! UINavigationController
+            let questionList = nav.topViewController as! FinishViewController
+            questionList.questionsSum = self.questionResultQid!.count
+            let filterBiggerThan0 = {
+                (a: Int) -> Bool in a >= 0
+            }
+            let plus = { (a: Int, b: Int) -> Int in a + b }
+            let biggerThan0resultJ = self.questionResultJ!.filter(filterBiggerThan0)
+            questionList.trueSum = biggerThan0resultJ.reduce(0, plus) + 0
         }
     }
     

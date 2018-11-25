@@ -9,18 +9,32 @@ import UIKit
 import iosMath
 import Alamofire
 import SwiftyJSON
+import Material
+import FontAwesome_swift
+import NVActivityIndicatorView
 
 class QuestionTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    // add loading icon
+    private var activityIndicatorView: NVActivityIndicatorView!
+    private func start() {
+        activityIndicatorView.startAnimating()
+    }
+    
+    /// インジケータ 停止(stopメソッドは書かなくてもOKw)
+    private func stop() {
+        activityIndicatorView.stopAnimating()
+    }
     
     // 問題一覧を定義（独自クラスQuestion）
     var questions = [Question]()
     var questionsSumNumber = 0
+    var questionGetDone = 0
     
     // 結果を作る
     var resultQid = [Int]()
     var resultC = [Int]()
     var resultJ = [Int]()
-    var forResultJ = 0
     
     // 試験番号（Api叩くに必要）
     @IBOutlet var tableView: UITableView!
@@ -58,7 +72,7 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     // 完成ボタンを追加
-    @IBOutlet weak var finishButton: UIButton!
+    @IBOutlet weak var finishButton: RaisedButton!
     @IBAction func postFinish(_ sender: UIButton) {
         postResult()
     }
@@ -68,51 +82,59 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     //  Apiを叩いて問題一覧を取得する
     func loadQuestions() {
-        Alamofire.request("https://smat-api-dev.herokuapp.com/v1/rooms/" + examNumber! + "/questions").responseJSON {response in
-            guard let object = response.result.value else {
-                return
-            }
-            
-            let json = JSON(object)
-            json.forEach { (_, json) in
-                let questionT = json["latex"].string
-                let questionI = json["id"].int
-                guard let question = Question(questionText: questionT!) else {
-                    fatalError("Unable to instantiate questionT")
+        if (self.questionGetDone == 0) {
+            self.start()
+            Alamofire.request("https://smat-api-dev.herokuapp.com/v1/rooms/" + examNumber! + "/questions").responseJSON {response in
+                guard let object = response.result.value else {
+                    return
                 }
-                self.questions += [question]
-                if (self.forResultJ == 0) {
+                
+                let json = JSON(object)
+                json.forEach { (_, json) in
+                    let questionT = json["latex"].string
+                    let questionAnsT = json["ans_latex"].string
+                    let questionI = json["id"].int
+                    guard let question = Question(questionLatex: questionT!, questionAnsLatex: questionAnsT!) else {
+                        fatalError("Unable to instantiate questionT")
+                    }
+                    self.questions += [question]
                     self.resultQid.append(questionI!)
                     self.resultC.append(0)
-                    self.resultJ.append(0)
+                    self.resultJ.append(-1)
                 }
+                self.stop()
+                self.tableView.reloadData()
+                self.finishButton.isHidden = false
             }
-            self.forResultJ = 1
-            self.questionsSumNumber = self.questions.count
-            self.tableView.reloadData()
+            self.questionGetDone = 1
+        } else {
             self.finishButton.isHidden = false
         }
     }
     
-    //  問題詳細に移動する際に部屋番号を渡している
+    //  問題詳細に移動する際に部屋番号と諸々を渡している
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "forTest") {
             let nav = segue.destination as! UINavigationController
             let questionList = nav.topViewController as! AppleViewController
             questionList.examNumber = self.examNumber
             questionList.questionNumber = sender as? Int
-            questionList.questionSumNumber = self.questionsSumNumber
             questionList.questionResultQid = self.resultQid
             questionList.questionResultJ = self.resultJ
             questionList.questionResultC = self.resultC
+            questionList.questions = self.questions
         }
         
         if (segue.identifier == "finished") {
             let nav = segue.destination as! UINavigationController
             let questionList = nav.topViewController as! FinishViewController
             questionList.questionsSum = self.resultQid.count
+            let filterBiggerThan0 = {
+                (a: Int) -> Bool in a >= 0
+            }
             let plus = { (a: Int, b: Int) -> Int in a + b }
-            questionList.trueSum = self.resultJ.reduce(0, plus)
+            let biggerThan0resultJ = self.resultJ.filter(filterBiggerThan0)
+            questionList.trueSum = biggerThan0resultJ.reduce(0, plus) + 0
         }
         
     }
@@ -123,7 +145,9 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
         
         tableView.delegate = self
         tableView.dataSource = self
-
+        activityIndicatorView = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 60, height: 60), type: NVActivityIndicatorType.lineSpinFadeLoader, color: UIColor.gray, padding: 0)
+        activityIndicatorView.center = self.view.center // 位置を中心に設定
+        view.addSubview(activityIndicatorView)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -153,13 +177,20 @@ class QuestionTableViewController: UIViewController, UITableViewDelegate, UITabl
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
-        
-        
         // Fetches the appropriate meal for the data source layout.
         let question = questions[indexPath.row]
+        let questionResult = self.resultJ[indexPath.row]
         
         //cell.texLabel.latex = question.questionText
-        cell.texLabel?.latex = question.questionText
+        cell.texLabel?.latex = question.questionLatex
+        
+        // ここで正解不正解を代入してる
+        // UIImageにIconを代入している
+        if (questionResult == 1) {
+            cell.tfView.image = UIImage.fontAwesomeIcon(name: .circle, style: .regular, textColor: .green, size: CGSize(width: 200, height: 200))
+        } else if (questionResult == 0) {
+            cell.tfView.image = UIImage.fontAwesomeIcon(name: .times, style: .solid, textColor: .red, size: CGSize(width: 200, height: 200))
+        }
         
         return cell
     }

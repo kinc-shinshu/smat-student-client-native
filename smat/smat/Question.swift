@@ -10,20 +10,21 @@ import UIKit
 
 class Question {
     //MARK: Properties
-    var questionText: String
+    var questionLatex: String
+    var questionAnsLatex: String
     
-    //  other
-    /*var questionAnswer: String
-     var questionResult: Int
-     var questionResultNumber: Int*/
-    
-    init?(questionText: String) {
-        // The name must not be empty
-        guard !questionText.isEmpty else {
+    init?( questionLatex: String, questionAnsLatex: String) {
+        
+        guard !questionLatex.isEmpty else {
+            return nil
+        }
+        
+        guard !questionAnsLatex.isEmpty else {
             return nil
         }
         
         // Initialize stored properties.
-        self.questionText = questionText
+        self.questionLatex = questionLatex
+        self.questionAnsLatex = questionAnsLatex
     }
 }
